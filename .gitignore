@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+db/schema.sql
+.DS_Store
+public/assets
+config/development.sphinx.conf
+db/sphinx/*
+db/sphinx/development/*
+.sqlite3
+log/sqlite/development.sqlite3
+log/sqlite/production.sqlite3
