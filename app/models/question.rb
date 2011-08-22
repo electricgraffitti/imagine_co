@@ -15,6 +15,11 @@
 class Question < ActiveRecord::Base
   
   #Assoctiations
-  has_many :answers
   belongs_to :lesson_template, :counter_cache => true
+  
+  has_many :answers
+  
+  has_many :pictures, :as => :attachable
+  accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
+  
 end

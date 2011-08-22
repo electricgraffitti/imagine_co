@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110822193453) do
+ActiveRecord::Schema.define(:version => 20110822211219) do
 
   create_table "admins", :force => true do |t|
     t.string   "first_name"
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(:version => 20110822193453) do
   add_index "lessons", ["lesson_template_id"], :name => "index_lessons_on_lesson_template_id"
   add_index "lessons", ["user_id"], :name => "index_lessons_on_user_id"
 
+  create_table "pictures", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
+  end
+
   create_table "questions", :force => true do |t|
     t.string   "question"
     t.string   "question_type"
@@ -101,6 +113,18 @@ ActiveRecord::Schema.define(:version => 20110822193453) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "viewable_id"
+    t.string   "viewable_type"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
   end
 
 end
