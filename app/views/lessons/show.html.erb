@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lesson template:</b>
+  <%= @lesson.lesson_template_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @lesson.user_id %>
+</p>
+
+<p>
+  <b>Video watched:</b>
+  <%= @lesson.video_watched %>
+</p>
+
+<p>
+  <b>Complete:</b>
+  <%= @lesson.complete %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @lesson.score %>
+</p>
+
+
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>

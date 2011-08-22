@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @lesson_template.name %>
+</p>
+
+<p>
+  <b>Questions count:</b>
+  <%= @lesson_template.questions_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_lesson_template_path(@lesson_template) %> |
+<%= link_to 'Back', lesson_templates_path %>

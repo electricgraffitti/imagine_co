@@ -1,0 +1,27 @@
+<%= form_for(@question) do |f| %>
+  <%= render :partial => 'layouts/form_errors', :locals => {:obj => @question} %>
+
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label :question_type %><br />
+    <%= f.text_field :question_type %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br />
+    <%= f.text_field :score %>
+  </div>
+  <div class="field">
+    <%= f.label :order %><br />
+    <%= f.text_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :lesson_template_id %><br />
+    <%= f.text_field :lesson_template_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

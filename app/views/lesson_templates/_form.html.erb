@@ -1,0 +1,15 @@
+<%= form_for(@lesson_template) do |f| %>
+  <%= render :partial => 'layouts/form_errors', :locals => {:obj => @lesson_template} %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :questions_count %><br />
+    <%= f.text_field :questions_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

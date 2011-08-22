@@ -1,0 +1,19 @@
+<%= form_for(@answer) do |f| %>
+  <%= render :partial => 'layouts/form_errors', :locals => {:obj => @answer} %>
+
+  <div class="field">
+    <%= f.label :question_id %><br />
+    <%= f.text_field :question_id %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br />
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.label :correct %><br />
+    <%= f.text_field :correct %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

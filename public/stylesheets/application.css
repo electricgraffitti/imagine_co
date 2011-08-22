@@ -165,7 +165,7 @@ label.error{background:#efefef none repeat scroll 0 0;color:#DB0404;font-size:85
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************** TYPOGRAPHY **********************/
-h1,h2,h3,h4,h5{color:#0078ae;}
+h1,h2,h3,h4,h5{color:#333333;}
 h1.dark_header,
 h2.dark_header,
 h3.dark_header,
@@ -186,7 +186,7 @@ h2 a.small_text{font-size:55%;}
 /*************************************************************************************************************************************/
 /**************************************************************************************************** GENERAL LAYOUT *****************/
 html,body {
-	background: #f1f1f1;
+	background: #DFD0A2;
 	position: relative;
 	font-family: "Helvetica","Arial",sans-serif;
 	font-weight: 300;
@@ -314,11 +314,10 @@ html, body {
 /*************************************************************************************************************************************/
 /****************************************************************************************************** HEADER ***********************/
 #mast_header, header {
-	height:205px;
-	background:#ffffff;
+	height:145px;
+	background:#000;
 }
 #logo {
-	margin-top:40px;
 	position:relative;
 	float:left;
 	width:435px;
@@ -404,16 +403,19 @@ ul.horz_list li a {
 /*FOR THE BANNER ARROWS IN THE NAV*/
 /*  border-top: 1px solid #ddd;*/     
 }
+#main_nav ul {
+	margin-left: 185px;
+}
 #main_nav ul, #main_nav li {
 	position:relative;
 	float:left;
 }
 #main_nav ul li a, #main_nav ul li a:visited {
-	color:#000;
+	color:#ffffff;
 	text-decoration:none;
 }
 #main_nav ul li a:hover, #main_nav ul li.active a {
-	color:#0078ae;
+	color:#DFD0A2;
 }
 #main_nav ul li a {
   font-size:16px;
@@ -450,26 +452,10 @@ ul.horz_list li a {
 	padding:20px 0px;
 }
 #mast_banner {
-	background:#0078ae;
+	background:#DFD0A2;
 }
 #mast_banner_grey {
 	background:#d6d7d6;
-}
-.large_banner_globe {
-	background: url("../images/large_globe_bg.png") no-repeat;
-	position:absolute;
-	bottom:0px;
-	right:0px;
-	width:3000px;
-	height:217px;
-}
-.small_banner_globe {
-	background: url("../images/small_globe_bg.png")no-repeat;
-	position:absolute;
-	bottom:0px;
-	right:0px;
-	width:3000px;
-	height:191px;	
 }
 p.banner {
 	position:relative;
@@ -515,969 +501,45 @@ h1.index {
 	margin-left:0px;
 	color:#fff;
 }
-h1.smaller {
-	font-size:38px;
-}
-h1.declined_banner {
-	font-size: 42px;
-	margin-top: 30px;
-}
-h1.top_down {
-	margin-top:25px;
-}
-h1.top_down_reg {
-	margin-top:45px;
-}
 img.index_banner {
 	width:351px;
 	height:327px;
 }
-.reg_banner {
-	margin-left:40px;
-}
-.sub_boxes {
-	padding-left:0px;
-	padding-right:0px;
-}
-.sub_boxes ul {
-	position:relative;
-  float:left;
-  text-align:left;
-  width:100%;
-}
-.sub_boxes ul li {
-  float: left;
-  margin-right: 30px;
-  position: relative;
-}
-.sub_boxes ul li h3 {
-	font-size:16px;
-}
-.sub_boxes ul li a h3 {
-	color: #0078a3;
-	padding-left: 5px;
-}
-.sub_boxes p {
-  color: #333333;
-  font-size: 13px;
-  height: 108px;
-  width: 175px;
-  padding-left: 5px;
-}
-.sub_boxes ul li a {
-	display:block;
-}
-.sub_boxes ul li a.events_calendar {
-  background: url("../images/index_content_sprite1.png") no-repeat scroll 0 0 transparent;
-  width: 170px;
-  height: 210px;
-}
-.sub_boxes ul li a:hover.events_calendar {
-		background: url("../images/index_content_sprite1.png") 0px -210px no-repeat;
-}
-.sub_boxes ul li a.speakers_mic {
-	background: url("../images/index_content_sprite1.png") -170px 0px no-repeat;
-	width: 170px;
-	height: 210px;
-}
-.sub_boxes ul li a:hover.speakers_mic {
-		background: url("../images/index_content_sprite1.png") -170px -210px no-repeat;
-}
-.sub_boxes ul li a.agenda_books {
-	background: url("../images/index_content_sprite1.png") -340px 0px no-repeat;
-	width: 170px;
-  height: 210px;
-}
-.sub_boxes ul li a:hover.agenda_books {
-		background: url("../images/index_content_sprite1.png") -340px -210px no-repeat;
-}
-.sub_boxes ul li a.verisk_new {
-	background: url("../images/index_content_sprite1.png") -510px 0px no-repeat;
-	width: 170px;
-	height: 210px;
-}
-.sub_boxes ul li a:hover.verisk_new {
-		background: url("../images/index_content_sprite1.png") -510px -210px no-repeat;
-}
-.sub_boxes ul li a.venue_hotel {
-	background: url("../images/index_content_sprite1.png") -680px 0px no-repeat;
-	width: 170px;
-  height: 210px;
-}
-.sub_boxes ul li a:hover.venue_hotel {
-		background: url("../images/index_content_sprite1.png") -680px -210px no-repeat;
-}
 
 /*************************************************************************************************************************************/
-/****************************************************************************************************** AGENDA PAGE **********************/
-.column_split p {
-  font-size:12px;
-  line-height:15px;
-}
-#track_main_nav {
-	padding-left:10px;
-}
-#track_main_nav ul, #track_main_nav ul li {
-	position: relative;
-	float: left;	
-}
-#track_main_nav ul {
-	width: 100%;
-	margin-bottom: 30px;
-}
-#track_main_nav ul li {
-	width: 235px;
-	border-bottom: 1px solid #000;
-}
-#track_main_nav ul li.tabbed {
-	width: 250px;
-	padding-left: 80px;
-}
-#track_main_nav ul li.active, #track_main_nav ul li.active.tabbed {
-	border-bottom: 1px solid #fff;
-}
-#track_main_nav ul li a {
-	display:block;
-}
-#track_main_nav ul li a h3 {
-	font-size:22px;
-}
-#track_main_nav ul li.active a h3,
-#track_main_nav ul li.active a h3.track1,
-#track_main_nav ul li.active a h3.track2,
-#track_main_nav ul li.active a h3.track3,
-#track_main_nav ul li.active a .subtitle,
-#track_main_nav ul li:hover a h3,
-#track_main_nav ul li:hover a .subtitle,
-.date_nav ul li:hover a .date_nav_date,
-.date_nav ul li:hover a .date_nav_day,
-.date_nav ul li.active a .date_nav_date,
-.date_nav ul li.active a .date_nav_day,
-.agenda_day,
-.agenda_title,
-.agenda_time {
-	color:#0078AE;
-}
-.agenda_banner_icon {
-  background: url("../images/icons/agenda_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 20px;
-  margin-top: 23px;
-  width: 96px;
-}
-.agenda,
-.agenda h2 {
-  color: #000;
-}
-.agenda h2 {
-  font-size: 210%;
-}
-div.subtitle {
-  color: #0078ae;
-}
-div.subtitle_black {
-  color: #333333;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-.agenda_title,
-.agenda_time {
-  float:left;
-  padding-right: 10px;
-}
-.agenda_title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  width: 100%;
-}
-.agenda_time, .agenda .subtitle {
-  font-size: 16px;
-}
-.agenda_row {
-  font-size: 16px;
-  padding: 10px 0 0;
-}
-li.note {
-  margin-top: 30px;
-}
-.agenda_row p {
-  clear:both;
-}
-#track_main_nav ul li a h3.track1, #track_main_nav ul li a h3.track2, #track_main_nav ul li a h3.track3 {
-  font-size: 26px;
-  height: 38px;
-  padding-left: 94px;
-  padding-top: 4px;
-  width: 135px;
-}
-#track_main_nav ul li a h3.track1 {
-  background: url("../images/agenda_arrow_sprite.png") no-repeat 0px 0px;
-  color: #26a9e0;
-
-}
-#track_main_nav ul li a h3.track2 {
-  background: url("../images/agenda_arrow_sprite.png") no-repeat -250px 0px;
-  color: #7dc142;
-}
-#track_main_nav ul li a h3.track3 {
-  background: url("../images/agenda_arrow_sprite.png") no-repeat -500px 0px;
-  color: #ec4424;
-}
-#track_main_nav ul li a h3,
-#track_main_nav ul li a .subtitle,
-.date_nav ul li a .date_nav_date,
-.date_nav ul li a .date_nav_day {
-	color:#CACCCE;
-}
-#track_main_nav ul li a .subtitle {
-	font-size: 19px;
-  margin-top: 6px;
-  padding-bottom: 6px;
-  margin-left: 15px;
-}
-#track_main_nav ul li.tabbed a .angle {
-	position: absolute;
-	left: 0px;
-	bottom: -1px;
-	background: url(../images/tab_slash.png) 0px 0px no-repeat;
-	width: 50px;
-	height: 50px;
-}
-#tab2 .angle {
-  border-bottom: 1px solid #fff;
-}
-#tab3 .angle {
-  border-bottom: 1px solid #000;
-}
-#track2, 
-#track3,
-#track1_day2,
-#track1_day3,
-#track2_day2,
-#track2_day3,
-#track3_day2,
-#track3_day3 {
-  display:none;
-}
-.date_nav.sidebar {
-  float: left;
-  padding: 33px 140px 10px 0;
-  position: relative;
-  text-align: center;
-  width: 132px;
-}
-.date_nav.sidebar .date_nav_date {
-  font-size: 70px;
-  height: 68px;
-  font-weight: 700;
-}
-.date_nav.sidebar .date_nav_day {
-  font-weight: 700;
-  font-size: 22px;
-}
-.date_nav .subtitle {
-  text-align: center;
-  padding-bottom: 10px;
-  font-size: 16px;
-  color:#333;
-}
-.date_nav.sidebar ul li {
-	margin-bottom: 40px;
-}
-.tab_content {
-  position: relative;
-  float:left;
-}
-.agenda ul {
-	width: 100%;
-}
-.date_panels {
-  float: left;
-  position: relative;
-  width: 689px;
-  height: 560px;
-  margin-top: 20px;
-}
-.js .agenda {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-}
-h2.agenda_pdf_header {
-  background: url("../images/agenda_slant.png") no-repeat scroll 0 0 transparent;
-  color: #0078AE;
-  float: left;
-  font-size: 56px;
-  line-height: 52px;
-  margin-right: 80px;
-  padding-left: 135px;
-  padding-top: 55px;
-}
-div.agenda_booklet{
-	float: left;
-}
-h2.agenda_pdf_header span.grey {
-  color: #D6D7D6
-}
-h3.agenda_pdf_header, h3.agenda_pdf_header_right {
-  color: #0078ae;
-  font-size: 34px;
-	margin: 4px 10px 0px 60px;
-  margin-left: 60px;
-  margin-top: 4px;
- float: left;
-}
-h3.agenda_pdf_header_right {
-	margin-left: 10px;
-}
-h4.agenda_pdf_header {
-  font-size: 30px;
-  color: #333;
-  margin-left: 60px;
-float:left;
-}
-h5.agenda_pdf_header {
-  font-size: 18px;
-  color: #333;
-  margin-left: 60px;
-	float:left;
-	width: 960px;
-}
-ul.agenda_pdf {
-  margin-left: 60px;
-  margin-right: 60px;
-  float: left;
-	position: relative;
-}
-ul.agenda_pdf_long {
-  margin-left: 12px;
-  margin-right: 60px;
-  float: left;
-}
-.agenda_pdf_title {
-  font-size: 26px;
-  color: #0078ae;
-  font-weight: bold;
-}
-.agenda_pdf_subtitle {
-  font-size: 24px;
-  color: #333;
-  font-weight: bold;
-}
-ul.agenda_pdf li, ul.agenda_pdf_long li {
-  color: #333;
-  font-size: 16px;
-}
-ul.agenda_pdf li.agenda_pdf_notes {
-  margin-top: 50px;
-}
-div.agenda_pdf_dinner {
-	font-size: 20px;
-	font-weight: bold;
-	color: #333;
-	margin-top: 50px;
-	margin-left: 60px;
-	width: 1004px;
-	float:left;
-
-}
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SPEAKER PAGE **********************/
-.speaker_banner_icon {
-  background: url("../images/icons/speaker_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 20px;
-  margin-top: 23px;
-  width: 96px;
-}
-ul.speaker {
-  position:relative;
-	float:left;
-	width:100%;
-}
-.speaker_main {
-	position:relative;
-  float: left;
-  width: 100%;
-  margin-bottom:20px;
-}
-.bg_slant {
-	background: url("../images/slant_bar.png") no-repeat;
-	float:left;
-	width: 35px;
-	height: 40px;
-}
-ul.speaker li {
-	width:50%;
-	float:left;
-}
-ul.speaker h2 {
-  color: #0078AE;
-  font-size: 24px;
-  font-weight: bold;
-}
-ul.speaker h3{
-	font-size: 18px;
-	font-weight:normal;
-	float:left;
-}
-.speaker_main img.slant_bar {
-  float: left;
-  margin-left: 10px;
-  margin-top: -19px;
-  position: relative;
-}
-ul.speaker h3.black {
-	color:#333;
-	float: none;
-	font-weight:bold;
-	margin-bottom: 10px;
-	font-size:22px;
-}
-ul.speaker h4 {
-	font-weight:normal;
-	margin-top:-12px;
-	margin-bottom:20px;
-}
-ul.speaker p {
-  color:#333333;
-	position:relative;
-  float:left;
-  margin:0;
-  width:380px;
-}
-ul.speaker a {
-	padding-top:20px;
-	display:block;
-	text-decoration:none;
-	float:left;
-}
-ul.speaker a:hover {
-	color: #333;
-	text-decoration: underline;
-}
-ul.speaker img {
-	position:relative;
-	float:left;
-	margin-right:20px;
-	margin-top:5px;
-}
-/*************************************************************************************************************************************/
-/****************************************************************************************************** PRICING PAGE **********************/
-.pricing_banner_icon {
-  background: url("../images/icons/pricing_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 20px;
-  margin-top: 23px;
-  width: 96px;
-}
-.pricing_column_small h2, .pricing_column_large h2 {
-  float: left;
-  font-size: 32px;
-  height: 70px;
-  margin-bottom: 36px;
-  text-align: left;
-}
-.tall_bg_slant {
-	background: url("../images/slant_bar.png") no-repeat;
-	float:left;
-	width: 35px;
-	height: 40px;
-	margin-top: 38px;
-}
-.gala_bg_slant {
-	background: url("../images/slant_bar.png") no-repeat;
-	float:left;
-	width: 35px;
-	height: 40px;
-	margin-top: 4px;
-	margin-left: 20px;
-}
-.pricing h3 {
-	position:relative;
-	float:left;
-	font-size:23px;
-	margin-bottom:15px;
-	color: #333333;
-}
-.pricing h4 {
-	position:relative;
-	float:left;
-	font-size:22px;
-	margin-bottom:20px;
-	text-align:left;
-}
-.pricing a {
-	position:relative;
-	float:left;
-	margin-top:50px;
-}
-.pricing_column_small img {
-  height:241px;
-  margin-right:90px;
-  margin-top:50px;
-  width:238px;
-float:left;
-}
-.right_side {
-	float:left;
-	width:400px;
-}
-.pricing_column_small ul {
-	position:relative;
-	float:left;
-	margin-bottom: 20px;
-}
-.pricing_column_small ul li h3 {
-	color: #333;
-	font-size: 120%;
-	margin-bottom: 3px;
-}
-.pricing_column_small ul li h4 a {
-	color: #0078ae;
-}
-.pricing_column_small ul li h4 a:hover {
-	text-decoration: none;
-	color: #333;
-}
-.pricing_column_small ul li, .reg_left ul li {
-	list-style:none;
-	font-size:18px;
-	font-weight:bold;
-	float:left;
-	width:230px;
-}
-.pricing_column_small ul li h4 {
-	color: #333;	
-}
-.pricing_column_small h4.includes, .pricing_column_small h4, .reg_left ul li h4.includes {
-  color: #333333;
-  font-size: 92%;
-  margin-bottom: 5px;
-	float: left;
-}
-.pricing_column_small ul li a.include_learn, .reg_left ul li a.include_learn {
-  color: #0078AE;
-  float: left;
-  font-size: 12px;
-  margin-left: 8px;
-  margin-top: 8px;
-}
-.pricing_column_small ul li a:hover.include_learn, .reg_left ul li a:hover.include_learn {
-	text-decoration: underline;
-	color: #333;
-}
-.agenda_link a {
-	position: relative;
-	float:left;
-	margin-left: 58px;
-}
-.agenda_link a:hover {
-	text-decoration: underline;
-	color: #333;
-}
-.column_23 h2.leaders {
-	color: #333;
-	font-size: 24px;
-	float:left;
-}
-.speakers_sub {
-	width: 100%;
-	position: relative;
-	float: left;
-	margin-bottom: 15px;
-}
-.speakers_sub img {
-	float: left;
-	position:relative;
-	margin-right: 20px;
-}
-.speakers_sub h3 {
-	font-size: 18px;
-	color: #333333;
-}
-.speakers_sub p {
-	position: relative;
-	float: left;
-	width: 520px;
-	color: #333333;
-}
-.pricing_column_small h3.pricing {
-  margin-top: 30px;
-  float:left;
-  position: relative;
-  font-size: 22px;
-  
-}
-h3.registration_package {
-  margin-top: 30px;
-  float:left;
-  position: relative;
-  font-size: 24px;
-  
-}
-/*************************************************************************************************************************************/
-/****************************************************************************************************** VENUE PAGE **********************/
-.venue_banner_icon {
-  background: url("../images/icons/venue_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 20px;
-  margin-top: 23px;
-  width: 96px;
-}
-.venue_left {
-	width:560px;
-}
-.venue_left h2, .venue_right h2 {
-	height:40px;
-	float:left;
-	margin-right:10px;
-}
-.venue_right h2 {
-	margin-left:25px;
-}
-.venue_left h2 {
-	margin-bottom:5px;
-}
-img.hotel_interior {
-	position:relative;
-  float: left;
-  height: 210px;
-  margin-top: -20px;
-  width: 234px;
-}
-.venue_left p.venue_top, p.venue_bottom {
-	position:relative;
-	float:left;
-}
-.venue_left p.venue_top {
-	width:320px;
-}
-.venue_left p.venue_bottom {
-	width:530px;
-	margin-top:-35px;
-	margin-bottom:30px;
-}
-.venue_left a {
-	position:relative;
-	float:left;
-	margin-right:100px;
-	margin-bottom:8px;
-	text-decoration:none;
-}
-.venue_left a:hover {
-	color: #333;
-	text-decoration: underline;
-}
-.venue_right {
-	width:380px;
-	margin-left: 20px;
-}
-.venue_right h2 {
-	margin-bottom:30px;
-}
-.venue_right p {
-	margin-bottom:25px;
-}
-.venue_right ul {
-	position: relative;
-	float:left;
-	width:425px;
-	padding:0px;
-	margin-left:25px;
-}
-.venue_right ul li {
-	width: 200px;
-	height: 50px;
-	position:relative;
-	float:left;
-	margin-bottom: 45px;
-}
-.venue_right ul li a {
-	display: block;
-	height: 50px;
-	width: 65px;
-	color: #0078ae;
-	font-size: 18px;
-	padding-left: 55px;
-}
-.venue_right ul li a.venue_airport {
-	background: url("../images/venue_sprite1.png") 0px 0px no-repeat;
-}
-.venue_right ul li a.venue_airport:hover {
-	background: url("../images/venue_sprite1.png") 0px -50px no-repeat;
-	color: #5bab46;
-}
-.venue_right ul li a.venue_dining {
-	background: url("../images/venue_sprite1.png") 0px -100px no-repeat;
-}
-.venue_right ul li a.venue_dining:hover {
-	background: url("../images/venue_sprite1.png") 0px -150px no-repeat;
-	color: #f7b219;
-}
-.venue_right ul li a.venue_entertain {
-	background: url("../images/venue_sprite1.png") 0px -200px no-repeat;
-}
-.venue_right ul li a.venue_entertain:hover {
-	background: url("../images/venue_sprite1.png") 0px -250px no-repeat;
-	color: #d93b27;
-}
-.venue_right ul li a.venue_transport {
-	background: url("../images/venue_sprite1.png") -200px 0px no-repeat;
-}
-.venue_right ul li a.venue_transport:hover {
-	background: url("../images/venue_sprite1.png") -200px -50px no-repeat;
-	color: #f7b219;
-}
-.venue_right ul li a.venue_weather {
-	background: url("../images/venue_sprite1.png") -200px -100px no-repeat;
-}
-.venue_right ul li a.venue_weather:hover {
-	background: url("../images/venue_sprite1.png") -200px -150px no-repeat;
-	color: #d93b27;
-}
-.venue_right ul li a.venue_wear {
-	background: url("../images/venue_sprite1.png") -200px -200px no-repeat;
-}
-.venue_right ul li a.venue_wear:hover {
-	background: url("../images/venue_sprite1.png") -200px -250px no-repeat;
-	color: #5bab46;
-}
-/*************************************************************************************************************************************/
-/****************************************************************************************************** EVENTS PAGE **********************/
-.event_banner_icon {
-  background: url("../images/icons/events_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 20px;
-  margin-top: 23px;
-  width: 96px;
-}
-.event_top {
-	width: 475px;
-	float:left;
-	margin-bottom:5px;
-	margin-top: 15px;
-}
-.event_top h2.event_header {
-	float:left;
-}
-.event_top img {
-	float:left;
-	margin-top:70px;
-}
-p.event {
-  margin-bottom: 55px;
-  width: 410px;
-}
-p.event a.events_links {
-	color: #0078ae;
-}
-p.event a.events_links:hover {
-	color: #333;
-	text-decoration: underline;
-}
-img.event {
-	margin-top: 42px;
-}
-/*************************************************************************************************************************************/
-/****************************************************************************************************** REGISTRATION / LANDER PAGE **********************/
-.registration_banner_icon {
-  background: url("../images/icons/registration_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 30px;
-  margin-top: 23px;
-  width: 96px;
-}
-.reg_left h2, .reg_right h2 {
-	float:left;
-	font-size:30px;
-	position:relative;
-}
-.reg_header_left h2, .reg_header_right h2 {
-	position:relative;
-	float:left;
-	font-size:30px;
-}
-
-.reg_left img.reg_agenda_book {
-	width: 100px;
-	height: 102px;
-	position: relative;
-	float: left;
-	margin: none;
-}
-.reg_header_left, .reg_header_right {
-	position:relative;
-	float:left;
-	height:70px;
-	width: 475px;
-	margin-bottom: 20px;
-}
-.reg_header_left p.agenda_link {
-  position: absolute;
-  right: 50px;
-  top: -16px;
-  width: 96px;
-}
-.reg_left p {
-	width: 520px;
-	margin-top:20px;
-	margin-bottom:30px;
-	position:relative;
-	float:left;
-}
-.reg_left p a, .reg_left  {
-	color: #0078ae;
-}
-.reg_left p a:hover {
-	color: #333;
-	text-decoration: underline;
-}
-.reg_left ul {
-	position:relative;
-	float:left;
-	width: 485px;
-	margin-bottom: 50px;
-}
-.reg_left ul li {
-	list-style: none;
-	width: 240px;
-	padding-left: 20px;
-}
-.reg_left ul li h4 {
-	color:#333;
-	font-size:20px;
-}
-.reg_left ul li h4 a {
-	text-decoration: none;
-	color: #0078ae;
-}
-.reg_left ul li a:hover {
-	text-decoration: none;
-	color: #333;
-}
-.reg_left {
-	position:relative;
-	float:left;
-}
-.reg_speaker {
-	position:relative;
-	float:left;
-	width:260px;
-}
-.reg_speaker img {
-	float:left;
-}
-.reg_speaker h4 {
-  float: left;
-  font-size: 20px;
-  margin-left: 15px;
-  margin-top: 53px;
-}
-a.hotel_link {
-	display:block;
-	float:left;
-	margin-top:5px;
-}
-p.hotel_info {
-	width: 340px;
-	position:relative;
-	float:left;
-	margin-bottom: 30px;
-	margin-top:20px;
-}
-div.hotel_logo {
-  background: url("../images/hotel_logo1.png") no-repeat scroll 0 0 transparent;
-  bottom: 11px;
-  height: 188px;
-  position: absolute;
-  right: 0;
-  width: 200px;
-}
-div.hotel_logo img {
-	margin-top:20px;
-	margin-left: 17px;
-}
-p.hotel_name {
-	float: left;
-  left: 0;
-  position: absolute;
-  top: 20px;
-}
-.lander_banner_icon {
-  background: url("../images/icons/lander_banner_icon.png") no-repeat scroll 0 0 transparent;
-  float: left;
-  height: 109px;
-  margin-right: 20px;
-  margin-top: 23px;
-  width: 96px;
-}
-img.lander_book {
-	width:269px;
-	height:282px;
-	margin-left:175px;
-	margin-top:45px;
-}
-.lander_header {
-  float: left;
-  margin-bottom: 20px;
-  width: 473px;
-}
-.lander_header h2 {
-	height:70px;
-	float:left;
-}
-.lander_header img {
-  float: left;
-  height: 40px;
-  margin-left: 30px;
-  margin-top: 27px;
-  width: 35px;
-}
-.verisk_link {
-	margin-left:8px;
-	margin-top:25px;
-}
-p.lander_top, p.lander_bottom {
-  margin-bottom: 55px;
-  width: 410px;
-	color: #333333;
-}
-p.lander_top a.lander_links, p.lander_bottom a.lander_links{
-	color: #0078ae;
-}
-p.lander_top a.lander_links:hover, p.lander_bottom a.lander_links:hover {
-	color: #333333;
-	text-decoration: underline;
-}
-iframe {
-	width: 1080px;
-	height: 1000px;
-	text-align: center;
-}
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SIDEBAR **********************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
 
 
 
 /*************************************************************************************************************************************/
-/****************************************************************************************************** SUB BOXES ********************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
+
+/*************************************************************************************************************************************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
+
+/*************************************************************************************************************************************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
+
+/*************************************************************************************************************************************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
+
+/*************************************************************************************************************************************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
+
+/*************************************************************************************************************************************/
+/****************************************************************************************************** SECONDARY PAGE **********************/
+
+
+
+/*************************************************************************************************************************************/
+/****************************************************************************************************** SUB SECONDARY PAGE ********************/
 
 
 
 /*************************************************************************************************************************************/
 /****************************************************************************************************** FOOTER ***********************/
 #mast_footer, footer {
-	background:#f1f1f1;
+background:#000000;
 }
 footer {
 	padding-top:20px;
@@ -1485,25 +547,6 @@ footer {
 footer h3 {
 	margin-bottom:10px;
 }
-ul.footer_images {
-	margin-bottom:30px;
-	height:100%;
-	float:left;
-}
-ul.footer_images li {
-	float:left;
-	margin-right:10px;
-}
-p.cancellation {
-  color: #333333;
-  float: left;
-  font-size: 10px;
-  font-weight: bold;
-  margin-bottom: 45px;
-  margin-top: -12px;
-}
-
-
 /*************************************************************************************************************************************/
 /****************************************************************************************************** BUTTONS **********************/
 a.cta_button.blue_btn:hover, a.cta_button.gray_btn:hover {

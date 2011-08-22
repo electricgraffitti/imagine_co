@@ -1,0 +1,31 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Question type</th>
+    <th>Score</th>
+    <th>Order</th>
+    <th>Lesson template</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.question %></td>
+    <td><%= question.question_type %></td>
+    <td><%= question.score %></td>
+    <td><%= question.order %></td>
+    <td><%= question.lesson_template_id %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>
