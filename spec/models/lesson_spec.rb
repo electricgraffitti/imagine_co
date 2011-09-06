@@ -4,7 +4,7 @@
 #
 #  id                 :integer(4)      not null, primary key
 #  lesson_template_id :integer(4)
-#  user_id            :integer(4)
+#  student_id         :integer(4)
 #  video_watched      :boolean(1)
 #  complete           :boolean(1)
 #  score              :text

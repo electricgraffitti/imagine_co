@@ -1,0 +1,11 @@
+<div class="question short_answer">
+  <div class="column">
+    <h3><%= i + 1 %>. <%= q.question %></h3>
+    <% q.answers.each do |a| %>
+      <div class="answer"><%= input_tag "#{q.id}", "#{a.id}" %> <%= label_tag "#{a.answer}" %></div>
+    <% end %>
+  </div>
+  <div class="column">
+    <%= image_tag(q.pictures.last.pic.url(:regular)) unless q.pictures.empty? %>
+  </div>
+</div>

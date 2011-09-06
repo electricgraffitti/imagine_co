@@ -45,7 +45,8 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.xml
   def create
-    @lesson = Lesson.new(params[:lesson])
+    @lesson = Lesson.new
+    @lesson.lesson_template_id = params[:lti]
 
     respond_to do |format|
       if @lesson.save

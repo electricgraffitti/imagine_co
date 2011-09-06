@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110905223824) do
+ActiveRecord::Schema.define(:version => 20110906010042) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20110905223824) do
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
     t.string   "answer"
-    t.string   "correct"
+    t.boolean  "correct"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20110905223824) do
 
   create_table "lessons", :force => true do |t|
     t.integer  "lesson_template_id"
-    t.integer  "user_id"
+    t.integer  "student_id"
     t.boolean  "video_watched"
     t.boolean  "complete"
     t.text     "score"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20110905223824) do
   end
 
   add_index "lessons", ["lesson_template_id"], :name => "index_lessons_on_lesson_template_id"
-  add_index "lessons", ["user_id"], :name => "index_lessons_on_user_id"
+  add_index "lessons", ["student_id"], :name => "index_lessons_on_user_id"
 
   create_table "pictures", :force => true do |t|
     t.string   "title"

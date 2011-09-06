@@ -1,0 +1,12 @@
+<div class="question multiple_choice">
+  <div class="column">
+    <h3><%= i + 1 %>. <%= q.question %></h3>
+    <% q.
+    answers.each do |a| %>
+      <div class="answer"><%= radio_button_tag "#{q.id}", "#{a.id}" %> <%= label_tag "#{a.answer}" %></div>
+    <% end %>
+  </div>
+  <div class="column">
+    <%= image_tag(q.pictures.last.pic.url(:regular)) unless q.pictures.empty? %>
+  </div>
+</div> 
