@@ -1,17 +1,29 @@
 <div id="main_nav">
   <ul>
     <li class="home active">
-      <%= link_to "Home", "" %>
+      <%= link_to "Home", root_path %>
     </li>
     <li>
-      <%= link_to "Page2", "" %>
+      <%= link_to "About", about_path %>
     </li>
-    <li>
-      <%= link_to "Page3", "" %>
+    <% if current_teacher %>
+      <li>
+        <%= link_to "Teacher Logout", teacher_logout_path %>
+      </li>
+    <% else %>
+      <li>
+      <%= link_to "Teacher Login", teacher_login_path %>
     </li>
-    <li>
-      <%= link_to "Page4", "" %>
-    </li>
+    <% end %>
+    <% if current_student %>
+      <li>
+        <%= link_to "Student Logout", student_logout_path %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Student Login", student_login_path %>
+      </li>
+    <% end %>
     <li>
       <%= link_to "Page5", "" %>
     </li>

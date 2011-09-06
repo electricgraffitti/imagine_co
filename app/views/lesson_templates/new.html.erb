@@ -1,5 +1,10 @@
-<h1>New lesson_template</h1>
-
-<%= render 'form' %>
+<div class="full_row">
+  <h2 class="page_header">New Lesson Template</h2>
+</div>
+<div class="full_row no_top">
+  <div class="column_2">
+    <%= render :partial => 'lesson_templates/form' %>
+  </div>
+</div>
 
 <%= link_to 'Back', lesson_templates_path %>

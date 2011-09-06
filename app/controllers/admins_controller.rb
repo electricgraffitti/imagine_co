@@ -1,4 +1,8 @@
 class AdminsController < ApplicationController
+  
+  before_filter :require_admin, :only => [:index, :edit, :update, :show, :dashboard]
+  before_filter :super_admin, :only => [:new, :create, :destroy]
+  
   # GET /admins
   # GET /admins.xml
   def index
@@ -80,4 +84,9 @@ class AdminsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def dashboard
+    
+  end
+  
 end

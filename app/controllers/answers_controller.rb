@@ -1,4 +1,8 @@
 class AnswersController < ApplicationController
+  
+  before_filter :require_teacher, :only => [:edit, :update, :destroy]
+  before_filter :require_admin, :only => [:edit, :update, :destroy]
+  
   # GET /answers
   # GET /answers.xml
   def index

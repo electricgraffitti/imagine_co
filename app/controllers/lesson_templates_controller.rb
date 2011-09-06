@@ -1,4 +1,8 @@
 class LessonTemplatesController < ApplicationController
+  
+  before_filter :require_teacher, :only => [:edit, :update, :destroy]
+  before_filter :require_admin, :only => [:edit, :update, :destroy]
+  
   # GET /lesson_templates
   # GET /lesson_templates.xml
   def index

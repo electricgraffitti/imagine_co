@@ -1,5 +1,5 @@
 <%= form_for(@lesson_template) do |f| %>
-  <%= render :partial => 'layouts/form_errors', :locals => {:obj => @lesson_template} %>
+  <%= render :partial => 'layouts/error_block', :locals => {:obj => @lesson_template} %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -9,7 +9,15 @@
     <%= f.label :questions_count %><br />
     <%= f.text_field :questions_count %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.label :private, "Private Template" %><br />
+    <%= f.check_box :private %>
+  </div>
+  <div class="field">
+    <%= f.label :public, "Public Template" %><br />
+    <%= f.check_box :public %>
+  </div>
+  <div class="field">
+    <%= f.submit "Create Template", :class => 'create_button' %>
   </div>
 <% end %>

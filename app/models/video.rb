@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id                 :integer(4)      not null, primary key
+#  title              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  viewable_id        :integer(4)
+#  viewable_type      :string(255)
+#  video_file_name    :string(255)
+#  video_content_type :string(255)
+#  video_file_size    :integer(4)
+#  video_updated_at   :datetime
+#
+
 class Video < ActiveRecord::Base
   
   # Associations

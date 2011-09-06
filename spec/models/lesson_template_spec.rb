@@ -7,6 +7,8 @@
 #  questions_count :integer(4)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  public          :boolean(1)
+#  private         :boolean(1)
 #
 
 require 'spec_helper'

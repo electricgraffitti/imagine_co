@@ -1,4 +1,9 @@
 class LessonsController < ApplicationController
+  
+   before_filter :require_teacher
+   before_filter :require_admin
+  
+  
   # GET /lessons
   # GET /lessons.xml
   def index

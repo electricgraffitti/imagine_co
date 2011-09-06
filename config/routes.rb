@@ -1,17 +1,36 @@
 ImagineCo::Application.routes.draw do
 
 
-  get "pages/index"
-
-  resources :users
+  #Admin Paths
+  match "admin-login" => "admin_sessions#check_session", :as => :login
+  match "admin-logout" => "admin_sessions#destroy", :as => :logout
+  match "admin-dashboard" => "admins#dashboard", :as => :admin_dashboard
+  
+  #Teacher Login
+  match "teacher-login" => "teacher_sessions#new", :as => :teacher_login
+  match "teacher-logout" => "teacher_sessions#destroy", :as => :teacher_logout
+  match "teacher-dashboard" => "teachers#dashboard", :as => :teacher_dashboard
+  
+  #Student Login
+  match "student-login" => "student_sessions#new", :as => :student_login
+  match "student-logout" => "student_sessions#destroy", :as => :student_logout
+  match "student-dashboard" => "students#dashboard", :as => :student_dashboard
+  
+  #Base Routes
+  match "home" => "pages#index", :as => :home
+  match "about" => "pages#about", :as => :about
+  
+  
+  resources :students
+  resources :student_sessions
+  resources :teacher_sessions
+  resources :teachers
   resources :admins
+  resources :admin_sessions
   resources :answers
   resources :questions
   resources :lessons
   resources :lesson_templates
-  
-  match "admin-login" => "admin_sessions#check_session", :as => :login
-  match "admin-logout" => "admin_sessions#destroy", :as => :logout
   
   root :to => "pages#index"
   

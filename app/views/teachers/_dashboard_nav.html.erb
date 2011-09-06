@@ -1,0 +1,14 @@
+<div class="dashboard_nav">
+  <ul>
+  <% if current_teacher.admin? %>
+    <li>
+      <%= link_to "Add Teacher", new_teacher_path%>
+    </li>
+  <% end %>
+    <li>
+      <%= link_to "Add Student", new_student_path %>
+    </li>
+    <li>
+      <%= link_to "Add Test", new_lesson_template_path %>
+    </li>
+</div>
