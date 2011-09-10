@@ -1,6 +1,17 @@
 <% content_for :banner do %>
-<h1>This is the banner</h1>
+
 <% end %>
 
-<h1>Main Content Area</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div class="full_row">
+  <div class="column index_content">
+    <h2 class="logo">Test Builder</h2>
+    <h3>Build your own tests.</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div class="column sign_up_form">
+    <div id="form_panel" class="box round light_panel">
+      <h2 class="panel_title blue_title">Create A Free Account</h2>
+      <%= render :partial => "teachers/form", :locals => {:button_text => "Create Account", :admin_enable => false} %>
+    </div>
+  </div>
+</div>
