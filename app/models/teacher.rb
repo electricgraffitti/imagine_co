@@ -35,7 +35,15 @@ class Teacher < ActiveRecord::Base
     c.logged_in_timeout = 120.minutes
   end
   
+  # Scopes
   scope :admin_rights, where("admin = ?", true)
+  
+  # Methods
+  
+  def self.setup_new_teacher(params, account)    
+
+  end
+  
   
   def full_name
     fullname = self.first_name + " " + self.last_name

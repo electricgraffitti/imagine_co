@@ -187,6 +187,12 @@ h6{font-size:110%;}
 p{margin:5px 0px 0px;line-height:18.35px;}
 .bold{font-weight:700;}
 .small_text{font-size:77%;}
+
+.user_name {
+	padding: 10px 0px;
+	width: 50%;
+	float: left;
+}
 /*************************************************************************************************************************************/
 /**************************************************************************************************** GENERAL LAYOUT *****************/
 html,body {
@@ -299,11 +305,10 @@ header, #banner, #bd, footer {
 	width:420px;
 }
 .top_hr {
-	border-top:1px solid #fff;
+	border-top:1px solid #e9dfc0;
 }
 .bottom_hr {
-	border-bottom:1px solid #ccc;
-	margin-bottom: 30px;
+	border-bottom:1px solid #d6cdb1;
 }
 .bulleted_list li {
 	font-weight:700;
@@ -346,12 +351,41 @@ html, body {
 	width:435px;
 	height:110px;
 }
+#internal #mast_header, #internal header {
+	height: 85px;
+}
+#internal #internal_logo a {
+	position: relative;
+	width: 300px;
+	height:101px;
+	background:transparent url('../images/internal_logo.png') no-repeat;
+	display: block;
+	text-indent: -9999em;
+	z-index: 10;
+	margin-left: -27px;
+}
 #logo h1 {
 	font-size:104px;
   height:89px;
 }
 #logo h1 a {
 	text-decoration:none;
+}
+#page_header {
+	position: relative;
+}
+#page_header h1 {
+	width: 75%;
+	float: left;
+}
+#page_header #page_actions {
+	width: 25%;
+	text-align: center;
+	float: left;
+}
+#page_actions a {
+	text-align: left;
+	margin: 0px auto;
 }
 /*************************************************************************************************************************************/
 /****************************************************************************************************** NAVIGATION *******************/
@@ -454,6 +488,12 @@ img.icon {
 	width:96px;
 	height:109px;
 }
+.content_segment {
+	position: relative;
+	float:left;
+	width: 100%;
+	padding-bottom: 20px;
+}
 /*************************************************************************************************************************************/
 /****************************************************************************************************** INDEX PAGE **********************/
 .index_content {
@@ -482,29 +522,167 @@ img.icon {
 	margin-right: 20px;
 }
 /*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-
-
+/*************************************************************************************************** LESSONS *************************/
+#student_lessons, .form_wrap, #student_list_wrap {
+	position: relative;
+	float: left;
+	margin: 10px 0px;
+	padding: 5px;
+	background: #f7efd7;
+	border-top: 1px solid #888;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #EEE;
+	border-left: 1px solid #999;
+}
+.edit_lessons #lesson_form {
+	display:none;
+}
+#player {
+	position: relative;
+	top: 5px;
+	left: 0px;
+	width: 850px;
+	height: 478px;
+}
+ul#listed_lessons, ul#listed_lessons li.listed_lesson, ul.lesson_actions, ul.lesson_actions li.action, ul#student_list, ul#student_list li.listed_student {
+	position: relative;
+	float: left;
+}
+ul#listed_lessons, ul#student_list {
+	width: 950px;
+}
+ul#student_list {
+	height: 500px;
+	overflow-x: hidden;
+	overflow-y:scroll;
+}
+ul#listed_lessons li.listed_lesson, ul#student_list li.listed_student, .internal_wrap {
+	width: 910px;
+	padding: 10px;
+	background: #ddd;
+	margin-bottom: 5px;
+	border-top: 1px solid #888;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #EEE;
+	border-left: 1px solid #999;
+}
+.lesson_title {
+	width: 35%;
+	float: left;
+}
+.lesson_score {
+	float: left;
+	margin-right: 10px;
+	font-size: 115%;
+	font-weight: 700;
+}
+ul.lesson_actions {
+	float: right;
+}
+ul.lesson_actions li.action a {
+	margin-left: 20px;
+}
+.complete {
+	font-size: 115%;
+	font-weight: 700;
+	color: #2ebe0f;
+}
+#game_window {
+	position: relative;
+	width: 930px;
+	text-align: center;
+	background: black;
+	margin: 0px auto;
+}
+.info_box {
+	position: relative;
+	float: left;
+	margin: 10px 0px;
+	padding: 5px;
+	background: #fff;
+	border-top: 1px solid #888;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #EEE;
+	border-left: 1px solid #999;
+}
+.info_box .content {
+	position: relative;
+	float: left;
+	padding: 20px;
+	width: 50%;
+}
+.info_box img {
+	float: right;
+	margin-right: 20px;
+}
 /*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-/*************************************************************************************************************************************/
-/****************************************************************************************************** SECONDARY PAGE **********************/
-
-
+/*************************************************************************************************** STUDENTS ************************/
+#add_form {
+	margin-top: 20px;
+	display:none;
+}
+#add_form.internal_wrap {
+	width: 940px;
+}
+#add_form .button {
+	float:right;
+	margin-right: 10px;
+}
+.students_name a {
+	font-size: 18px;
+	color: #0088cc;
+	text-decoration: none;
+	font-weight: 700;
+}
+.student_panel {
+	position: relative;
+	float: left;
+}
+.student_info {width:447px;}
+.student_scores {width:463px;}
+.student_creds {
+	padding-top: 5px;
+}
+.student_creds li {
+	float:left;
+	width: 40%;
+}
+.student_scores ul {
+	float:left;
+}
+.student_scores li {
+	position: relative;
+	float: left;
+	width: 42px;
+	height: 20px;
+}
+.student_test_headers {
+	position: relative;
+	float: right;
+	width: 472px;
+}
+ul.vertical li {
+	position: relative;
+	float: left;
+	width: 42px;
+	font-size: 10px;
+	letter-spacing: 14px;
+	color: white;
+	font-weight: 700;
+}
+li.listed_student .edit_form {
+	position: relative;
+	padding: 10px;
+	background: #EEE;
+	float:left;
+	width: 891px;
+	margin-top: 10px;
+	display:none;
+}
+li.listed_student .edit_form .button {
+	float:right;
+	margin-left:10px;
+}
 /*************************************************************************************************************************************/
 /****************************************************************************************************** FOOTER ***********************/
 #mast_footer {
@@ -526,7 +704,7 @@ footer {
   font-size: 77%;
   height: 20px;
   text-align: center;
-  width: 100px;
+  width: 75px;
 }
 .footer_nav ul li a {
   color: #DDDDDD;
@@ -651,6 +829,43 @@ input.button {border: none;}
 	background: linear-gradient(top, #ff7b0d 0%,#ffa84c 100%); /* W3C */
 }
 /*************************************************************************************************************************************/
+/****************************************************************************************************** PROGRESS BAR *****************/
+.progress_bar {
+	position: relative;
+	width: 950px;
+	padding: 5px;
+	background: #bababa;
+	margin: 10px 0px;
+	border-top: 1px solid #888;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #EEE;
+	border-left: 1px solid #999;
+}
+li.listed_student .progress_bar {
+	width: 440px;
+	margin: 1px 0px;
+	padding: 3px;
+	font-size: 11px;
+}
+.progress_bar .bar {
+	padding: 5px 0px;
+	text-align: right;
+	background: #2fc910; /* Old browsers */
+	background: -moz-linear-gradient(top, #2fc910 1%, #299a0b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#2fc910), color-stop(100%,#299a0b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #2fc910 1%,#299a0b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #2fc910 1%,#299a0b 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #2fc910 1%,#299a0b 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2fc910', endColorstr='#299a0b',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #2fc910 1%,#299a0b 100%); /* W3C */
+}
+li.listed_studen .progress_bar .bar {
+	padding: 0px;
+}
+.progress_bar .bar span {
+	color: #fff;
+}
+/*************************************************************************************************************************************/
 /****************************************************************************************************** FORMS ************************/
 #form_panel {
 	position: relative;
@@ -715,6 +930,42 @@ form div.field select {
   width: 153px;
 	padding: 6px;
 }
+form .question h3 {
+	color: #555;
+	font-size: 120%;
+}
+.question, .question .answer, .question .answer input, .question .answer label, form .button, form .back_link, form .submit {
+	position: relative;
+	float: left;
+}
+.question .answer input, .question .answer label {
+	display: inline;
+}
+.question .answer label {
+	padding-left: 10px;
+	margin-top: 0px;
+}
+.question {
+	width: 926px;
+	padding: 10px;
+	background: #ddd;
+	margin-bottom: 5px;
+	border-top: 1px solid #888;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #EEE;
+	border-left: 1px solid #999;
+}
+.question .column {
+	position: relative;
+	float: left;
+	width: 50%;
+}
+.question img {
+	position: relative;
+	float: right;
+	margin-left: 20px;
+}
+.sub_text { width: 325px; margin-right: 20px; position: relative; float: left;}
 .button_field {
 	float: left;
 	margin: 15px 0px 0px 10px;
@@ -734,23 +985,45 @@ form div.field select {
 /*************************************************************************************************************************************/
 /****************************************************************************************************** OVERLAY **********************/
 /* the overlayed element */
-.simple_overlay{/* must be initially hidden */
+.simple_overlay {/* must be initially hidden */
 display:none;/* place overlay on top of other elements */
 z-index:10000;/* styling */
-background-color:#333;width:450px;min-height:252px;border:1px solid #666;/* CSS3 styling for latest browsers */
--moz-box-shadow:0 0 90px 5px #000;-webkit-box-shadow:0 0 90px #000;}
-/* close button positioned on upper right corner */
-.simple_overlay .close{background-image:url(../images/apple-close.png);cursor:pointer;height:28px;position:absolute;right:-15px;top:-10px;width:28px;}
-/* the "information box" */
-.info{position:absolute;bottom:0;left:0;padding:10px 15px;color:#fff;font-size:11px;border-top:1px solid #666;}
-.info strong{display:block;}
-/* progress indicator (animated gif). should be initially hidden */
-.progress{position:absolute;top:45%;left:50%;display:none;}
-/* everybody should know about RGBA colors. */
-.simple_overlay .next,.simple_overlay .prev,.simple_overlay .info{-moz-background-clip:border !important;-moz-background-inline-policy:continuous !important;-moz-background-origin:padding !important;background:#333333 none repeat scroll 0 0 !important;}
-.simple_overlay .next{-moz-border-radius-bottomright:0;-moz-border-radius-topright:0;border-right:0 none;right:0;}
-.simple_overlay .next,.simple_overlay .prev{-moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border:1px solid #666666;color:#FFFFFF;cursor:pointer;display:block;font-size:11px;padding:10px 20px;position:absolute;top:40%;}
+min-height: 252px;
+background-color: #fff;
+border: 7px solid #3e609c;
+box-shadow: 0 0 90px 5px #000000;
+-moz-box-shadow:0 0 90px 5px #000;
+-webkit-box-shadow: 0 0 90px #000;
+}
 
+.photo_overlay {/* must be initially hidden */
+display:none;/* place overlay on top of other elements */
+z-index:10000;/* styling */
+min-height: 252px;
+min-width: 300px;
+background-color: #000;
+border: 7px solid #444;
+box-shadow: 0 0 90px 5px #000000;
+-moz-box-shadow:0 0 90px 5px #000;
+-webkit-box-shadow: 0 0 90px #000;
+}
+/* close button positioned on upper right corner */
+.simple_overlay .close, .photo_overlay .close {
+  background-image: url("../images/close.png");
+  cursor: pointer;
+  height: 25px;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  width: 25px;
+}
+.simple_overlay .content {
+	padding: 20px;
+	width: 500px;
+}
+.photo_overlay {
+	text-align: center;
+}
 /*************************************************************************************************************************************/
 /******************************************************************************************* TOOL TIPS (TipTip) **********************/
 #tiptip_holder{display:none;position:absolute;top:0;left:0;z-index:99999;}

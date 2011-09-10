@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   
   
   def index
-    @teacher = Teacher.new
+    @account = Account.new
+    @account.teachers.build
   end
   
   def about

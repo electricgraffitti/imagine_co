@@ -1,0 +1,37 @@
+<%= form_for(@account) do |f| %>
+  <%= render :partial => "layouts/error_block", :locals => {:obj => @account} %>
+  <div class="field">
+    <%= f.label :name, "Account Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <% f.fields_for :teachers do |t| %>
+    <div class="field">
+      <%= t.label :first_name %><br />
+      <%= t.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= t.label  :last_name %><br />
+      <%= t.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= t.label  :email %><br />
+      <%= t.text_field :email %>
+    </div>
+    <div class="field">
+      <%= t.label  :username %><br />
+      <%= t.text_field :username %>
+    </div>
+    <div class="field">
+      <%= t.label  :password %><br />
+      <%= t.password_field :password %>
+    </div>
+    <div class="field">
+      <%= t.label  :password_confirmation, "Repeat Password" %><br />
+      <%= t.password_field :password_confirmation %>
+    </div>
+    <%= t.hidden_field :admin, :value => 1 %>
+  <% end %>
+  <div class="field">
+    <%= f.submit button_text, :class => 'button blue_button' %>
+  </div>
+<% end %>

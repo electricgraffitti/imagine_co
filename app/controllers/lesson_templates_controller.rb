@@ -1,16 +1,14 @@
 class LessonTemplatesController < ApplicationController
   
-  before_filter :require_teacher, :only => [:edit, :update, :destroy]
-  before_filter :require_admin, :only => [:edit, :update, :destroy]
+  before_filter :require_teacher, :except => [:show]
   
-  # GET /lesson_templates
-  # GET /lesson_templates.xml
+  layout "internal"
+  
   def index
-    @lesson_templates = LessonTemplate.all
+    @templates = LessonTemplate.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @lesson_templates }
     end
   end
 

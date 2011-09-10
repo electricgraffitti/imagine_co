@@ -1,25 +1,35 @@
-<h1>Listing lesson_templates</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Questions count</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @lesson_templates.each do |lesson_template| %>
-  <tr>
-    <td><%= lesson_template.name %></td>
-    <td><%= lesson_template.questions_count %></td>
-    <td><%= link_to 'Show', lesson_template %></td>
-    <td><%= link_to 'Edit', edit_lesson_template_path(lesson_template) %></td>
-    <td><%= link_to 'Destroy', lesson_template, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :page_actions do %>
+   <div id="launch_button">
+     <%= link_to 'Create A Lesson', new_lesson_template_path(:teacher_id => current_teacher.id), :id => "add_template", :class => "button green_button add add_form" %>
+   </div>
 <% end %>
-</table>
+<div class="content_segment top_hr">
+  <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
+  <div class="clear"></div>
 
-<br />
+  <h3>Public Lessons</h3>
+  <div id="student_lessons" class="round">
+    <%= render :partial => "lesson_templates/listed_templates", :locals => {:templates => @templates} %>
+  </div>
 
-<%= link_to 'New Lesson template', new_lesson_template_path %>
+</div>
+
+<% content_for :overlays do %>
+  <div id="help_window" class="overlay simple_overlay">
+    <div class="close"></div>
+    <div class="content">
+      <h2>Welcome to Test Builder!</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :javascripts do %>
+  <% if @templates.empty? %>
+    <script type="text/javascript" charset="utf-8">
+      jQuery(document).ready(function() {
+        overlays.triggerWelcomeWindow();
+      });
+    </script>
+  <% end %>
+<% end %>

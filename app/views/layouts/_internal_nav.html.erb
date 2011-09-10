@@ -1,0 +1,23 @@
+<div id="main_nav">
+  <ul>
+    <li class="home active">
+      <%= link_to "Dashboard", teacher_dashboard_path if current_teacher %>
+      <%= link_to "Dashboard", student_dashboard_path if current_student %>
+    </li>
+    <% if current_teacher %>
+      <li>
+        <%= link_to "Lessons", lesson_templates_path %>
+      </li>
+      <li>
+        <%= link_to "Students", students_path(:teacher_id => current_teacher.id) %>
+      </li>
+      <li>
+        <%= link_to "Create New Lesson", new_lesson_template_path(:teacher_id => current_teacher.id) %>
+      </li>
+    <% end %>
+    <li>
+      <%= link_to "Logout", teacher_logout_path if current_teacher %>
+      <%= link_to "Logout", student_logout_path if current_student %>
+    </li>
+  </ul>
+</div>
