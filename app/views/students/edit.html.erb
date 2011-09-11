@@ -1,6 +1,8 @@
-<h1>Editing student</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>
+<div class="full_row">
+  <div class="column sign_up_form">
+    <div id="form_panel" class="box round light_panel">
+      <h2 class="panel_title blue_title">Edit Student</h2>
+      <%= render :partial => 'students/form', :locals => {:button_text => "Update Student"}%>
+    </div>
+  </div>
+</div>

@@ -15,10 +15,10 @@
 class Lesson < ActiveRecord::Base
   
   #Associations
-  belongs_to :lesson_template, :class_name => "LessonTemplate", :foreign_key => "lesson_template_id"
+  belongs_to :lesson_template
   belongs_to :student
   
   #Scopes
-  named_scope :test_complete, :conditions => {"complete = ?", true}
+  scope :test_complete, :conditions => {"complete = ?", true}
   
 end

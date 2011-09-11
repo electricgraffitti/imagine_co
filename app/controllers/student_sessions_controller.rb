@@ -8,7 +8,7 @@ class StudentSessionsController < ApplicationController
     @student_session = StudentSession.new(params[:student_session])
     if @student_session.save
       flash[:notice] = "Login successful!"
-      redirect_to student_dashboard_path(current_student)# account_dashboard_path(current_user)
+      redirect_to student_dashboard_path
     else
       flash[:notice] = "Logout error! Please try again."
       redirect_to student_login_path

@@ -31,6 +31,7 @@ ImagineCo::Application.routes.draw do
   resources :lessons
   resources :lesson_templates
   resources :accounts
+  resources :classrooms
   
   root :to => "pages#index"
   

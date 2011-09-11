@@ -1,5 +1,9 @@
 class TeachersController < ApplicationController
-
+  
+  before_filter :require_teacher
+  
+  layout 'internal'
+  
   def index
     @teachers = Teacher.all
 
@@ -34,8 +38,8 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(params[:teacher])
     respond_to do |format|
-      if @teacher.save
-        format.html { redirect_to teacher_dashboard_path, :notice => 'Teacher was successfully created.' }
+      if @teacher.save_without_session_maintenance
+        format.html { redirect_to teachers_path, :notice => 'Teacher was successfully created.' }
         format.xml  { render :xml => @teacher, :status => :created, :location => @teacher }
       else
         format.html { render :action => "new" }
