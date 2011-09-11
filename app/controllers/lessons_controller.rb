@@ -1,9 +1,8 @@
 class LessonsController < ApplicationController
   
    before_filter :require_teacher
-   before_filter :require_admin
-  
-  
+   
+   layout 'internal'
   # GET /lessons
   # GET /lessons.xml
   def index
@@ -29,6 +28,9 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   # GET /lessons/new.xml
   def new
+    if params[:student_id]
+      @student = Student.find(params[:student_id])
+    end
     @lesson = Lesson.new
 
     respond_to do |format|
@@ -46,11 +48,11 @@ class LessonsController < ApplicationController
   # POST /lessons.xml
   def create
     @lesson = Lesson.new
-    @lesson.lesson_template_id = params[:lti]
+    @lesson.lesson_template_id = params[:lesson_template_id]
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to(@lesson, :notice => 'Lesson was successfully created.') }
+        format.html { redirect_to(students_path, :notice => 'Lesson was successfully assigned.') }
         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
       else
         format.html { render :action => "new" }

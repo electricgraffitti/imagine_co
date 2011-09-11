@@ -756,6 +756,11 @@ ul.lesson_actions li.action a {
 	text-decoration: none;
 	font-weight: 700;
 }
+.students_name a.remove_button {
+	color: #ff3019;
+	font-weight: 300;
+	font-size: 12px;
+}
 .student_panel {
 	position: relative;
 	float: left;

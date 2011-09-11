@@ -1,0 +1,13 @@
+<li class="listed_student round">
+   <div class="student_info student_panel">
+     <div class="students_name">
+      <%= link_to student.full_name, student_path(student), :class => "view_student" %> 
+      <%= link_to "Delete Student", student, :method => 'delete', :confirm => 'Are you sure you want to delete this student?', :title => "Delete Student", :class => "remove_button red" %></div>
+     <ul class="student_creds">
+       <li>Login: <%= student.username %></li>
+       <li>Last Login: <%= student.last_login_at %></li>
+     </ul>
+   </div>
+   <div class="clear"></div>
+ </li>
+ 

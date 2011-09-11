@@ -1,8 +1,13 @@
 class StudentsController < ApplicationController
+  
+  before_filter :require_teacher, :except => [:show]
+  before_filter :require_auth, :only => [:show]
+  layout "internal"
+  
   # GET /students
   # GET /students.xml
   def index
-    @students = Student.all
+    @students = current_teacher.students
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +19,7 @@ class StudentsController < ApplicationController
   # GET /students/1.xml
   def show
     @student = Student.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @student }
@@ -41,10 +46,12 @@ class StudentsController < ApplicationController
   # POST /students.xml
   def create
     @student = Student.new(params[:student])
-
+    @student.account_id = current_teacher.account.id
+    
     respond_to do |format|
-      if @student.save
-        format.html { redirect_to(@student, :notice => 'Student was successfully created.') }
+      if @student.save_without_session_maintenance
+        Classroom.create(:student_id => @student.id, :teacher_id => current_teacher.id)
+        format.html { redirect_to(students_path, :notice => 'Student was successfully created.') }
         format.xml  { render :xml => @student, :status => :created, :location => @student }
       else
         format.html { render :action => "new" }
