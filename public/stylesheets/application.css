@@ -772,7 +772,7 @@ ul.lesson_actions li.action a {
 }
 .student_creds li {
 	float:left;
-	width: 40%;
+	width: 50%;
 }
 .student_scores ul {
 	float:left;
@@ -1069,6 +1069,11 @@ form div.field a:hover {
 form div.field.checkbox {
 	padding-top: 24px;
 	padding-left:10px;
+	width: 160px;
+}
+form div.field.checkbox.stacked {
+	padding-top: 0px;
+	padding-left:0px;
 	width: 160px;
 }
 form div.field.checkbox label {width: 80%;}
