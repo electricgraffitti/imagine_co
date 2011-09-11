@@ -18,7 +18,11 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.xml
   def show
-    @student = Student.find(params[:id])
+    if current_teacher
+      @student = Student.find(params[:id])
+    else
+      @student = current_student
+    end
     
     respond_to do |format|
       format.html # show.html.erb
