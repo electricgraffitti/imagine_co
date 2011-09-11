@@ -29,6 +29,10 @@ class Teacher < ActiveRecord::Base
   
   #Associations
   belongs_to :account
+  has_many :classrooms
+  has_many :students, :through => :classrooms
+  has_many :curriculums
+  has_many :lesson_templates, :through => :curriculums
   
   #Authlogic
   acts_as_authentic do |c|

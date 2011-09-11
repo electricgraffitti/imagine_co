@@ -1,6 +1,10 @@
-<h1>Editing lesson_template</h1>
+<h3>Editing Lesson: <%= @lesson_template.name %></h3>
+<%= render :partial => 'lesson_templates/form', :locals => {:button_text => "Edit Lessson"} %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @lesson_template %> |
-<%= link_to 'Back', lesson_templates_path %>
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      form.decorateNestedFormLinks();
+    });
+  </script>
+<% end %>

@@ -2,7 +2,7 @@
   <% templates.each do |template| %>
     <li class="listed_lesson round">
       <h4 class="lesson_title"><%= template.name %></h4>
-      <div class="lesson_score">Lesson Type: <%= template.name if lesson.name? %></div>
+      <div class="lesson_score">Lesson Type: <%= template.name if template.name? %></div>
     </li>
   <% end %>
 </ul>
