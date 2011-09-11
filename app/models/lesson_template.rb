@@ -16,6 +16,8 @@ class LessonTemplate < ActiveRecord::Base
   # Associations
   has_many :lessons
   has_many :videos, :as => :viewable
+  accepts_nested_attributes_for :videos, :allow_destroy => true, :reject_if => lambda { |obj| obj[:video].blank? }
+  
   has_many :questions, :dependent => :destroy
   accepts_nested_attributes_for :questions, :allow_destroy => true, :reject_if => lambda { |obj| obj[:question].blank? }
   

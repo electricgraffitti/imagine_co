@@ -300,11 +300,6 @@ h4{font-size:115%;}
 h5{font-size:118%;}
 h6{font-size:110%;}
 
-.blue_title {
-	color: #3e609c;
-	text-shadow: 0px 1px 0px #fff;
-}
-
 p{margin:5px 0px 0px;line-height:18.35px;}
 .bold{font-weight:700;}
 .small_text{font-size:77%;}
@@ -450,6 +445,12 @@ html, body {
 .gray {
 	color:#666;
 }
+.blue_title {
+	color: #3e609c;
+	text-shadow: 0px 1px 0px #fff;
+}
+.green {color:#299a0b;}
+.red {color: #ff3019;}
 .black {
 	color:#444;
 }
@@ -993,6 +994,7 @@ li.listed_studen .progress_bar .bar {
 	position: relative;
 	float: left;
 	width: 1000px;
+	padding-bottom: 10px;
 }
 .question_section {
 	width: 980px;
@@ -1001,6 +1003,7 @@ li.listed_studen .progress_bar .bar {
 .answer_section {
 	width: 960px;
 	padding-left: 20px;
+	margin-bottom: 10px;
 }
 input[type="text"],input[type="password"] {
   background: none repeat scroll 0 0 #efefef;
@@ -1045,8 +1048,10 @@ form div.field {
 	text-align: left;
 	width: 281px;
 }
-form div.field a {
-	color:#3e609c;
+form div.fields {
+	position: relative;
+	float:left;
+	width: 100%;
 }
 form div.field a:hover {
 	color:#3e609c;

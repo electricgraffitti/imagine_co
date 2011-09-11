@@ -1,6 +1,5 @@
 <div class="field">
-  <%= f.hidden_field :_destroy %>
-  <%= f.label :question %><%= link_to "Remove Question", "#", :class => "remove_link" %>
+  <%= f.label :question %><%= f.link_to_remove "Remove Question"  %>
   <%= f.text_field :question %>
 </div>
 <div class="field">
@@ -11,5 +10,5 @@
   <%= f.fields_for :answers do |a| %>
     <%= render :partial => 'lesson_templates/answer_fields', :locals => {:f => a} %>
   <% end %>
-  <%#= link_to_add_answers("Add Answer", f, :answers) %>
+  <%= f.link_to_add "Add Answer", :answers %>
 </div>

@@ -157,33 +157,41 @@ var triggers = {
 
 var form = {
 	
-	removeFields: function() {
-		var removeLink = $(".remove_link");
+	decorateNestedFormLinks: function() {
+		var addLinks = $(".add_nested_fields"),
+				removeLinks = $(".remove_nested_fields");
 		
-		removeLink.live("click", function() {
-			var questionBlock = $(this).parents(".section").first(),
-					destroyParam = $(this).parents(".field").first().find("input[type='hidden']");
-					
-					destroyParam.val(1);
-					questionBlock.hide();
-		});
-	},
+		addLinks.addClass("add_button green");
+		removeLinks.addClass("remove_button red");
+	}
 	
-	addFields: function() {
-		var addLink = $(".add_link");
-		
-		addLink.live("click", function() {
-			var assoc = $(this).attr("assoc"),
-					fields = $(this).attr("fields"),
-					newId = new Date().getTime(),
-					regex = new RegExp("new_" + assoc, "g");
-					
-				$(this).parent().before(content.replace(regex, newId));
-		});
-
-				
-				
-	},
+	// removeFields: function() {
+	// 	var removeLink = $(".remove_link");
+	// 	
+	// 	removeLink.live("click", function() {
+	// 		var questionBlock = $(this).parents(".section").first(),
+	// 				destroyParam = $(this).parents(".field").first().find("input[type='hidden']");
+	// 				
+	// 				destroyParam.val(1);
+	// 				questionBlock.hide();
+	// 	});
+	// },
+	// 
+	// addFields: function() {
+	// 	var addLink = $(".add_link");
+	// 	
+	// 	addLink.live("click", function() {
+	// 		var assoc = $(this).attr("assoc"),
+	// 				fields = $(this).attr("fields"),
+	// 				newId = new Date().getTime(),
+	// 				regex = new RegExp("new_" + assoc, "g");
+	// 				
+	// 			$(this).parent().before(content.replace(regex, newId));
+	// 	});
+	// 
+	// 			
+	// 			
+	// }
 	
 };
 
