@@ -492,6 +492,9 @@ html, body {
 #page_header {
 	position: relative;
 }
+.sub_header {
+	padding: 20px 0px 0px;
+}
 #page_header h1 {
 	width: 75%;
 	float: left;
@@ -565,6 +568,7 @@ ul.horz_list li a {
 	background: transparent url('../images/general/internal.png')  0px 0px no-repeat;
 	padding: 20px 0px;
 }
+#internal #mast_content, #internal #bd {min-height: 750px;}
 #mast_banner {
 }
 #mast_banner {
@@ -645,12 +649,12 @@ img.icon {
 	position: relative;
 	float: left;
 	margin: 10px 0px;
-	padding: 10px;
-	background: #f2ecdc;
-	border-top: 1px solid #888;
+	padding: 5px;
+	background: #E9DFC0;
+	border-top: 1px solid #CCC;
 	border-right: 1px solid #DDD;
 	border-bottom: 1px solid #EEE;
-	border-left: 1px solid #999;
+	border-left: 1px solid #CCC;
 }
 .edit_lessons #lesson_form {
 	display:none;
@@ -677,12 +681,12 @@ ul#student_list {
 ul#listed_lessons li.listed_lesson, ul#student_list li.listed_student, .internal_wrap {
 	width: 910px;
 	padding: 10px;
-	background: #ddd;
+	background: #EEE6CD;
 	margin-bottom: 5px;
-	border-top: 1px solid #888;
-	border-right: 1px solid #DDD;
-	border-bottom: 1px solid #EEE;
-	border-left: 1px solid #999;
+	border-bottom: 1px solid #CCC;
+	border-left: 1px solid #DDD;
+	border-top: 1px solid #EEE;
+	border-right: 1px solid #CCC;
 }
 .lesson_title {
 	width: 35%;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110906010042) do
+ActiveRecord::Schema.define(:version => 20110911174737) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(:version => 20110906010042) do
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
+  create_table "classrooms", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "curriculums", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "lesson_template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lesson_templates", :force => true do |t|
     t.string   "name"
     t.integer  "questions_count"
@@ -56,6 +70,8 @@ ActiveRecord::Schema.define(:version => 20110906010042) do
     t.datetime "updated_at"
     t.boolean  "public"
     t.boolean  "private"
+    t.integer  "teacher_id"
+    t.integer  "account_id"
   end
 
   create_table "lessons", :force => true do |t|
