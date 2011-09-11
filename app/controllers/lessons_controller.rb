@@ -47,9 +47,7 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.xml
   def create
-    @lesson = Lesson.new
-    @lesson.lesson_template_id = params[:lesson_template_id]
-
+    @lesson = Lesson.new(params[:lesson])
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to(students_path, :notice => 'Lesson was successfully assigned.') }

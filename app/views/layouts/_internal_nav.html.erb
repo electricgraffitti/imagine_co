@@ -5,11 +5,19 @@
       <%= link_to "Dashboard", student_dashboard_path if current_student %>
     </li>
     <% if current_teacher %>
+      <% if current_teacher.admin %>
+        <li>
+          <%= link_to "Teachers", teachers_path %>
+        </li>
+      <% end %>
       <li>
         <%= link_to "Lessons", lesson_templates_path %>
       </li>
       <li>
         <%= link_to "Students", students_path(:teacher_id => current_teacher.id) %>
+      </li>
+      <li>
+        <%= link_to "My Classroom", classrooms_path %>
       </li>
       <li>
         <%= link_to "Curriculum", lesson_templates_path(:teacher_id => current_teacher.id) %>

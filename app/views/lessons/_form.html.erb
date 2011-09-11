@@ -1,10 +1,10 @@
-<%= form_for(@lesson) do |f| %>
+<%= form_for @lesson do |f| %>
   <%= render :partial => 'layouts/error_block', :locals => {:obj => @lesson} %>
   <% if @student %>
     <%= f.hidden_field :student_id, :value => @student.id %>
   <% end %>
   <div class="field">
-    <%= f.label :lesson_template_id %><br />
+    <%= f.label :lesson_template_id, "Choose Lesson" %><br />
     <%= f.collection_select(:lesson_template_id, current_teacher.lesson_templates, :id, :name, {:prompt => "Choose Lesson"}) %>
   </div>
   <% unless @student %>
