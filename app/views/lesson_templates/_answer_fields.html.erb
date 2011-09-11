@@ -1,0 +1,9 @@
+<div class="field">
+  <%= f.hidden_field :_destroy %>
+  <%= f.label :answer %><%= link_to "Remove Answer", "#", :class => "remove_link" %>
+  <%= f.text_field :answer %>
+</div>
+<div class="field checkbox">
+  <%= f.check_box :correct %>
+  <%= f.label :correct, "Correct Answer" %>
+</div>

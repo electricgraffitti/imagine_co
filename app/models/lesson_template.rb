@@ -13,11 +13,14 @@
 
 class LessonTemplate < ActiveRecord::Base
   
-  #Associations
+  # Associations
   has_many :lessons
-  has_many :questions
+  has_many :videos, :as => :viewable
+  has_many :questions, :dependent => :destroy
+  accepts_nested_attributes_for :questions, :allow_destroy => true, :reject_if => lambda { |obj| obj[:question].blank? }
   
-  #Scopes
+  
+  # Scopes
   scope :public_template, where("public = ?", true)
   scope :private_template, where("private = ?", true)
   

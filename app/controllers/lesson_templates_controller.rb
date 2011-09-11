@@ -27,7 +27,11 @@ class LessonTemplatesController < ApplicationController
   # GET /lesson_templates/new.xml
   def new
     @lesson_template = LessonTemplate.new
-
+    @lesson_template.videos.build
+    question = @lesson_template.questions.build
+    question.answers.build  
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @lesson_template }

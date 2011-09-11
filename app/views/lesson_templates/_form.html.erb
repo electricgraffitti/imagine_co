@@ -1,23 +1,29 @@
-<%= form_for(@lesson_template) do |f| %>
+<%= form_for(@lesson_template, :html => {:multipart => true}) do |f| %>
   <%= render :partial => 'layouts/error_block', :locals => {:obj => @lesson_template} %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="lesson_section section">
+    <div class="field">
+      <%= f.label :name, "Lesson Name" %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field checkbox">
+      <%= f.check_box :public %><%= f.label :public, "Public" %>
+    </div>
+    <div class="field checkbox">
+      <%= f.check_box :private %><%= f.label :private, "Private" %>
+    </div>
+    <% f.fields_for :videos do |v| %>
+      <div class="field">
+        <%= label_tag "Upload Lesson Video" %>
+        <%= v.file_field :video, :label => "Upload Lesson Video" %>
+      </div>
+  	<% end %>
+  </div>
+  <div class="question_section section top_hr bottom_hr">
+    <%= f.fields_for :questions do |q| %>
+      <%= render :partial => 'lesson_templates/question_fields', :locals => {:f => q} %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :questions_count %><br />
-    <%= f.text_field :questions_count %>
-  </div>
-  <div class="field">
-    <%= f.label :private, "Private Template" %><br />
-    <%= f.check_box :private %>
-  </div>
-  <div class="field">
-    <%= f.label :public, "Public Template" %><br />
-    <%= f.check_box :public %>
-  </div>
-  <div class="field">
-    <%= f.submit "Create Template", :class => 'create_button' %>
+    <%= f.submit "Create Lesson", :class => 'button blue_button' %>
   </div>
 <% end %>

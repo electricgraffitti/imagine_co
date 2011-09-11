@@ -65,8 +65,8 @@ html{overflow-y:scroll;}
 .title{font-weight:700;}
 /* Accessible focus treatment:people.opera.com/patrickl/experiments/keyboard/test */
 a:hover,a:active{outline:none;}
-a,a:active,a:visited{color:#0078ae;}
-a:hover{color:#0078ae;}
+a,a:active,a:visited{color:#fff;}
+a:hover{color:#fff;}
 ol{margin-left:1.8em;}
 ol{list-style-type:decimal;}
 li{list-style:none;}
@@ -143,25 +143,146 @@ clip:rect(1px,1px,1px,1px);}
 .right{float:right;}
 /*************************************************************************************************************************************/
 /******************************************************************************************************* ERRORS **********************/
-#flash{display:none;background:none repeat scroll 0 0 #0078ae;color:#FFFFFF;font-size:175%;/* left:50%;margin-left:-480px;*/
-margin-top:0;padding:20px 10px;position:absolute;text-align:center;top:0;width:940px;z-index:210;-webkit-box-shadow:1px 7px 13px #000000;-moz-box-shadow:1px 7px 13px #000000;box-shadow:1px 7px 13px #000000;}
-div.fieldWithErrors input[type="text"]{border:2px solid #CC0000;}
-div.fieldWithErrors label{color:#CC0000;font-weight:bold;}
-#errorExplanation{position:relative;top:0px;left:0%;width:580px;border:2px solid red;padding:7px;padding-bottom:12px;margin-bottom:20px;background-color:#fff;font-weight:bold;}
-#signup_form #errorExplanation h2{text-align:left;text-indent:0px;padding:5px 5px 5px 15px;font-size:125%;margin:-7px;color:#CC0000;width:560px;height:20px;}
-#errorExplanation p{color:#333;margin-bottom:0;padding:5px;float:left;}
-#errorExplanation ul{clear:both;}
-#errorExplanation ul li{font-size:12px;padding-left:10px;}
+#flash {
+display: none;
+background: none repeat scroll 0 0 #3e609c;
+color: #FFFFFF;
+font-size: 175%;
+left:50%;
+margin-left: -480px;
+margin-top:0;
+padding: 20px 10px;
+position: absolute;
+text-align: center;
+top: 0;
+width: 940px;
+z-index: 210;
+-webkit-box-shadow: 1px 7px 13px #000000;
+-moz-box-shadow: 1px 7px 13px #000000;
+box-shadow: 1px 7px 13px #000000;
+}
+div.fieldWithErrors input[type="text"] {
+border: 2px solid #CC0000;
+}
+div.fieldWithErrors label {
+color: #CC0000;
+font-weight: bold;
+}
+#errorExplanation {
+position: relative;
+top: 0px;
+left: 0%;
+width: 580px;
+border: 2px solid red;
+padding: 7px;
+padding-bottom: 12px;
+margin-bottom: 20px;
+background-color: #fff;
+font-weight: bold;
+}
+#signup_form #errorExplanation h2 {
+text-align: left;
+text-indent: 0px;
+padding: 5px 5px 5px 15px;
+font-size: 125%;
+margin: -7px;
+color: #CC0000;
+width: 560px;
+height: 20px;
+}
+#errorExplanation p {
+color: #333;
+margin-bottom: 0;
+padding: 5px;
+float: left;
+}
+#errorExplanation ul {
+clear: both;
+}
+#errorExplanation ul li {
+font-size: 12px;
+padding-left: 10px;
+}
 /******JS Form Errors********/
-input.error,textarea.error{border:2px solid #DB0404;margin:0px;padding:1px;}
-#signup_form p{position:relative;}
-label.error{background:#efefef none repeat scroll 0 0;color:#DB0404;font-size:85%;font-weight:bold;padding:0;position:absolute;top:-3px;left:-5px;width:300px;}
-
+input.error,textarea.error {
+border: 2px solid #DB0404;
+margin: 0px;
+padding: 1px;
+}
+#notification {color: #DB0404;}
+#signup_form p {
+position: relative;
+}
+label.error {
+background: #efefef none repeat scroll 0 0;
+color: #DB0404;
+font-size: 85%;
+font-weight: bold;
+padding: 0;
+position: absolute;
+top: -3px;
+left: -5px;
+width: 300px;
+}
 /*************************************************************************************************************************************/
 /*********************************************************************************************** KETCHUP ERRORS **********************/
-.ketchup-error-container{display:none;position:absolute;width:auto;top:-26px;right:33px;}
-.ketchup-error-container ol{font-size:12px;color:#fff;background:#222;background:rgba(0,120,174,1);padding:10px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;list-style:none;line-height:16px;-moz-box-shadow:0px 1px 2px #283F04;-webkit-box-shadow:0px 1px 2px #283F04;box-shadow:0px 1px 2px #283F04;}
-.ketchup-error-container span{display:block;width:0;height:0;border-left:0 solid transparent;border-right:15px solid transparent;border-top:10px solid #222;border-top:10px solid rgba(0,120,174,1);border-bottom:0;margin:0 auto;}
+.ketchup-error-container {
+display: none;
+position: absolute;
+width: auto;
+top: -26px;
+right: 33px;
+}
+.ketchup-error-container ol {
+font-size: 12px;
+color: #fff;
+background: #222;
+background: rgba(15,15,15,1);
+padding: 10px;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+list-style: none;
+line-height: 16px;
+-moz-box-shadow: 0px 1px 2px #283F04;
+-webkit-box-shadow: 0px 1px 2px #283F04;
+box-shadow: 0px 1px 2px #283F04;
+}
+.ketchup-error-container span {
+display: block;
+width: 0;
+height: 0;
+border-left: 0 solid transparent;
+border-right: 15px solid transparent;
+border-top: 10px solid #222;
+border-top: 10px solid rgba(15,15,15,1);
+border-bottom: 0;
+margin: 0 auto;
+}
+#error_404_page {
+position: relative;
+margin: 20px auto;
+width: 800px;
+height: 500px;
+background: url(../images/404.png) 0px 0px no-repeat;
+}
+#error_500_page {
+position: relative;
+margin: 20px auto;
+width: 800px;
+height: 500px;
+background: url(../images/500.png) 0px 0px no-repeat;
+}
+#mast_header,#mast_banner,#mast_sub_boxes,#mast_footer {
+position: relative;
+text-align: center;
+width: 100%;
+}
+header,#banner,#content, #sub_boxes,footer {
+position: relative;
+width: 1024px;
+margin: 0px auto;
+}
 
 /*************************************************************************************************************************************/
 /*************************************************************************************************** TYPOGRAPHY **********************/
@@ -215,11 +336,7 @@ header, #banner, #bd, footer {
   width: 1024px;
  	text-align: left;
 }
-.round{-webkit-border-radius:3px;-moz-border-radius:3px;-opera-border-radius:3px;border-radius:3px;}
-.round2{-webkit-border-radius:10px;-moz-border-radius:10px;-opera-border-radius:10px;border-radius:10px;}
-.round_top{-moz-border-radius-topleft:5px;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topright:5px;border-top-right-radius:5px;border-top-left-radius:5px;}
-.round_top2{-moz-border-radius-topleft:10px;-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px;-moz-border-radius-topright:10px;border-top-right-radius:10px;border-top-left-radius:10px;}
-.round_bottom{-moz-border-radius-bottomleft:5px;-webkit-border-bottom-left-radius:5px;-webkit-border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;}
+.round{-webkit-border-radius:7px;-moz-border-radius:7px;-opera-border-radius:7px;border-radius:7px;behavior:url(PIE.htc);}
 .box {
 	box-shadow: 0px 0px 1px rgba(0,0,0,0.9);
 	-moz-box-shadow: 0px 0px 1px rgba(0,0,0,0.9);
@@ -527,8 +644,8 @@ img.icon {
 	position: relative;
 	float: left;
 	margin: 10px 0px;
-	padding: 5px;
-	background: #f7efd7;
+	padding: 10px;
+	background: #f2ecdc;
 	border-top: 1px solid #888;
 	border-right: 1px solid #DDD;
 	border-bottom: 1px solid #EEE;
@@ -871,7 +988,19 @@ li.listed_studen .progress_bar .bar {
 	position: relative;
 	float: left;
 	padding: 20px;
-	
+}
+.section {
+	position: relative;
+	float: left;
+	width: 1000px;
+}
+.question_section {
+	width: 980px;
+	padding-left: 20px;
+}
+.answer_section {
+	width: 960px;
+	padding-left: 20px;
 }
 input[type="text"],input[type="password"] {
   background: none repeat scroll 0 0 #efefef;
@@ -911,10 +1040,28 @@ label.check {
 }
 form div.field {
 	float: left;
-	margin: 10px 0 0;
+	margin: 10px 10px 0 0px;
 	position: relative;
 	text-align: left;
 	width: 281px;
+}
+form div.field a {
+	color:#3e609c;
+}
+form div.field a:hover {
+	color:#3e609c;
+	text-decoration: underline;
+}
+form div.field.checkbox {
+	padding-top: 24px;
+	padding-left:10px;
+	width: 160px;
+}
+form div.field.checkbox label {width: 80%;}
+form div.field.checkbox input[type="checkbox"] {
+	float: left;
+	margin-top: 2px;
+	margin-right: 10px;
 }
 form div.button_field {
 	float:left;
@@ -969,15 +1116,6 @@ form .question h3 {
 .button_field {
 	float: left;
 	margin: 15px 0px 0px 10px;
-}
-.payment_header h4 {
-  color: #333333;
-   float: left;
-   font-size: 14px;
-   margin-left: 18px;
-   margin-top: 15px;
-   position: relative;
-   width: 78px;
 }
 #form_panel .button {
 	float: right;

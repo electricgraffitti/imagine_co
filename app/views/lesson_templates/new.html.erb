@@ -1,10 +1,12 @@
-<div class="full_row">
-  <h2 class="page_header">New Lesson Template</h2>
-</div>
-<div class="full_row no_top">
-  <div class="column_2">
-    <%= render :partial => 'lesson_templates/form' %>
-  </div>
+<h3 class="page_header">Setup New Lesson</h3>
+<div class="form_wrap round">
+  <%= render :partial => 'lesson_templates/form' %>
 </div>
 
-<%= link_to 'Back', lesson_templates_path %>
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      form.removeFields();
+    });
+  </script>
+<% end %>
