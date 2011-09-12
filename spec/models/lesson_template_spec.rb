@@ -9,6 +9,8 @@
 #  updated_at      :datetime
 #  public          :boolean(1)
 #  private         :boolean(1)
+#  teacher_id      :integer(4)
+#  account_id      :integer(4)
 #
 
 require 'spec_helper'

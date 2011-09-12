@@ -1,10 +1,6 @@
 <div class="full_row">
-  <h2 class="page_header">New Lesson</h2>
-</div>
-<div class="full_row no_top">
+  <h2 class="page_header">Assign Lesson <%= "to #{@student.full_name}" if @student %></h2>
   <div class="column_2">
     <%= render :partial => 'lessons/form' %>
   </div>
 </div>
-
-<%= link_to 'Back', lessons_path %>

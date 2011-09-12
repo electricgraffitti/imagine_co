@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <%= render :partial => 'layouts/headmeta' %>
+  </head>
+
+  <body id="internal">
+  
+    <%# Flash Notice %>
+    <%= render :partial => 'layouts/flash', :locals => {:flash => flash} %>
+  
+    <%# Header %>
+    <div id="mast_header" class="content_wrapper">
+      <header>
+        <div id="hd" class="internal_content_wrapper">
+          <%= render :partial => "layouts/internal_header" %>
+        </div>
+      </header>
+    </div>
+    <div class="clear"></div>
+  
+    <%# Main Content %>
+    <div id="mast_content" class="content_wrapper">
+      <div id="bd" class="internal_content_wrapper">
+        <div id="page_header" class="bottom_hr">
+          <h1 class="blue_title"> Account: <%= current_user_account_name %> </h1>
+          <div id="page_actions">
+            <%= yield :page_actions %>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <%= yield %>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  
+    <%# Footer %>
+    <div id="mast_footer" class="content_wrapper">
+      <footer>
+        <div id="ft" class="internal_content_wrapper">
+          <%= yield :footer %>
+        </div>
+      </footer>
+    </div>
+    <%= yield :overlays %>
+    <%= render :partial => "layouts/scripts" %>
+  </body>
+
+</html>

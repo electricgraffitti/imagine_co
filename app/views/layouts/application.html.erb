@@ -8,7 +8,9 @@
   <%= render :partial => "layouts/headmeta" %>
 </head>
 <body>
+  <%# Flash Notice %>
   <%= render :partial => 'layouts/flash', :locals => {:flash => flash} %>
+  
   <div id="mast_header">
     <header>
       <%= render :partial => "layouts/header" %>

@@ -44,8 +44,17 @@ class ApplicationController < ActionController::Base
       @current_teacher = current_teacher_session && current_teacher_session.record
     end
     
+    def require_auth
+      unless current_teacher || current_student || current_admin
+        # store_location
+        flash[:notice] = "You must be logged in to access this page"
+        redirect_to root_url
+        return false
+      end
+    end
+    
     def require_teacher
-      unless current_teacher
+      unless current_teacher || current_admin
         # store_location
         flash[:notice] = "You must be logged in to access this page"
         redirect_to new_teacher_session_url

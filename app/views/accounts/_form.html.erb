@@ -1,0 +1,10 @@
+<%= form_for(@account) do |f| %>
+  <%= render :partial => "layouts/error_block", :locals => {:obj => @account} %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.submit button_text, :class => 'button blue_button' %>
+  </div>
+<% end %>

@@ -1,6 +1,9 @@
 class TeachersController < ApplicationController
-  # GET /teachers
-  # GET /teachers.xml
+  
+  before_filter :require_teacher
+  
+  layout 'internal'
+  
   def index
     @teachers = Teacher.all
 
@@ -10,8 +13,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # GET /teachers/1
-  # GET /teachers/1.xml
   def show
     @teacher = Teacher.find(params[:id])
 
@@ -21,8 +22,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # GET /teachers/new
-  # GET /teachers/new.xml
   def new
     @teacher = Teacher.new
 
@@ -32,19 +31,15 @@ class TeachersController < ApplicationController
     end
   end
 
-  # GET /teachers/1/edit
   def edit
     @teacher = Teacher.find(params[:id])
   end
 
-  # POST /teachers
-  # POST /teachers.xml
   def create
     @teacher = Teacher.new(params[:teacher])
-
     respond_to do |format|
-      if @teacher.save
-        format.html { redirect_to teacher_dashboard_path, :notice => 'Teacher was successfully created.' }
+      if @teacher.save_without_session_maintenance
+        format.html { redirect_to teachers_path, :notice => 'Teacher was successfully created.' }
         format.xml  { render :xml => @teacher, :status => :created, :location => @teacher }
       else
         format.html { render :action => "new" }
@@ -53,8 +48,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # PUT /teachers/1
-  # PUT /teachers/1.xml
   def update
     @teacher = Teacher.find(params[:id])
 
@@ -69,8 +62,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # DELETE /teachers/1
-  # DELETE /teachers/1.xml
   def destroy
     @teacher = Teacher.find(params[:id])
     @teacher.destroy
@@ -79,11 +70,6 @@ class TeachersController < ApplicationController
       format.html { redirect_to(teachers_url) }
       format.xml  { head :ok }
     end
-  end
-  
-  def dashboard
-    @teacher = Teacher.admin_rights
-    
   end
   
 end

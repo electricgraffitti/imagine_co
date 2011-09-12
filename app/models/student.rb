@@ -28,6 +28,11 @@ class Student < ActiveRecord::Base
   
   #Associations
   belongs_to :account
+  has_many :lessons
+  has_many :lesson_templates, :through => :lessons
+  has_many :classrooms, :class_name => "classroom", :foreign_key => "reference_id"
+  has_many :teachers, :class_name => "teacher", :foreign_key => "reference_id", :through => :classrooms
+  
   
   #Authlogic
   acts_as_authentic do |c|

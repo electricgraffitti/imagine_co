@@ -10,6 +10,7 @@ gem 'nokogiri'
 gem 'authlogic'
 gem 'rails3-generators'
 gem 'paperclip'
+gem 'nested_form'
 
 group :development do
   gem 'rspec-rails'

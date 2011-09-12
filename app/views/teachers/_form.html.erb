@@ -22,14 +22,13 @@
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Retype Password" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
+  <div class="field checkbox stacked">
+    <%= f.check_box :admin %><%= f.label :admin %>
   </div>
   <div class="field">
-    <%= f.submit "Create Teacher", :class => 'create_button' %>
+    <%= f.submit button_text, :class => 'button blue_button' %>
   </div>
 <% end %>

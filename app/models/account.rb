@@ -11,6 +11,9 @@
 class Account < ActiveRecord::Base
   
   has_many :teachers
+  accepts_nested_attributes_for :teachers, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
+  
   has_many :students
+  accepts_nested_attributes_for :teachers, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
   
 end

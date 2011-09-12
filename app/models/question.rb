@@ -18,8 +18,10 @@ class Question < ActiveRecord::Base
   belongs_to :lesson_template, :counter_cache => true
   
   has_many :answers
+  accepts_nested_attributes_for :answers, :allow_destroy => true, :reject_if => lambda { |obj| obj[:answer].blank? }
+  
   
   has_many :pictures, :as => :attachable
-  accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
+  accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |obj| obj.blank? }
   
 end

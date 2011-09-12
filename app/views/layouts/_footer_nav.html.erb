@@ -12,25 +12,7 @@
       </li>
     <% else %>
       <li>
-        <%= link_to "Admin Login", login_path %>
-      </li>
-    <% end %>
-    <% if current_teacher %>
-      <li>
-        <%= link_to "Teacher Logout", teacher_logout_path %>
-      </li>
-    <% else %>
-      <li>
-      <%= link_to "Teacher Login", teacher_login_path %>
-    </li>
-    <% end %>
-    <% if current_student %>
-      <li>
-        <%= link_to "Student Logout", student_logout_path %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Student Login", student_login_path %>
+        <%= link_to "Admin", login_path %>
       </li>
     <% end %>
   </ul>

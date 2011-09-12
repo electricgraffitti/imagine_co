@@ -1,1 +1,1 @@
-# server 'name_of_server', :app, :web, :db, :primary => true
+server 'imagine', :app, :web, :db, :primary => true

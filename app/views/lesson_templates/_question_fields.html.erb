@@ -1,0 +1,14 @@
+<div class="field">
+  <%= f.label :question %><%= f.link_to_remove "Remove Question"  %>
+  <%= f.text_field :question %>
+</div>
+<div class="field">
+  <%= f.label :question_type, "Question Type" %><br/>
+  <%= f.select(:question_type, %w[Multiple_Choice Short_Answer Essay]) %>
+</div>
+<div class="answer_section section">
+  <%= f.fields_for :answers do |a| %>
+    <%= render :partial => 'lesson_templates/answer_fields', :locals => {:f => a} %>
+  <% end %>
+  <%= f.link_to_add "Add Answer", :answers %>
+</div>

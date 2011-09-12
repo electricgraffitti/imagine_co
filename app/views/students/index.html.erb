@@ -1,29 +1,32 @@
-<h1>Listing students</h1>
-
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>Password</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @students.each do |student| %>
-  <tr>
-    <td><%= student.first_name %></td>
-    <td><%= student.last_name %></td>
-    <td><%= student.email %></td>
-    <td><%= student.password %></td>
-    <td><%= link_to 'Show', student %></td>
-    <td><%= link_to 'Edit', edit_student_path(student) %></td>
-    <td><%= link_to 'Destroy', student, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :page_actions do %>
+   <div id="launch_button">
+     <%= link_to 'Setup New Student', new_student_path, :id => "add_student", :class => "button green_button add add_form" %>
+   </div>
 <% end %>
-</table>
 
-<br />
+<div class="content_segment top_hr">
+  <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
+  <div class="clear"></div>
 
-<%= link_to 'New Student', new_student_path %>
+  <h3>Students</h3>
+  <div id="student_lessons" class="round">
+    <ul id="student_list">
+      <% @students.each do |student| %>
+        <%= render :partial => 'students/listed_student', :locals => {:student => student} %>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<% content_for :overlays do %>
+
+<% end %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function() {
+      
+    });
+  </script>
+<% end %>

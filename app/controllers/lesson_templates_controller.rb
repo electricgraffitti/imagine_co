@@ -1,16 +1,19 @@
 class LessonTemplatesController < ApplicationController
   
-  before_filter :require_teacher, :only => [:edit, :update, :destroy]
-  before_filter :require_admin, :only => [:edit, :update, :destroy]
+  before_filter :require_teacher, :except => [:show]
   
-  # GET /lesson_templates
-  # GET /lesson_templates.xml
+  layout "internal"
+  
   def index
-    @lesson_templates = LessonTemplate.all
-
+    if params[:teacher_id]
+      @teacher_templates = current_teacher.lesson_templates
+    else
+      @templates = LessonTemplate.public_templates
+      @account_templates = LessonTemplate.account_templates(current_teacher.account.id)
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @lesson_templates }
     end
   end
 
@@ -29,7 +32,10 @@ class LessonTemplatesController < ApplicationController
   # GET /lesson_templates/new.xml
   def new
     @lesson_template = LessonTemplate.new
-
+    @lesson_template.videos.build
+    question = @lesson_template.questions.build
+    question.answers.build  
+  
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @lesson_template }
@@ -45,10 +51,16 @@ class LessonTemplatesController < ApplicationController
   # POST /lesson_templates.xml
   def create
     @lesson_template = LessonTemplate.new(params[:lesson_template])
-
+    
+    @lesson_template.teacher_id = current_teacher.id
+    @lesson_template.account_id = current_teacher.account.id
+    
     respond_to do |format|
       if @lesson_template.save
-        format.html { redirect_to(@lesson_template, :notice => 'Lesson template was successfully created.') }
+        if @lesson_template.private = true
+          Curriculum.create(:teacher_id => current_teacher.id, :lesson_template_id => @lesson_template.id)
+        end
+        format.html { redirect_to(lesson_templates_path, :notice => 'Lesson template was successfully created.') }
         format.xml  { render :xml => @lesson_template, :status => :created, :location => @lesson_template }
       else
         format.html { render :action => "new" }

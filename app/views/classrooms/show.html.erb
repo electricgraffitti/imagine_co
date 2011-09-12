@@ -1,0 +1,32 @@
+<% content_for :page_actions do %>
+   <div id="launch_button">
+     <%= link_to 'Add Students', new_classroom_path, :id => "add_student", :class => "button green_button add add_form" %>
+   </div>
+<% end %>
+
+<div class="content_segment top_hr">
+  <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
+  <div class="clear"></div>
+
+  <h3>Students</h3>
+  <div id="student_lessons" class="round">
+    <ul id="student_list">
+      <% @students.each do |student| %>
+        <%= render :partial => 'students/listed_student', :locals => {:student => student} %>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<% content_for :overlays do %>
+
+<% end %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function() {
+      
+    });
+  </script>
+<% end %>

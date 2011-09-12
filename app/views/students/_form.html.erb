@@ -1,6 +1,6 @@
 <%= form_for(@student) do |f| %>
   <%= render :partial => "layouts/error_block", :locals => {:obj => @student} %>
-
+  
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
@@ -22,10 +22,10 @@
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Retype Password" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.submit "Create Student", :class => 'create_button' %>
+    <%= f.submit button_text, :class => 'button blue_button' %>
   </div>
 <% end %>
