@@ -21,11 +21,11 @@
 :deploy_to: /var/www/apps/testbuilder
 
 # Primary domain application will be accessed as
-:domain: testbuilder.cube2media.com
+:domain: teachersburro.com
 
 # Domain aliases for application. One common use of this is for asset hosts.
-# :domain_aliases:
-#  - www.testbuilder.cube2media.com
+:domain_aliases:
+ - testbuilder.cube2media.com
 
 # Source control management to use. Defaults to git.
 # If you change this value, you will need to run: cap vcs:install
