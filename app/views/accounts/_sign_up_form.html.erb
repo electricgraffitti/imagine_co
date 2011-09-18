@@ -27,7 +27,7 @@
     </div>
     <div class="field">
       <%= t.label  :password_confirmation, "Repeat Password" %><br />
-      <%= t.password_field :password_confirmation, "data-validate" => "validate(required, match(#password))" %>
+      <%= t.password_field :password_confirmation, "data-validate" => "validate(required)" %>
     </div>
     <%= t.hidden_field :admin, :value => 1 %>
   <% end %>
