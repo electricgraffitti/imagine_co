@@ -42,10 +42,8 @@ class AccountsController < ApplicationController
         teacher = @account.teachers.last
         TeacherSession.create(:login => teacher.username, :password => teacher.crypted_password)
         format.html { redirect_to teacher_dashboard_path, :notice => 'Account was successfully created.' }
-        format.xml  { render :xml => @account, :status => :created, :location => @account }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @account.errors, :status => :unprocessable_entity }
+        format.html { redirect_to teacher_dashboard_path, :notice => 'Processing Error, Please try again.' }
       end
     end
   end
@@ -58,7 +56,7 @@ class AccountsController < ApplicationController
         format.html { redirect_to(@account, :notice => 'Account was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => "edit", :notice => 'Processing Error, Please try again.' }
         format.xml  { render :xml => @account.errors, :status => :unprocessable_entity }
       end
     end

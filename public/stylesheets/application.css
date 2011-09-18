@@ -259,6 +259,37 @@ border-top: 10px solid rgba(15,15,15,1);
 border-bottom: 0;
 margin: 0 auto;
 }
+.ketchup-error {
+  position: absolute;
+  width: auto;
+}
+
+.ketchup-error ul {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  text-align: left;
+  color: #fff;
+  background: black;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+  list-style: none;
+  line-height: 16px;
+}
+
+.ketchup-error span {
+  display: block;
+  width: 0; 
+  height: 0; 
+  border-left: 0 solid transparent; 
+  border-right: 15px solid transparent;
+  border-top: 10px solid black;
+  border-top: 10px solid rgba(0, 0, 0, 0.9);
+  border-bottom: 0;
+  margin-left: 10px;
+}
 #error_404_page {
 position: relative;
 margin: 20px auto;
@@ -273,17 +304,6 @@ width: 800px;
 height: 500px;
 background: url(../images/500.png) 0px 0px no-repeat;
 }
-#mast_header,#mast_banner,#mast_sub_boxes,#mast_footer {
-position: relative;
-text-align: center;
-width: 100%;
-}
-header,#banner,#content, #sub_boxes,footer {
-position: relative;
-width: 1024px;
-margin: 0px auto;
-}
-
 /*************************************************************************************************************************************/
 /*************************************************************************************************** TYPOGRAPHY **********************/
 h1,h2,h3,h4,h5{color:#444;}
@@ -645,7 +665,7 @@ img.icon {
 }
 /*************************************************************************************************************************************/
 /*************************************************************************************************** LESSONS *************************/
-#student_lessons, .form_wrap, #student_list_wrap {
+#student_lessons, .form_wrap, #student_list_wrap, #listed_questions{
 	position: relative;
 	float: left;
 	margin: 10px 0px;
@@ -664,9 +684,8 @@ img.icon {
 	top: 5px;
 	left: 0px;
 	width: 850px;
-	height: 478px;
 }
-ul#listed_lessons, ul#listed_lessons li.listed_lesson, ul.lesson_actions, ul.lesson_actions li.action, ul#student_list, ul#student_list li.listed_student {
+.ajax_panel, li.listed_item, ul#listed_lessons, ul#listed_lessons li.listed_lesson, ul.lesson_actions, ul.lesson_actions li.action, ul#student_list, ul#student_list li.listed_student {
 	position: relative;
 	float: left;
 }
@@ -678,7 +697,7 @@ ul#student_list {
 	overflow-x: hidden;
 	overflow-y:scroll;
 }
-ul#listed_lessons li.listed_lesson, ul#student_list li.listed_student, .internal_wrap {
+ul#listed_lessons li.listed_lesson, ul#student_list li.listed_student, .internal_wrap, li.listed_item {
 	width: 910px;
 	padding: 10px;
 	background: #EEE6CD;
@@ -688,6 +707,8 @@ ul#listed_lessons li.listed_lesson, ul#student_list li.listed_student, .internal
 	border-top: 1px solid #EEE;
 	border-right: 1px solid #CCC;
 }
+.ajax_panel li.listed_item {width:875px;}
+.listed_creds {width: 910px;}
 .lesson_title {
 	width: 35%;
 	float: left;
@@ -809,6 +830,20 @@ li.listed_student .edit_form {
 li.listed_student .edit_form .button {
 	float:right;
 	margin-left:10px;
+}
+.student_actions, .listed_actions {
+	position: relative;
+	float:right;
+/*	width: 225px;*/
+}
+.student_actions a, .listed_actions a, .listed_actions span {
+	color: #0088cc;
+	padding-right: 20px;
+	display:block;
+	float:left;
+}
+.listed_actions span {
+	color:#299A0B;
 }
 /*************************************************************************************************************************************/
 /****************************************************************************************************** FOOTER ***********************/
@@ -1096,6 +1131,9 @@ form div.field select {
   width: 153px;
 	padding: 6px;
 }
+#short_answer {
+	display: none;
+}
 form .question h3 {
 	color: #555;
 	font-size: 120%;
@@ -1112,6 +1150,28 @@ form .question h3 {
 	margin-top: 0px;
 }
 .question {
+	width: 926px;
+	padding: 10px;
+	background: #ddd;
+	margin-bottom: 5px;
+	border-top: 1px solid #888;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #EEE;
+	border-left: 1px solid #999;
+}
+.question .answer {
+	width: 100%;
+	padding: 5px 0px;
+}
+form .btn {
+	height: 37px;
+}
+form .back_link {
+	display: block;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+form .submit {
 	width: 926px;
 	padding: 10px;
 	background: #ddd;
@@ -1165,7 +1225,7 @@ box-shadow: 0 0 90px 5px #000000;
 -webkit-box-shadow: 0 0 90px #000;
 }
 /* close button positioned on upper right corner */
-.simple_overlay .close, .photo_overlay .close {
+.simple_overlay .close, .photo_overlay .close, .ajax_panel .close {
   background-image: url("../images/close.png");
   cursor: pointer;
   height: 25px;
@@ -1180,6 +1240,10 @@ box-shadow: 0 0 90px 5px #000000;
 }
 .photo_overlay {
 	text-align: center;
+}
+.ajax_panel .close {
+	right: -3px;
+  top: 3px;
 }
 /*************************************************************************************************************************************/
 /******************************************************************************************* TOOL TIPS (TipTip) **********************/

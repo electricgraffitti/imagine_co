@@ -6,8 +6,19 @@
   <% else %>
     <% lessons.each do |lesson| %>
       <li class="listed_lesson round">
-        <h4 class="lesson_title"><%= lesson.lesson_template.name %></h4>
-        <div class="lesson_score">Lesson Type: <%= lesson.lesson_template.name if lesson.lesson_template.name? %></div>
+        <h4 class="lesson_title"><%= lesson.name %></h4>
+        <div class="lesson_score">Lesson Subject: <%= lesson.subject %></div>
+        <div class="listed_actions">
+          <% if lesson.test_complete? %>
+            <span class="green">Lesson Complete</span>
+            <%= link_to "View Results", lesson_results_path(:lesson_id => lesson.id), :class => "view_results" %>
+          <% else %>
+            <%= link_to "Take Test", edit_lesson_path(lesson), :class => "view_questions" %>
+          <% end %>
+        </div>
+        <div class="ajax_panel">
+        
+        </div>
       </li>
     <% end %>
   <% end %>

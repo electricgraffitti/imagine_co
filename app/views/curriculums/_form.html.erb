@@ -1,0 +1,14 @@
+<%= form_for curriculum do |f| %>
+  <%= render :partial => 'layouts/error_block', :locals => {:obj => curriculum} %>
+  <% if params[:lesson_template_id] %>
+    <%= f.hidden_field :lesson_template_id, :value => params[:lesson_template_id] %>
+    <% else %>
+      <div class="field">
+        <%= f.label :lesson_template_id, "Choose Lesson" %><br />
+        <%= f.collection_select(:lesson_template_id, LessonTemplates.all, :id, :name, {:prompt => "Choose Lesson"}) %>
+      </div>
+    <% end %>
+  <div class="field">
+    <%= f.submit "Assign Lesson", :class => 'button blue_button' %>
+  </div>
+<% end %>

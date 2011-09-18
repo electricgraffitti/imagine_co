@@ -31,5 +31,19 @@ class LessonTemplate < ActiveRecord::Base
   scope :account_templates, lambda {|aid| where("account_id = ? && private = ? && public = ?", aid, false, false)}
   scope :private_templates, lambda {|id| where("teacher_id =? && private = ?", id, true)}
   
+  # Methods
+  
+  def in_curriculum(teacher)
+    cid = []
+    teacher.curriculums.each do |c|
+      cid.push(c.lesson_template_id)
+    end
+    cid.include?(self.id)
+  end
+  
+  def self.filtered(id)
+    self.find(:all, :conditions => ["id != ?", id])
+  end
+  
   
 end
