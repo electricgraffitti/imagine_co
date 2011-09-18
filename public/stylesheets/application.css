@@ -1092,6 +1092,8 @@ form div.field {
 	text-align: left;
 	width: 281px;
 }
+form div.field.small_field {width: 80px;}
+form div.field.small_field input[type="text"] {width: 60px;}
 form div.fields {
 	position: relative;
 	float:left;

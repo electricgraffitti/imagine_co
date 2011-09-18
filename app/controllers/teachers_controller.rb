@@ -5,7 +5,7 @@ class TeachersController < ApplicationController
   layout 'internal'
   
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.account_teachers(current_teacher.account.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,6 +37,7 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.new(params[:teacher])
+    @teacher.account_id = current_teacher.account.id
     respond_to do |format|
       if @teacher.save_without_session_maintenance
         format.html { redirect_to teachers_path, :notice => 'Teacher was successfully created.' }

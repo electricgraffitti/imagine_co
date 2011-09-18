@@ -34,13 +34,17 @@ class Teacher < ActiveRecord::Base
   has_many :curriculums
   has_many :lesson_templates, :through => :curriculums
   
+  validates_uniqueness_of :email, :on => :create, :message => "must be unique"
+  
   #Authlogic
   acts_as_authentic do |c|
+    c.login_field = :email
     c.logged_in_timeout = 120.minutes
   end
   
   # Scopes
   scope :admin_rights, where("admin = ?", true)
+  scope :account_teachers, lambda { |account_id| where("account_id = ?", account_id) }
   
   # Methods
   
