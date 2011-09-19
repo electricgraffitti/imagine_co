@@ -6,6 +6,14 @@
   <%= f.label :question_type, "Question Type" %><br/>
   <%= f.select(:question_type, %w[Multiple_Choice Short_Answer Essay]) %>
 </div>
+<div class="field small_field">
+  <%= f.label :score, "Score" %><br/>
+  <%= f.text_field :score %>
+</div>
+<div class="field small_field">
+  <%= f.label :order, "Order" %><br/>
+  <%= f.text_field :order %>
+</div>
 <div class="answer_section section">
   <%= f.fields_for :answers do |a| %>
     <%= render :partial => 'lesson_templates/answer_fields', :locals => {:f => a} %>

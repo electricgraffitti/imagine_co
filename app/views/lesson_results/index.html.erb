@@ -1,0 +1,10 @@
+<div class="return_panel round">
+  <ul>
+    <% @lesson.questions.each do |q| %>
+      <li class="listed_item">
+        <h4><%= q.question %> - <%= q.question_type %></h4>
+        <p><%= q.student_result(@lesson.id) %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>

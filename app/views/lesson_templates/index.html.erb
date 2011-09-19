@@ -3,6 +3,7 @@
      <%= link_to 'Create A Lesson', new_lesson_template_path(:teacher_id => current_teacher.id), :id => "add_template", :class => "button green_button add add_form" %>
    </div>
 <% end %>
+
 <div class="content_segment top_hr">
   <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
   <div class="clear"></div>
@@ -37,10 +38,16 @@
 <% end %>
 
 <% content_for :javascripts do %>
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function() {
+    triggers.viewQuestions();
+  });
+</script>
 <% unless @teacher_templates %>
   <% if @templates.empty? %>
     <script type="text/javascript" charset="utf-8">
       jQuery(document).ready(function() {
+        triggers.viewQuestions();
         overlays.triggerWelcomeWindow();
       });
     </script>

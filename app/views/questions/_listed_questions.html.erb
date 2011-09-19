@@ -1,0 +1,19 @@
+<ul>
+  <% questions.each do |question| %>
+    <li class="listed_item round">
+      <div class="listed_info listed_panel">
+        <div class="students_name">
+          <%= link_to question.question, question, :class => "view_question" %> 
+        </div>
+        <ul class="listed_creds">
+          <% question.answers.each do |a| %>
+            <li><%= a.answer %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="student_actions">
+      </div>
+      <div class="clear"></div>
+    </li>
+  <% end %>
+</ul>

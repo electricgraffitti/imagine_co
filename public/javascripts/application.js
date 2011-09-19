@@ -151,7 +151,71 @@ var triggers = {
 			
 			e.preventDefault();
 		});
+	},
+	
+	viewResults: function() {
+		var triggerLink = $(".view_results");
+		triggers.loadAjaxPanel(triggerLink);
+	},
+	
+	viewQuestions: function() {
+		var triggerLink = $(".view_questions");
+		triggers.loadAjaxPanel(triggerLink);
+	},
+	
+	loadAjaxPanel: function(triggerLink) {
+		triggerLink.click(function(e) {
+	
+			var ajaxPanel = $(this).parents(".listed_lesson").first().find(".ajax_panel"),
+					link = $(this).attr("href");
+					
+			ajaxPanel.html("");
+			
+			ajaxPanel.load("" + link + " .return_panel", function() {
+				ajaxPanel.show();
+				ajaxPanel.append("<a href='' class='close'></a>")
+				triggers.closeAjaxPanel(ajaxPanel);
+			});
+			e.preventDefault();
+		});
+	},
+	
+	closeAjaxPanel: function(ajaxPanel) {
+		var closeLink = ajaxPanel.find(".close");
+		
+		closeLink.live("click", function(e) {
+			e.preventDefault();
+			ajaxPanel.empty();
+		});
+	},
+	
+	loadLessonPanel: function() {
+		var lessonLink = $(".score_trigger");
+		
+		lessonLink.click(function(e) {
+			
+			var lessonPanel = $(this).parents(".listed_student").first().find(".test_view"),
+					link = $(this).attr("href");
+					
+			lessonPanel.html("");
+			
+			lessonPanel.load("" + link + " .return_panel", function() {
+				lessonPanel.show();
+				triggers.closeLessonPanel();
+			});
+			
+			e.preventDefault();
+		});
+	},
+	
+	closeLessonPanel: function() {
+		var closeLink = $(".return_panel .close");
+		
+		closeLink.live("click", function() {
+			$(this).parent().empty();
+		});
 	}
+	
 	
 };
 
@@ -163,7 +227,13 @@ var form = {
 		
 		addLinks.addClass("add_button green");
 		removeLinks.addClass("remove_button red");
-	}
+	},
+	
+	validateSignUp: function() {
+		var signUpForm = $("#new_account");
+		
+		signUpForm.ketchup();
+	},
 	
 	// removeFields: function() {
 	// 	var removeLink = $(".remove_link");

@@ -1,11 +1,14 @@
-<div class="question short_answer">
+<div class="question short_answer round">
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
-    <% q.answers.each do |a| %>
-      <div class="answer"><%= input_tag "#{q.id}", "#{a.id}" %> <%= label_tag "#{a.answer}" %></div>
+    <% q.ko_answers.each do |a| %>
+      <div class="answer">
+        <%= hidden_field_tag "#{q.id}[answer_id]", "#{a.id}"%>
+        <%= text_area_tag "#{q.id}[student_answer]", nil, :rows => 5, :cols => 56 %> 
+      </div>
     <% end %>
   </div>
   <div class="column">
-    <%= image_tag(q.pictures.last.pic.url(:regular)) unless q.pictures.empty? %>
+    <%= image_tag(q.pictures.last.pic.url(:regular), :height => "125") unless q.pictures.empty? %>
   </div>
 </div>

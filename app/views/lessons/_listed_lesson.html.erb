@@ -1,0 +1,14 @@
+<li class="listed_student round">
+  <div class="student_info student_panel">
+    <div class="students_name">
+      <%= link_to lesson.name, lesson, :class => "view_lesson" %> 
+    </div>
+    <ul class="student_creds">
+      <li>Lesson Score: <%= link_to "#{lesson.score}", lesson_result_path(lesson), :class => "score_trigger" %></li>
+      <li>Lesson Date: <%= (lesson.updated_at).to_s(:pretty) %></li>
+    </ul>
+  </div>
+  <div class="student_actions">
+  </div>
+  <div class="clear"></div>
+</li>

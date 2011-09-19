@@ -17,8 +17,41 @@ class Lesson < ActiveRecord::Base
   #Associations
   belongs_to :lesson_template
   belongs_to :student
+  has_many :lesson_results
   
   #Scopes
   scope :test_complete, :conditions => {"complete = ?", true}
+  
+  # Methods
+  
+  def name
+    return self.lesson_template.name
+  end
+  
+  def subject
+    return self.lesson_template.subject
+  end
+  
+  def questions
+    return self.lesson_template.questions
+  end
+  
+  def video_url
+    return self.lesson_template.videos.last.video.url
+  end
+  
+  def template_name
+    return self.lesson_template.name
+  end
+  
+  def test_complete?
+    if self.complete == true
+      return true
+    else
+      return false
+    end
+  end
+  
+  
   
 end

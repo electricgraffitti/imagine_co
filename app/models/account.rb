@@ -16,4 +16,6 @@ class Account < ActiveRecord::Base
   has_many :students
   accepts_nested_attributes_for :teachers, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
   
+  validates_presence_of :name, :on => :create, :message => "can't be blank"
+  
 end

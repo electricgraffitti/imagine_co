@@ -1,8 +1,17 @@
 <ul id="listed_lessons">
   <% templates.each do |template| %>
-    <li class="listed_lesson round">
-      <h4 class="lesson_title"><%= template.name %></h4>
-      <div class="lesson_score">Lesson Type: <%= template.name if template.name? %></div>
-    </li>
+    <% unless template.in_curriculum(current_teacher) && !params[:teacher_id] %>
+      <li class="listed_lesson round">
+        <h4 class="lesson_title"><%= template.name %></h4>
+        <div class="lesson_score">Subject: <%= template.subject if template.subject? %></div>
+        <div class="listed_actions">
+          <%= link_to "View Questions", template, :class => "view_questions" %>
+          <%= link_to "Add to Curriculum", new_curriculum_path(:lesson_template_id => template.id), :class => "add_curriculum" unless params[:teacher_id] %>
+        </div>
+        <div class="ajax_panel">
+        
+        </div>
+      </li>
+    <% end %>
   <% end %>
 </ul>

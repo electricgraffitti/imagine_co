@@ -24,7 +24,7 @@ class LessonTemplatesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @lesson_template }
+      format.js
     end
   end
 

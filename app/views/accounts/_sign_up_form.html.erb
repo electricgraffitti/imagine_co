@@ -2,32 +2,28 @@
   <%= render :partial => "layouts/error_block", :locals => {:obj => @account} %>
   <div class="field">
     <%= f.label :name, "Account Name" %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, "data-validate" => "validate(required)"%>
   </div>
   <% f.fields_for :teachers do |t| %>
     <div class="field">
       <%= t.label :first_name %><br />
-      <%= t.text_field :first_name %>
+      <%= t.text_field :first_name, "data-validate" => "validate(required)" %>
     </div>
     <div class="field">
       <%= t.label  :last_name %><br />
-      <%= t.text_field :last_name %>
+      <%= t.text_field :last_name, "data-validate" => "validate(required)" %>
     </div>
     <div class="field">
       <%= t.label  :email %><br />
-      <%= t.text_field :email %>
-    </div>
-    <div class="field">
-      <%= t.label  :username %><br />
-      <%= t.text_field :username %>
+      <%= t.text_field :email, "data-validate" => "validate(required, email)" %>
     </div>
     <div class="field">
       <%= t.label  :password %><br />
-      <%= t.password_field :password %>
+      <%= t.password_field :password, "data-validate" => "validate(required)" %>
     </div>
     <div class="field">
       <%= t.label  :password_confirmation, "Repeat Password" %><br />
-      <%= t.password_field :password_confirmation %>
+      <%= t.password_field :password_confirmation, "data-validate" => "validate(required)" %>
     </div>
     <%= t.hidden_field :admin, :value => 1 %>
   <% end %>
