@@ -17,11 +17,70 @@ class Question < ActiveRecord::Base
   #Assoctiations
   belongs_to :lesson_template, :counter_cache => true
   
+  has_many :lesson_results
+  
   has_many :answers
   accepts_nested_attributes_for :answers, :allow_destroy => true, :reject_if => lambda { |obj| obj[:answer].blank? }
   
   
   has_many :pictures, :as => :attachable
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |obj| obj.blank? }
+  
+  # Methods
+  
+  def student_result(lessonid)
+    @lesson_result = LessonResult.specific_result(lessonid, self.id)
+    if @lesson_result
+      return @lesson_result
+    else
+      return "No Result"
+    end
+  end
+  
+  def self.score_answers(params)
+    score = 0
+    
+    params.each do |k,v|
+        if k.to_i > 0
+        q = self.find(k)
+        case q.question_type
+        when "Short_Answer"
+          score += valuate_short_answer(q,v)
+        when "Essay"
+          score += valuate_essay(q,v)
+        else
+          score += valuate_multiple_choice(q,v)
+        end
+      end
+    end
+    return score
+  end
+  
+  private
+  
+  def self.valuate_multiple_choice(q,v)
+    a = Answer.find(v)
+    if a.correct?
+      q.score
+    else
+      0
+    end
+  end
+  
+  def self.valuate_short_answer(q,v)
+    
+    a = Answer.find(v['answer_id'])
+    if a.answer.eql? v['student_answer']
+      q.score
+    else
+      0
+    end
+    
+  end
+  
+  def self.valuate_essay(q,v)
+    q.score
+  end
+  
   
 end

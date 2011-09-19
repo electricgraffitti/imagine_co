@@ -1,15 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% content_for :page_actions do %>
+  <div id="launch_button">
+    <%#= link_to 'Assign A Lesson', new_lesson_path(:student_id => @student.id), :id => "assign_lesson", :class => "button green_button add add_form" if current_teacher %>
+  </div>
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @lesson_template.name %>
-</p>
+<div class="content_segment top_hr">
+  <h2 class="user_name"><%= (@lesson_template.name).titleize %></h2>
+  <div class="clear"></div>
 
-<p>
-  <b>Questions count:</b>
-  <%= @lesson_template.questions_count %>
-</p>
+  <h3>Lesson Questions</h3>
+  <ul id="listed_questions" class="return_panel round">
+    <%= render :partial => "questions/listed_questions", :locals => {:questions => @lesson_template.questions} %>
+  </ul>
+</div>
 
+<% content_for :overlays do %>
 
-<%= link_to 'Edit', edit_lesson_template_path(@lesson_template) %> |
-<%= link_to 'Back', lesson_templates_path %>
+<% end %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function() {
+      
+    });
+  </script>
+<% end %>

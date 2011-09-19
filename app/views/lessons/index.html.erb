@@ -1,31 +1,32 @@
-<h1>Listing lessons</h1>
-
-<table>
-  <tr>
-    <th>Lesson template</th>
-    <th>User</th>
-    <th>Video watched</th>
-    <th>Complete</th>
-    <th>Score</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @lessons.each do |lesson| %>
-  <tr>
-    <td><%= lesson.lesson_template_id %></td>
-    <td><%= lesson.user_id %></td>
-    <td><%= lesson.video_watched %></td>
-    <td><%= lesson.complete %></td>
-    <td><%= lesson.score %></td>
-    <td><%= link_to 'Show', lesson %></td>
-    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-    <td><%= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :page_actions do %>
+   <div id="launch_button">
+     <%#= link_to 'Add Students', new_classroom_path, :id => "add_student", :class => "button green_button add add_form" %>
+   </div>
 <% end %>
-</table>
 
-<br />
+<div class="content_segment top_hr">
+  <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
+  <div class="clear"></div>
 
-<%= link_to 'New Lesson', new_lesson_path %>
+  <h3>Lessons - <%= (@student.full_name).titleize if @student %></h3>
+  <div id="student_lessons" class="round">
+    <ul id="student_list">
+      <% @student.lessons.each do |lesson| %>
+        <%= render :partial => 'lessons/listed_lesson', :locals => {:lesson => lesson} %>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<% content_for :overlays do %>
+
+<% end %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function() {
+      
+    });
+  </script>
+<% end %>

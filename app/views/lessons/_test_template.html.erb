@@ -1,0 +1,22 @@
+<div class="form_wrap">
+  <div id="player"></div>
+    <div id="lesson_form">
+      <% form_for(lesson, :class => "round") do |f| %>
+         <%= render :partial => 'layouts/error_block', :locals => {:obj => lesson} %>
+          <% lesson.questions.each_with_index do |q,i| %>
+            <% if q.question_type == "Multiple_Choice" %>
+              <%= render :partial => 'questions/multi_choice', :locals => {:i => i, :q => q} %>
+            <% elsif q.question_type == "Short_Answer" %>
+              <%= render :partial => 'questions/short_answer', :locals => {:i => i, :q => q} %>
+            <% else q.question_type == "Essay" %>
+              <%= render :partial => 'questions/essay', :locals => {:i => i, :q => q} %>
+            <% end %>
+          <% end %>
+
+        <div class="submit">
+          <%= submit_tag "Submit Test", :class => "button green_button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

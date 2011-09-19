@@ -33,9 +33,12 @@ class Student < ActiveRecord::Base
   has_many :classrooms, :class_name => "classroom", :foreign_key => "reference_id"
   has_many :teachers, :class_name => "teacher", :foreign_key => "reference_id", :through => :classrooms
   
+  validates_uniqueness_of :email, :on => :create, :message => "must be unique"
+  
   
   #Authlogic
   acts_as_authentic do |c|
+    c.login_field = :email
     c.logged_in_timeout = 120.minutes
   end
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911174737) do
+ActiveRecord::Schema.define(:version => 20110918174421) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(:version => 20110911174737) do
     t.datetime "updated_at"
   end
 
+  create_table "lesson_results", :force => true do |t|
+    t.integer  "lesson_id"
+    t.integer  "question_id"
+    t.text     "student_answer"
+    t.text     "answer_state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lesson_templates", :force => true do |t|
     t.string   "name"
     t.integer  "questions_count"
@@ -72,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20110911174737) do
     t.boolean  "private"
     t.integer  "teacher_id"
     t.integer  "account_id"
+    t.text     "subject"
   end
 
   create_table "lessons", :force => true do |t|
@@ -161,27 +171,6 @@ ActiveRecord::Schema.define(:version => 20110911174737) do
     t.datetime "updated_at"
     t.boolean  "admin"
     t.integer  "account_id"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "username"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
-    t.string   "single_access_token"
-    t.string   "perishable_token"
-    t.integer  "login_count"
-    t.integer  "failed_login_count"
-    t.datetime "last_request_at"
-    t.datetime "current_login_at"
-    t.datetime "last_login_at"
-    t.string   "current_login_ip"
-    t.string   "last_login_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "videos", :force => true do |t|

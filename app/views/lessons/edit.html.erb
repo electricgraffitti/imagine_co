@@ -1,6 +1,27 @@
-<h1>Editing lesson</h1>
+<% content_for :page_actions do %>
+  <div id="launch_button">
+    <%= link_to 'Back to Dashboard', student_dashboard_path, :class => "button blue_button" %>
+  </div>
+<% end %>
 
-<%= render 'form' %>
+<div class="content_segment top_hr">
+  <h2 class="user_name"><%= (current_student.full_name).titleize %></h2>
+  <div class="clear"></div>
 
-<%= link_to 'Show', @lesson %> |
-<%= link_to 'Back', lessons_path %>
+  <h3></h3>
+  <div id="student_lessons" class="round">
+    <%= render :partial => 'lessons/test_template', :locals => {:lesson => @lesson} %>
+  </div>
+</div>
+
+<% content_for :overlays do %>
+
+<% end %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function() {
+      
+    });
+  </script>
+<% end %>

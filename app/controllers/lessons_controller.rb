@@ -1,12 +1,17 @@
 class LessonsController < ApplicationController
   
-   before_filter :require_teacher
+   before_filter :require_teacher, :except => [:edit, :update]
    
    layout 'internal'
   # GET /lessons
   # GET /lessons.xml
   def index
-    @lessons = Lesson.all
+    
+    if params[:student_id]
+      @student = Student.find(params[:student_id]);
+    else
+      @lessons = Lesson.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -63,10 +68,15 @@ class LessonsController < ApplicationController
   # PUT /lessons/1.xml
   def update
     @lesson = Lesson.find(params[:id])
-
+    
+    score = Question.score_answers(params)
+    video_watched = true
+    complete = true
+    
     respond_to do |format|
-      if @lesson.update_attributes(params[:lesson])
-        format.html { redirect_to(@lesson, :notice => 'Lesson was successfully updated.') }
+      if @lesson.update_attributes(:score => score, :video_watched => video_watched, :complete => complete )
+        LessonResult.file_answers(params, @lesson)
+        format.html { redirect_to(student_dashboard_path, :notice => 'Lesson was successfully completed.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
