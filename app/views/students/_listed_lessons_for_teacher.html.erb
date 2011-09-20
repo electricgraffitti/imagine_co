@@ -1,0 +1,25 @@
+<ul id="listed_lessons">
+  <% if lessons.empty? %>
+    <li class="listed_lesson round">
+      <h4 class="lesson_title">No Lessons Currently Assigned.</h4>
+    </li>
+  <% else %>
+    <% lessons.each do |lesson| %>
+      <li class="listed_lesson round">
+        <h4 class="lesson_title"><%= lesson.name %></h4>
+        <div class="lesson_score">Lesson Subject: <%= lesson.subject %></div>
+        <div class="listed_actions">
+          <% if lesson.test_complete? %>
+            <span class="green">Lesson Complete</span>
+            <span class="blue">Lesson Score: <%= lesson.score %></span>
+          <% else %>
+            <span class="red">Lesson Not Complete</span>
+          <% end %>
+        </div>
+        <div class="ajax_panel">
+        
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

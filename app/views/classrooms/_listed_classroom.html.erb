@@ -1,0 +1,14 @@
+<li class="listed_student round">
+  <div class="student_info student_panel">
+    <div class="students_name">
+      <%= link_to classroom.name, classroom_path(classroom), :class => "view_student" %> 
+    </div>
+    <ul class="student_creds">
+      <li>Student Count: <%= classroom.student_count %></li>
+    </ul>
+  </div>
+  <div class="student_actions">
+    <%= link_to "Delete Classroom", classroom, :method => 'delete', :confirm => 'Are you sure you want to delete this classroom?', :title => "Delete Classroom", :class => "remove_button red" if current_teacher.admin %>
+  </div>
+  <div class="clear"></div>
+</li>

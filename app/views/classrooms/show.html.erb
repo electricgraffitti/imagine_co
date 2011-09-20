@@ -1,18 +1,19 @@
 <% content_for :page_actions do %>
    <div id="launch_button">
-     <%= link_to 'Add Students', new_classroom_path, :id => "add_student", :class => "button green_button add add_form" %>
+     <%= link_to 'Add Students', new_course_path(:classroom_id => @classroom.id), :id => "add_student", :class => "button green_button add add_form" %>
+     <%= link_to 'Create New Student', new_student_path(:classroom_id => @classroom.id), :id => "add_student", :class => "button green_button add add_form" %>
    </div>
 <% end %>
 
 <div class="content_segment top_hr">
-  <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
+  <h2 class="user_name"><%= (current_teacher.full_name).titleize %> - <%= @classroom.name %></h2>
   <div class="clear"></div>
 
   <h3>Students</h3>
   <div id="student_lessons" class="round">
     <ul id="student_list">
-      <% @students.each do |student| %>
-        <%= render :partial => 'students/listed_student', :locals => {:student => student} %>
+      <% @classroom.students.each do |student| %>
+        <%= render :partial => 'students/listed_student', :locals => {:student => student, :classroom_id => @classroom.id} %>
       <% end %>
     </ul>
   </div>

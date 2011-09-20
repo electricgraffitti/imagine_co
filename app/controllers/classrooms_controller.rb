@@ -4,7 +4,7 @@ class ClassroomsController < ApplicationController
   layout 'internal'
   
   def index
-    @students = current_teacher.students
+    @classrooms = current_teacher.classrooms
   end
   
   def new
@@ -12,7 +12,7 @@ class ClassroomsController < ApplicationController
   end
   
   def show
-    @students = current_teacher.students
+    @classroom = Classroom.find(params[:id])
   end
   
   def create
@@ -20,7 +20,7 @@ class ClassroomsController < ApplicationController
     @classroom.teacher_id = current_teacher.id
     respond_to do |format|
       if @classroom.save
-        format.html { redirect_to(classroom_path, :notice => 'Student was successfully added.') }
+        format.html { redirect_to(classrooms_path, :notice => 'Classroom was successfully added.') }
       else
         format.html { render :action => "new" }
       end
@@ -28,5 +28,12 @@ class ClassroomsController < ApplicationController
   end
   
   def destroy
+    @classroom = Classroom.find(params[:id])
+    @classroom.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(classrooms_path, :notice => "Classroom deleted.") }
+      format.xml  { head :ok }
+    end
   end
 end
