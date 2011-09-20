@@ -1,8 +1,9 @@
-<div class="form_wrap">
-  <div id="player"></div>
-    <div id="lesson_form">
-      <% form_for(lesson, :class => "round") do |f| %>
-         <%= render :partial => 'layouts/error_block', :locals => {:obj => lesson} %>
+<div id="lesson_form">
+  <% form_for(lesson, :class => "round") do |f| %>
+    <%= render :partial => 'layouts/error_block', :locals => {:obj => lesson} %>
+    <div id="slider">
+     <div class="scroll">
+       <div class="scroll_container">
           <% lesson.questions.each_with_index do |q,i| %>
             <% if q.question_type == "Multiple_Choice" %>
               <%= render :partial => 'questions/multi_choice', :locals => {:i => i, :q => q} %>
@@ -12,11 +13,22 @@
               <%= render :partial => 'questions/essay', :locals => {:i => i, :q => q} %>
             <% end %>
           <% end %>
-
-        <div class="submit">
-          <%= submit_tag "Submit Test", :class => "button green_button" %>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
+    <div id="slider_nav">
+      <ul class="navigation">
+        <% lesson.questions.each_with_index do |q,i| %>
+          <li><%= link_to "", "#panel#{i + 1}", :class => "nav_links" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="buttonBar" class="submit">
+      <%= submit_tag "Submit Test", :class => "button green_button" %>
+      <div id="question_counter">
+        Question: <span id="count">1</span> / <span id="total"><%= lesson.questions.size %></span>
+      </div>
+    </div>
+  <% end %>
 </div>
+

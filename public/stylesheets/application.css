@@ -758,6 +758,41 @@ ul.lesson_actions li.action a {
 	float: right;
 	margin-right: 20px;
 }
+#slider {
+position: relative;
+}
+.scroll {
+clear: left;
+height: 293px;
+margin: 0px;
+overflow: hidden;
+position: relative;
+width: 958px;
+}
+.scroll_container {
+	height: 293px;
+}
+.question.panel {
+	position: relative;
+	width: 936px;
+}
+#lesson_form form .submit {
+	width: 936px;
+}
+#lesson_form input[type="submit"] {
+	float: right;
+}
+#lesson_form .blue_button {
+	position: relative;
+	float: left;
+	margin-right: 20px;
+}
+#question_counter {
+	position: relative;
+	float: left;
+	font-weight: 700;
+	padding-top: 6px;
+}
 /*************************************************************************************************************************************/
 /*************************************************************************************************** STUDENTS ************************/
 #add_form {
@@ -1154,7 +1189,7 @@ form .question h3 {
 .question {
 	width: 926px;
 	padding: 10px;
-	background: #ddd;
+	background: #eee;
 	margin-bottom: 5px;
 	border-top: 1px solid #888;
 	border-right: 1px solid #DDD;
@@ -1176,7 +1211,7 @@ form .back_link {
 form .submit {
 	width: 926px;
 	padding: 10px;
-	background: #ddd;
+	background: #eee;
 	margin-bottom: 5px;
 	border-top: 1px solid #888;
 	border-right: 1px solid #DDD;
