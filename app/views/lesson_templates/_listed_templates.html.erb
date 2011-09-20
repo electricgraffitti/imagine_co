@@ -6,7 +6,7 @@
         <div class="lesson_score">Subject: <%= template.subject if template.subject? %></div>
         <div class="listed_actions">
           <%= link_to "View Questions", template, :class => "view_questions" %>
-          <%= link_to "Add to Curriculum", new_curriculum_path(:lesson_template_id => template.id), :class => "add_curriculum" unless params[:teacher_id] %>
+          <%= link_to "Add to My Lessons", new_curriculum_path(:lesson_template_id => template.id), :class => "add_curriculum" unless params[:teacher_id] %>
         </div>
         <div class="ajax_panel">
         

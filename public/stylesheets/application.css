@@ -348,7 +348,7 @@ html,body {
 header, #banner, #bd, footer {
   position: relative;
   margin: 0px auto;
-  width: 1024px;
+  width: 960px;
  	text-align: left;
 }
 .round{-webkit-border-radius:7px;-moz-border-radius:7px;-opera-border-radius:7px;border-radius:7px;behavior:url(PIE.htc);}
@@ -516,13 +516,13 @@ html, body {
 	padding: 20px 0px 0px;
 }
 #page_header h1 {
-	width: 75%;
+	width: 60%;
 	float: left;
 }
 #page_header #page_actions {
-	width: 25%;
+	width: 40%;
 	text-align: center;
-	float: left;
+	float: right;
 }
 #page_actions a {
 	text-align: left;
@@ -553,7 +553,7 @@ ul.horz_list li a {
 #main_nav {
   bottom: 0;
   height: 30px;
-  right: 40px;
+  right: 	0px;
   position: absolute;
 	text-align: right;
 }
@@ -758,6 +758,41 @@ ul.lesson_actions li.action a {
 	float: right;
 	margin-right: 20px;
 }
+#slider {
+position: relative;
+}
+.scroll {
+clear: left;
+height: 293px;
+margin: 0px;
+overflow: hidden;
+position: relative;
+width: 958px;
+}
+.scroll_container {
+	height: 293px;
+}
+.question.panel {
+	position: relative;
+	width: 936px;
+}
+#lesson_form form .submit {
+	width: 936px;
+}
+#lesson_form input[type="submit"] {
+	float: right;
+}
+#lesson_form .blue_button {
+	position: relative;
+	float: left;
+	margin-right: 20px;
+}
+#question_counter {
+	position: relative;
+	float: left;
+	font-weight: 700;
+	padding-top: 6px;
+}
 /*************************************************************************************************************************************/
 /*************************************************************************************************** STUDENTS ************************/
 #add_form {
@@ -834,16 +869,19 @@ li.listed_student .edit_form .button {
 .student_actions, .listed_actions {
 	position: relative;
 	float:right;
+	padding-top: 3px;
 /*	width: 225px;*/
 }
-.student_actions a, .listed_actions a, .listed_actions span {
+.student_actions a, .listed_actions a {
 	color: #0088cc;
 	padding-right: 20px;
 	display:block;
 	float:left;
 }
 .listed_actions span {
-	color:#299A0B;
+	padding-right: 20px;
+	display:block;
+	float:left;
 }
 /*************************************************************************************************************************************/
 /****************************************************************************************************** FOOTER ***********************/
@@ -989,6 +1027,13 @@ input.button {border: none;}
 	background: -ms-linear-gradient(top, #ff7b0d 0%,#ffa84c 100%); /* IE10+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7b0d', endColorstr='#ffa84c',GradientType=0 ); /* IE6-9 */
 	background: linear-gradient(top, #ff7b0d 0%,#ffa84c 100%); /* W3C */
+}
+#launch_button {
+	float:right;
+}
+#launch_button a {
+	float:right;
+	margin-left: 20px;
 }
 /*************************************************************************************************************************************/
 /****************************************************************************************************** PROGRESS BAR *****************/
@@ -1154,7 +1199,7 @@ form .question h3 {
 .question {
 	width: 926px;
 	padding: 10px;
-	background: #ddd;
+	background: #eee;
 	margin-bottom: 5px;
 	border-top: 1px solid #888;
 	border-right: 1px solid #DDD;
@@ -1176,7 +1221,7 @@ form .back_link {
 form .submit {
 	width: 926px;
 	padding: 10px;
-	background: #ddd;
+	background: #eee;
 	margin-bottom: 5px;
 	border-top: 1px solid #888;
 	border-right: 1px solid #DDD;

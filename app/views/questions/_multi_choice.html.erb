@@ -1,4 +1,4 @@
-<div class="question multiple_choice round">
+<div id="#panel<%= i + 1 %>" class="question multiple_choice round panel" panel_number="<%= i + 1 %>">
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
     <% q.answers.each do |a| %>

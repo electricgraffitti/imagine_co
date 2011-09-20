@@ -10,7 +10,11 @@
 
   <h3>Assigned Lessons</h3>
   <div id="student_lessons" class="round">
-    <%= render :partial => "students/listed_lessons", :locals => {:lessons => @student.lessons} %>
+    <% if current_student %>
+      <%= render :partial => "students/listed_lessons", :locals => {:lessons => @student.lessons} %>
+    <% else %>
+      <%= render :partial => "students/listed_lessons_for_teacher", :locals => {:lessons => @lessons} %>
+    <% end %>
   </div>
 </div>
 

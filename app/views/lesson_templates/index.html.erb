@@ -9,7 +9,7 @@
   <div class="clear"></div>
   
   <% if @teacher_templates %>
-    <h3>My Lessons (private)</h3>
+    <h3>My Lessons</h3>
     <div id="student_lessons" class="round">
       <%= render :partial => "lesson_templates/listed_templates", :locals => {:templates => @teacher_templates} %>
     </div>
@@ -17,11 +17,6 @@
     <h3>Public Lessons</h3>
     <div id="student_lessons" class="round">
       <%= render :partial => "lesson_templates/listed_templates", :locals => {:templates => @templates} %>
-    </div>
-    <div class="clear"></div>
-    <h3>Account Lessons</h3>
-    <div id="student_lessons" class="round">
-      <%= render :partial => "lesson_templates/listed_templates", :locals => {:templates => @account_templates} %>
     </div>
   <% end %>
 

@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
   def show
     if current_teacher
       @student = Student.find(params[:id])
+      @lessons = @student.teacher_lessons(current_teacher)
     else
       @student = current_student
     end
@@ -34,7 +35,7 @@ class StudentsController < ApplicationController
   # GET /students/new.xml
   def new
     @student = Student.new
-
+    @classroom_id = params[:classroom_id]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @student }
@@ -50,12 +51,11 @@ class StudentsController < ApplicationController
   # POST /students.xml
   def create
     @student = Student.new(params[:student])
-    @student.account_id = current_teacher.account.id
     
     respond_to do |format|
       if @student.save_without_session_maintenance
-        Classroom.create(:student_id => @student.id, :teacher_id => current_teacher.id)
-        format.html { redirect_to(students_path, :notice => 'Student was successfully created.') }
+        Course.create(:student_id => @student.id, :classroom_id => params[:classroom_id])
+        format.html { redirect_to(classroom_path(params[:classroom_id]), :notice => 'Student was successfully added.') }
         format.xml  { render :xml => @student, :status => :created, :location => @student }
       else
         format.html { render :action => "new" }
