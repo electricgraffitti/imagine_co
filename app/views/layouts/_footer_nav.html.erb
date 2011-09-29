@@ -3,18 +3,36 @@
     <li class="home">
       <%= link_to "Home", root_path %>
     </li>
-    <li>
-      <%= link_to "About", about_path %>
-    </li>
-    <% if current_admin %>
+    <!-- <li>
+      <%#= link_to "About", about_path %>
+    </li> -->
+		<% if current_teacher %>
       <li>
-        <%= link_to "Admin Logout",logout_path %>
+        <%= link_to "Teacher Logout", teacher_logout_path %>
       </li>
     <% else %>
       <li>
-        <%= link_to "Admin", login_path %>
+      <%= link_to "Teacher Login", teacher_login_path %>
+    </li>
+    <% end %>
+    <% if current_student %>
+      <li>
+        <%= link_to "Student Logout", student_logout_path %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Student Login", student_login_path %>
       </li>
     <% end %>
+    <%# if current_admin %>
+      <!-- li>
+              <%#= link_to "Admin Logout",logout_path %>
+            </li>
+          <% #else %>
+            <li>
+              <%#= link_to "Admin", login_path %>
+            </li> -->
+    <%# end %>
   </ul>
 </div>
 <%#= render :partial => "layouts/search" %>
