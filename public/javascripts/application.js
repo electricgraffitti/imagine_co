@@ -261,10 +261,8 @@ var test = {
 	setScrollType: function(horizontal, panels, container){
 		if (horizontal) {
       panels.css({ 'float' : 'left', 'position' : 'relative', 'height':'265px'});
-      if (typeof panels[0] == 'undefined') {
-      
-      } else {
-        container.css('width', panels[0].offsetWidth * panels.length);
+      if (panels.length > 0 ) {
+      	container.css('width', panels.first().outerWidth() * panels.length);
       }
     }
 	},
