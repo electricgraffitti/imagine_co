@@ -1,6 +1,6 @@
 <% content_for :page_actions do %>
    <div id="launch_button">
-     <%= link_to 'Add Students', new_classroom_path, :id => "add_student", :class => "button green_button add add_form" %>
+     <%= link_to 'Add Classroom', new_classroom_path, :id => "add_classroom", :class => "button green_button add add_form" %>
    </div>
 <% end %>
 
@@ -8,11 +8,11 @@
   <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
   <div class="clear"></div>
 
-  <h3>Classroom</h3>
+  <h3>Classrooms</h3>
   <div id="student_lessons" class="round">
     <ul id="student_list">
-      <% @students.each do |student| %>
-        <%= render :partial => 'students/listed_student', :locals => {:student => student} %>
+      <% @classrooms.each do |classroom| %>
+        <%= render :partial => 'classrooms/listed_classroom', :locals => {:classroom => classroom} %>
       <% end %>
     </ul>
   </div>

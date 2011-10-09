@@ -11,6 +11,7 @@
 #  private         :boolean(1)
 #  teacher_id      :integer(4)
 #  account_id      :integer(4)
+#  subject         :text
 #
 
 class LessonTemplate < ActiveRecord::Base

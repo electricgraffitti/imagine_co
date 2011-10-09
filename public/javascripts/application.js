@@ -219,6 +219,77 @@ var triggers = {
 	
 };
 
+var test = {
+	
+	initTest: function() {
+		test.addDynamicNav();
+		test.scrollQuestions();
+	},
+	
+	scrollQuestions: function() {
+    var horizontal = true,
+     		panels = $('#slider .panel'),
+     		container = $('#slider .scroll_container'),
+     		scroll = $('#slider .scroll').css('overflow', 'hidden'),
+				nav = $('#slider_nav .navigation li a'),
+		 		prevNav = $("div#buttonBar .button.l"),
+				nextNav = $("div#buttonBar .button.r"),
+ 				scrollOptions = {
+      		target: scroll,
+      		items: panels,
+      		navigation: nav,
+      		prev: prevNav,
+      		next: nextNav,
+      		axis: 'xy',
+      		duration: 500,
+      		easing: 'swing',
+					onAfter: trigger
+    		};
+		
+		test.setScrollType(horizontal, panels, container);
+		
+		function trigger(data) {
+			var numCount = data.getAttribute("panel_number");
+			
+			test.triggerCounter(numCount);
+    }
+		
+    $('#slider').serialScroll(scrollOptions);
+    $.localScroll(scrollOptions);
+  },
+
+	setScrollType: function(horizontal, panels, container){
+		if (horizontal) {
+      panels.css({ 'float' : 'left', 'position' : 'relative', 'height':'265px'});
+      if (panels.length > 0 ) {
+      	container.css('width', panels.first().outerWidth() * panels.length);
+      }
+    }
+	},
+	
+	addDynamicNav: function() {
+		var buttonPanel = $("#buttonBar");
+				nextButton = "<div class='button blue_button l'>Previous Question</div>",
+				prevButton = "<div class='button blue_button r'>Next Question</div>";
+				
+			buttonPanel.prepend(prevButton);
+			buttonPanel.prepend(nextButton);
+	},
+	
+	triggerCounter: function(newCount) {
+		var	counter = $("#question_counter"),
+				counterNum = counter.find("#count");
+				
+			counterNum.html(newCount);
+	},
+	
+	selectNav: function(el) {
+		el.parents('ul:first').find('a').removeClass('selected active').end().end().addClass('active selected');
+    el.parents('ul:first').find('li').removeClass('selected active').end().end().addClass('active selected');
+	},
+	
+}
+
 var form = {
 	
 	decorateNestedFormLinks: function() {

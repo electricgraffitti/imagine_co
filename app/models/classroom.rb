@@ -7,12 +7,21 @@
 #  student_id :integer(4)
 #  created_at :datetime
 #  updated_at :datetime
+#  name       :string(255)
 #
 
 class Classroom < ActiveRecord::Base
   
   # Associations
   belongs_to :teacher, :class_name => "Teacher", :foreign_key => "teacher_id"
-  belongs_to :student, :class_name => "Student", :foreign_key => "student_id"
+  has_many :courses
+  has_many :students, :through => :courses
+  
+  
+  # Methods
+  
+  def student_count
+    return self.students.size
+  end
   
 end

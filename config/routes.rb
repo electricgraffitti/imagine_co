@@ -1,9 +1,9 @@
 ImagineCo::Application.routes.draw do
 
   # Admin Paths
-  match "admin-login" => "admin_sessions#check_session", :as => :login
-  match "admin-logout" => "admin_sessions#destroy", :as => :logout
-  match "admin-dashboard" => "admins#show", :as => :admin_dashboard
+  # match "admin-login" => "admin_sessions#check_session", :as => :login
+  # match "admin-logout" => "admin_sessions#destroy", :as => :logout
+  # match "admin-dashboard" => "admins#show", :as => :admin_dashboard
   
   # Teacher Login
   match "teacher-login" => "teacher_sessions#new", :as => :teacher_login
@@ -20,7 +20,7 @@ ImagineCo::Application.routes.draw do
   
   # Base Routes
   match "home" => "pages#index", :as => :home
-  match "about" => "pages#about", :as => :about
+  # match "about" => "pages#about", :as => :about
   
   
   resources :students
@@ -37,6 +37,7 @@ ImagineCo::Application.routes.draw do
   resources :classrooms
   resources :curriculums
   resources :lesson_results
+  resources :courses
   
   root :to => "pages#index"
   

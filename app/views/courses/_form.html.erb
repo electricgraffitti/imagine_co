@@ -1,0 +1,11 @@
+<%= form_for course do |f| %>
+  <%= render :partial => 'layouts/error_block', :locals => {:obj => course} %>
+  <%= f.hidden_field :classroom_id, :value => classroom_id %>
+  <div class="field">
+    <%= f.label :student_id %><br />
+    <%= f.collection_select :student_id, Student.all, :id, :full_name, :prompt => "Select Student" %>
+  </div>
+  <div class="field">
+    <%= f.submit "Add Student", :class => 'button blue_button' %>
+  </div>
+<% end %>

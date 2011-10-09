@@ -2,16 +2,16 @@
   <div class="student_info student_panel">
     <div class="students_name">
       <%= link_to student.full_name, student_path(student), :class => "view_student" %> 
-      <%= link_to "Delete Student", student, :method => 'delete', :confirm => 'Are you sure you want to delete this student?', :title => "Delete Student", :class => "remove_button red" if current_teacher.admin %>
     </div>
-    <ul class="student_creds">
-      <li>Login: <%= student.username %></li>
-      <li>Last Login: <%= (student.last_login_at).to_s(:pretty) unless student.last_login_at.blank? %></li>
-    </ul>
+    <!-- <ul class="student_creds">
+      <li>Login: <%#= student.username %></li>
+      <li>Last Login: <%#= (student.last_login_at).to_s(:pretty) unless student.last_login_at.blank? %></li>
+    </ul> -->
   </div>
   <div class="student_actions">
     <%= link_to "View Lessons", lessons_path(:student_id => student.id) unless student.lessons.empty? %>
     <%= link_to "Assign Lessons", new_lesson_path(:student_id => student.id) %>
+    <%= button_to "Remove Student", course_path(:student_id => student.id, :classroom_id => classroom_id), :method => 'delete', :confirm => 'Are you sure you want to remove this student?', :title => "Remove Student", :class => "remove_button red" if current_teacher.admin %>
   </div>
   <div class="clear"></div>
 </li>

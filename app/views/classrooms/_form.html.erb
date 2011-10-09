@@ -1,10 +1,10 @@
 <%= form_for @classroom do |f| %>
   <%= render :partial => 'layouts/error_block', :locals => {:obj => @classroom} %>
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.collection_select(:student_id, current_teacher.account.students, :id, :full_name, {:prompt => "Select A Student"}) %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.submit "Add Student", :class => 'button blue_button' %>
+    <%= f.submit "Add Classroom", :class => 'button blue_button' %>
   </div>
 <% end %>

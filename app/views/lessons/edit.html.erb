@@ -10,6 +10,7 @@
 
   <h3></h3>
   <div id="student_lessons" class="round">
+    <div id="player"></div>
     <%= render :partial => 'lessons/test_template', :locals => {:lesson => @lesson} %>
   </div>
 </div>
@@ -21,7 +22,7 @@
 <% content_for :javascripts do %>
   <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
-      
+      test.initTest();
     });
   </script>
 <% end %>

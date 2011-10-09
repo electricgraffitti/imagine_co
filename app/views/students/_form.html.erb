@@ -1,6 +1,6 @@
 <%= form_for(@student) do |f| %>
   <%= render :partial => "layouts/error_block", :locals => {:obj => @student} %>
-  
+  <%= hidden_field_tag :classroom_id, classroom_id %>
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
