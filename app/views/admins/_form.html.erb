@@ -1,14 +1,30 @@
 <%= form_for(@admin) do |f| %>
-  <%= render :partial => 'layouts/form_errors', :locals => {:obj => @admin} %>
+  <%= render :partial => 'layouts/error_block', :locals => {:obj => @admin} %>
 
-  <div class="field">
+	<div class="field">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name %>
+	</div>  
+	<div class="field">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name %>
+	</div>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
+	<div class="field">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+	</div>
   <div class="field">
     <%= f.submit "Create Admin", :class => 'create_button' %>
   </div>

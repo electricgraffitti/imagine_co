@@ -22,7 +22,6 @@ class Question < ActiveRecord::Base
   has_many :answers
   accepts_nested_attributes_for :answers, :allow_destroy => true, :reject_if => lambda { |obj| obj[:answer].blank? }
   
-  
   has_many :pictures, :as => :attachable
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |obj| obj.blank? }
   
@@ -54,6 +53,33 @@ class Question < ActiveRecord::Base
       end
     end
     return score
+  end
+  
+  def check_for_correct_answer(test_result_answer)
+      case self.question_type
+      when "Essay"
+        if test_result_answer == "No Result"
+          return "incorrect"
+        else
+          return "correct"
+        end
+      when "Short_Answer"
+        self.answers.each do |a|
+          if a.answer.eql? test_result_answer
+            return "correct"
+          else
+            return "incorrect"
+          end
+        end
+      else
+        self.answers.each do |a|
+          if a.id == (test_result_answer).to_i && a.correct?
+            return "correct"
+          end
+        end
+        return "incorrect"
+      end
+
   end
   
   private

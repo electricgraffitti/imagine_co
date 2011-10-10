@@ -2,7 +2,10 @@
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
     <% q.answers.each do |a| %>
-      <div class="answer"><%= radio_button_tag "#{q.id}", "#{a.id}" %> <%= label_tag "#{a.answer}" %></div>
+      <div class="answer">
+        <%= radio_button_tag "#{q.id}", "#{a.id}", false, :class => "validate[required]" %> 
+        <%= label_tag "#{a.answer}" %>
+      </div>
     <% end %>
   </div>
   <div class="column">

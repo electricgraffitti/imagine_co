@@ -53,8 +53,10 @@ class LessonsController < ApplicationController
   # POST /lessons.xml
   def create
     @lesson = Lesson.new(params[:lesson])
+    
     respond_to do |format|
       if @lesson.save
+        AppMailer.new_lesson_notification(params[:lesson]).deliver
         format.html { redirect_to(students_path, :notice => 'Lesson was successfully assigned.') }
         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
       else

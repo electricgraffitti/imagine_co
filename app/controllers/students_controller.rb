@@ -50,11 +50,12 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.xml
   def create
-    @student = Student.new(params[:student])
+    @student = Student.check_for_existing(params[:student])
     
     respond_to do |format|
-      if @student.save_without_session_maintenance
+      if @student
         Course.create(:student_id => @student.id, :classroom_id => params[:classroom_id])
+        AppMailer.new_classroom_notification(@student).deliver
         format.html { redirect_to(classroom_path(params[:classroom_id]), :notice => 'Student was successfully added.') }
         format.xml  { render :xml => @student, :status => :created, :location => @student }
       else

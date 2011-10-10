@@ -6,8 +6,8 @@ class PagesController < ApplicationController
     @account.teachers.build
   end
   
-  def about
-    
-  end
+  # def about
+  #   
+  # end
 
 end

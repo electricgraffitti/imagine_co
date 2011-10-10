@@ -6,7 +6,7 @@
 #  first_name          :string(255)
 #  last_name           :string(255)
 #  email               :string(255)
-#  username            :string(255)
+#  student_key         :string(255)
 #  crypted_password    :string(255)
 #  password_salt       :string(255)
 #  persistence_token   :string(255)
@@ -21,7 +21,6 @@
 #  last_login_ip       :string(255)
 #  created_at          :datetime
 #  updated_at          :datetime
-#  account_id          :integer(4)
 #
 
 class Student < ActiveRecord::Base
@@ -35,7 +34,6 @@ class Student < ActiveRecord::Base
   has_many :teachers, :through => :classrooms
   
   validates_uniqueness_of :email, :on => :create, :message => "must be unique"
-  
   
   #Authlogic
   acts_as_authentic do |c|
@@ -78,5 +76,35 @@ class Student < ActiveRecord::Base
       end
     end
   end
+    
+  def self.check_for_existing(params)
+
+    if self.exists?(:email => params[:email])
+      return where(:email => params[:email]).first
+    else
+      @new_student = Student.new(params)
+      @new_student.set_passwords
+      @new_student.save_without_session_maintenance
+      AppMailer.registration_email(@new_student).deliver
+      return @new_student
+    end
+    
+  end
+  
+  def set_passwords
+    if self.student_key.blank?
+      self.student_key = dictionary_password
+      self.password = self.student_key
+      self.password_confirmation = self.password
+    end
+  end
+  
+  private
+  
+  def dictionary_password
+    passwds = Array.new
+    File.open("#{RAILS_ROOT}/config/passwords.txt", "r").each { |f| passwds << f.gsub("\n", "") }
+    return passwds[rand(passwds.length)] 
+  end 
   
 end

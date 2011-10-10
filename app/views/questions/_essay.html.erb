@@ -2,7 +2,7 @@
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
     <div class="answer">
-      <%= text_area_tag "#{q.id}", nil, :rows => 5, :cols => 56 %> 
+      <%= text_area_tag "#{q.id}", nil, :rows => 5, :cols => 56, :class => "validate[required]" %> 
     </div>
   </div>
   <div class="column">
