@@ -1,5 +1,5 @@
 <div id="lesson_form">
-  <% form_for(lesson, :class => "round") do |f| %>
+  <%= form_for(lesson, :class => "round") do |f| %>
     <%= render :partial => 'layouts/error_block', :locals => {:obj => lesson} %>
     <div id="slider">
      <div class="scroll">
@@ -24,7 +24,7 @@
       </ul>
     </div>
     <div id="buttonBar" class="submit">
-      <%= submit_tag "Submit Test", :class => "button green_button" %>
+      <%= f.submit "Submit Test", :class => "button green_button" %>
       <div id="question_counter">
         Question: <span id="count">1</span> / <span id="total"><%= lesson.questions.size %></span>
       </div>

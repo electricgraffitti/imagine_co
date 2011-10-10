@@ -1,7 +1,6 @@
 <% content_for :page_actions do %>
    <div id="launch_button">
-     <%= link_to 'Add Students', new_course_path(:classroom_id => @classroom.id), :id => "add_student", :class => "button green_button add add_form" %>
-     <%= link_to 'Create New Student', new_student_path(:classroom_id => @classroom.id), :id => "add_student", :class => "button green_button add add_form" %>
+     <%= link_to 'Add Student', new_student_path(:classroom_id => @classroom.id), :id => "add_student", :class => "button green_button add add_form" %>
    </div>
 <% end %>
 

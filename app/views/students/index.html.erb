@@ -12,7 +12,7 @@
   <div id="student_lessons" class="round">
     <ul id="student_list">
       <% @students.each do |student| %>
-        <%= render :partial => 'students/listed_student', :locals => {:student => student} %>
+        <%= render :partial => 'students/listed_student', :locals => {:student => student, :classroom_id => nil} %>
       <% end %>
     </ul>
   </div>

@@ -11,7 +11,7 @@
         <div class="listed_actions">
           <% if lesson.test_complete? %>
             <span class="green">Lesson Complete</span>
-            <%= link_to "View Results", lesson_results_path(:lesson_id => lesson.id), :class => "view_results" %>
+            <%= link_to "View Results", lesson_result_path(lesson), :class => "view_results" %>
           <% else %>
             <%= link_to "Take Test", edit_lesson_path(lesson), :class => "view_questions" %>
           <% end %>

@@ -4,9 +4,25 @@
   <ul>
     <% @lesson.questions.each do |q| %>
       <li class="listed_result">
-        <h4><%= q.question %> - <%= q.question_type %></h4>
-        <p><%= q.student_result(@lesson.id) %></p>
+        <h4 class="<%= q.check_for_correct_answer(q.student_result(@lesson.id)) %>"><%= q.question %> - <%= q.question_type %></h4>
+        <ul>
+          <% if q.question_type == "Essay" %>
+            <li class="correct_answer <%= essay_result_class(q, @lesson.id) %>"><%= essay_result(q, @lesson.id) %></li>
+          <% elsif q.question_type == "Short_Answer" %>
+            <% q.answers.each do |a| %>
+              <li class="">Correct Answer: <%= a.answer %></li>
+              <li class="<%= answer_state(a) %> <%= a.check_answer_state(q, q.student_result(@lesson.id)) %>">Student Answer: <%= q.student_result(@lesson.id) %></li>
+            <% end %>
+          <% else %>
+            <% q.answers.each do |a| %>
+               <li class="<%= answer_state(a) %> <%= a.check_answer_state(q, q.student_result(@lesson.id)) %>"><%= a.answer %></li>
+            <% end %>
+          <% end %>
+        </ul>
       </li>
     <% end %>
   </ul>
 </div>
+
+
+
