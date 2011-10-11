@@ -6,6 +6,7 @@ db/schema.sql
 .DS_Store
 public/assets
 config/development.sphinx.conf
+config/passwords.txt
 db/sphinx/*
 db/sphinx/development/*
 .sqlite3

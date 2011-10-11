@@ -1,7 +1,8 @@
 <li class="listed_student round">
   <div class="student_info student_panel">
     <div class="students_name">
-      <%= link_to lesson.name, lesson, :class => "view_lesson" %> 
+      <%#= link_to lesson.name, lesson, :class => "view_lesson" %> 
+      <h3 class="view_lesson"><%= lesson.name %></h3>
     </div>
     <ul class="student_creds">
       <li>Lesson Score: <%= link_to "#{lesson.score}", lesson_result_path(lesson), :class => "score_trigger" %></li>
@@ -9,6 +10,9 @@
     </ul>
   </div>
   <div class="student_actions">
+  </div>
+  <div class="test_view round">
+
   </div>
   <div class="clear"></div>
 </li>

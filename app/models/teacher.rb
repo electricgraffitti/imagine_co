@@ -30,7 +30,6 @@ class Teacher < ActiveRecord::Base
   #Associations
   belongs_to :account
   has_many :classrooms
-  has_many :students, :through => :classrooms
   has_many :curriculums
   has_many :lesson_templates, :through => :curriculums
   
@@ -55,6 +54,16 @@ class Teacher < ActiveRecord::Base
   def full_name
     fullname = self.first_name + " " + self.last_name
     return fullname
+  end
+  
+  def students
+    students = Array.new
+    self.classrooms.each do |classroom| 
+      students.push(classroom.students)
+    end
+    flatten_students = students.flatten!
+    compacted_students = flatten_students.compact
+    return compacted_students
   end
   
 end

@@ -46,6 +46,7 @@
   - config/database.yml
   - config/app_config.yml
   - config/s3.yml
+  - config/passwords.txt
 
 # The entries in shared_children are created in #{application}/shared
 :shared_children:

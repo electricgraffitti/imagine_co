@@ -173,7 +173,6 @@ var triggers = {
 			
 			ajaxPanel.load("" + link + " .return_panel", function() {
 				ajaxPanel.show();
-				ajaxPanel.append("<a href='' class='close'></a>")
 				triggers.closeAjaxPanel(ajaxPanel);
 			});
 			e.preventDefault();
@@ -181,7 +180,7 @@ var triggers = {
 	},
 	
 	closeAjaxPanel: function(ajaxPanel) {
-		var closeLink = ajaxPanel.find(".close");
+		var closeLink = $(".return_panel .close");
 		
 		closeLink.live("click", function(e) {
 			e.preventDefault();
@@ -201,18 +200,18 @@ var triggers = {
 			
 			lessonPanel.load("" + link + " .return_panel", function() {
 				lessonPanel.show();
-				triggers.closeLessonPanel();
+				triggers.closeLessonPanel(lessonPanel);
 			});
 			
 			e.preventDefault();
 		});
 	},
 	
-	closeLessonPanel: function() {
+	closeLessonPanel: function(lessonPanel) {
 		var closeLink = $(".return_panel .close");
 		
 		closeLink.live("click", function() {
-			$(this).parent().empty();
+			lessonPanel.empty();
 		});
 	}
 	
@@ -290,6 +289,22 @@ var test = {
 	
 }
 
+var validate = {
+	
+	// top: -27px;
+	// left: 470px;
+	
+	testQuestions: function() {
+		$("#lesson_form form").validationEngine('attach', {
+			validationEventTrigger: 'submit',
+			isOverflown:true,
+			overflownDIV: ".scroll",
+			promptPosition:"centerRight"
+		});
+	}
+	
+};
+
 var form = {
 	
 	decorateNestedFormLinks: function() {
@@ -305,34 +320,6 @@ var form = {
 		
 		signUpForm.ketchup();
 	},
-	
-	// removeFields: function() {
-	// 	var removeLink = $(".remove_link");
-	// 	
-	// 	removeLink.live("click", function() {
-	// 		var questionBlock = $(this).parents(".section").first(),
-	// 				destroyParam = $(this).parents(".field").first().find("input[type='hidden']");
-	// 				
-	// 				destroyParam.val(1);
-	// 				questionBlock.hide();
-	// 	});
-	// },
-	// 
-	// addFields: function() {
-	// 	var addLink = $(".add_link");
-	// 	
-	// 	addLink.live("click", function() {
-	// 		var assoc = $(this).attr("assoc"),
-	// 				fields = $(this).attr("fields"),
-	// 				newId = new Date().getTime(),
-	// 				regex = new RegExp("new_" + assoc, "g");
-	// 				
-	// 			$(this).parent().before(content.replace(regex, newId));
-	// 	});
-	// 
-	// 			
-	// 			
-	// }
 	
 };
 
