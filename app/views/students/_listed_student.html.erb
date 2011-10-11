@@ -3,10 +3,10 @@
     <div class="students_name">
       <%= link_to student.full_name, student_path(student), :class => "view_student" %> 
     </div>
-    <!-- <ul class="student_creds">
-      <li>Login: <%#= student.username %></li>
-      <li>Last Login: <%#= (student.last_login_at).to_s(:pretty) unless student.last_login_at.blank? %></li>
-    </ul> -->
+    <ul class="student_creds">
+      <li>Login: <%= student.email %></li>
+      <li>Student Key: <%= student.student_key %></li>
+    </ul>
   </div>
   <div class="student_actions">
     <%= link_to "View Lessons", lessons_path(:student_id => student.id) unless student.lessons.empty? %>
