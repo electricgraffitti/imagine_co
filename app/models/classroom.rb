@@ -19,6 +19,10 @@ class Classroom < ActiveRecord::Base
   
   # Methods
   
+  def to_params
+    return "#{self.id}-#{self.name}"
+  end
+  
   def student_count
     return self.students.size
   end
