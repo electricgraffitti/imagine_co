@@ -9,8 +9,8 @@ class AppMailer < ActionMailer::Base
     mail(:to => "#{student.full_name} <#{student.email}>", :subject => "You have been added to a new Classroom Burro classroom.")
   end
   
-  def new_lesson_notification(lesson_params)
-    @student = Student.find(lesson_params[:student_id])
+  def new_lesson_notification(student_id)
+    @student = Student.find(student_id)
     mail(:to => "#{@student.full_name} <#{@student.email}>", :subject => "You have been assigned a new Classroom Burro lesson.")
   end
   

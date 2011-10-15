@@ -3,11 +3,14 @@
   <% if @student %>
     <%= f.hidden_field :student_id, :value => @student.id %>
   <% end %>
+  <% if @classroom_id %>
+    <%= hidden_field_tag :classroom_id, @classroom_id %>
+  <% end %>
   <div class="field">
     <%= f.label :lesson_template_id, "Choose Lesson" %><br />
     <%= f.collection_select(:lesson_template_id, current_teacher.lesson_templates, :id, :name, {:prompt => "Choose Lesson"}) %>
   </div>
-  <% unless @student %>
+  <% unless @student || @classroom_id %>
     <div class="field">
       <%= f.label :student_id %><br />
       <%= f.collection_select(:student_id, current_teacher.students, :id, :full_name, {:prompt => "Select A Student"}) %>

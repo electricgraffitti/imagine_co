@@ -12,7 +12,11 @@ class LessonsController < ApplicationController
     else
       @lessons = Lesson.all
     end
-
+    
+    if params[:classroom_id]
+      @classroom = Classroom.find(params[:classroom_id])
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @lessons }
@@ -36,6 +40,11 @@ class LessonsController < ApplicationController
     if params[:student_id]
       @student = Student.find(params[:student_id])
     end
+    
+    if params[:classroom_id]
+      @classroom_id = params[:classroom_id]
+    end
+    
     @lesson = Lesson.new
 
     respond_to do |format|
@@ -52,16 +61,24 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.xml
   def create
-    @lesson = Lesson.new(params[:lesson])
-    
+    if params[:classroom_id]
+      @classroom = Classroom.find(params[:classroom_id])
+      @classroom.assign_lesson_to_students(params[:lesson][:lesson_template_id])
+      classroom_check = false
+    else
+      @lesson = Lesson.new(params[:lesson])
+      classroom_check = true
+    end
+
     respond_to do |format|
-      if @lesson.save
-        AppMailer.new_lesson_notification(params[:lesson]).deliver
+      if classroom_check
+        @lesson.save
+        AppMailer.new_lesson_notification(params[:lesson][:student_id]).deliver
         format.html { redirect_to(students_path, :notice => 'Lesson was successfully assigned.') }
-        format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
+      elsif @classroom
+        format.html { redirect_to(classroom_path(@classroom), :notice => 'Lesson assigned to classroom students.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
       end
     end
   end

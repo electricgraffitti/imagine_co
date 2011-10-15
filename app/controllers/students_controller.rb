@@ -25,6 +25,10 @@ class StudentsController < ApplicationController
       @student = current_student
     end
     
+    if params[:classroom_id]
+      @classroom = Classroom.find(params[:classroom_id])
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @student }

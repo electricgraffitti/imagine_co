@@ -9,10 +9,10 @@
     </ul>
   </div>
   <div class="student_actions">
-    <%= link_to "View Lessons", lessons_path(:student_id => student.id) unless student.lessons.empty? %>
-    <%= link_to "Assign Lessons", new_lesson_path(:student_id => student.id) %>
+    <%= link_to "View Lessons", lessons_path(:student_id => student.id, :classroom_id => classroom_id) unless student.lessons.empty? %>
+    <%#= link_to "Assign Lessons", new_lesson_path(:student_id => student.id) %>
     <% if classroom_id %>
-    <%= button_to "Remove Student", course_path(:student_id => student.id, :classroom_id => classroom_id), :method => 'delete', :confirm => 'Are you sure you want to remove this student?', :title => "Remove Student", :class => "button red_button red" if current_teacher.admin %>
+    <%= button_to "Remove Student", course_path(:student_id => student.id, :classroom_id => classroom_id), :method => 'delete', :confirm => 'Are you sure you want to remove this student?', :title => "Remove Student", :class => "link_button delete_link red" if current_teacher.admin %>
     <% end %>
   </div>
   <div class="clear"></div>

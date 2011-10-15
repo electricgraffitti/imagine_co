@@ -42,8 +42,17 @@ class Student < ActiveRecord::Base
   end
   
   def full_name
-    fullname = self.first_name + " " + self.last_name
+    fullname = (self.first_name + " " + self.last_name).titleize
     return fullname
+  end
+  
+  def check_for_lesson(lesson_template_id)
+    self.lessons.each do |lesson|
+      if lesson.lesson_template_id == (lesson_template_id).to_i
+        return false
+      end
+    end
+    return true
   end
   
   def teacher_lessons(teacher)

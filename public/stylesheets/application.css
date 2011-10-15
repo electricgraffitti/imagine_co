@@ -108,7 +108,7 @@ Also:hot pink. */
 ::selection{background:#FF5E99;color:#fff;text-shadow:none;}
 /* j.mp/webkit-tap-highlight-color */
 a:link{-webkit-tap-highlight-color:#0078ae;text-decoration:none;}
-a {text-decoration: none;}
+a {text-decoration: underline;}
 a:hover {text-decoration: none;}
 /* make buttons play nice in IE:www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button{width:auto;overflow:visible;}
@@ -1077,6 +1077,7 @@ li.listed_student .edit_form .button {
 	display: block;
 	float: right;
 	padding-bottom: 5px;
+	padding-right: 6px;
 }
 .listed_actions span {
 	padding-right: 20px;
@@ -1236,6 +1237,15 @@ input.button {border: none;}
 	margin-left: 20px;
 }
 .student_actions .button {float:right;}
+.link_button {
+	background: transparent;
+	color: #ff3019;
+	border: none;
+	float:right;
+}
+.link_button:hover {
+	text-decoration: underline;
+}
 /*************************************************************************************************************************************/
 /****************************************************************************************************** PROGRESS BAR *****************/
 .progress_bar {

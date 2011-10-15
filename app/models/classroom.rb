@@ -35,4 +35,14 @@ class Classroom < ActiveRecord::Base
     return course_students
   end
   
+  def assign_lesson_to_students(lesson_template_id)
+    self.students.each do |student|
+      check_existing = student.check_for_lesson(lesson_template_id)
+      if check_existing == true
+        Lesson.create(:student_id => student.id, :lesson_template_id => lesson_template_id)
+        AppMailer.new_lesson_notification(student.id).deliver
+      end
+    end
+  end
+  
 end

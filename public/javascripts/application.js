@@ -321,6 +321,17 @@ var form = {
 		signUpForm.ketchup();
 	},
 	
+	deleteConfirm: function() {
+		$( ".delete_link" ).click(function(e) {
+			var check = confirm("Delete student from class?")
+	    if (check) {
+	    	
+	    } else {
+				e.preventDefault();
+			}
+		});
+	},
+	
 };
 
 var app = {
