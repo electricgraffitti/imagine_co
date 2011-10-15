@@ -1,6 +1,11 @@
 <ul>
   <% questions.each do |question| %>
     <li class="listed_item round">
+      <% if question.question_pic %>
+      <div class="listed_question_image">
+        <%= image_tag(question.question_pic.url(:micro)) %>
+      </div>
+      <% end %>
       <div class="listed_info listed_panel">
         <div class="students_name">
           <%= link_to question.question, question, :class => "view_question" %> 

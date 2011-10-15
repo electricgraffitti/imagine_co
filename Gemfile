@@ -11,6 +11,7 @@ gem 'authlogic'
 gem 'rails3-generators'
 gem 'paperclip'
 gem 'nested_form'
+gem 'aws-s3'
 
 group :development do
   gem 'rspec-rails'

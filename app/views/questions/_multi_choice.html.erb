@@ -9,6 +9,6 @@
     <% end %>
   </div>
   <div class="column">
-    <%= image_tag(q.pictures.last.pic.url(:medium), :height => "125") unless q.pictures.empty? %>
+    <%= image_tag(q.question_pic.url(:regular), :height => "125") if q.question_pic %>
   </div>
 </div>

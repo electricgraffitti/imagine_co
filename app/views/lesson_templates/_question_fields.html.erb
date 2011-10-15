@@ -14,6 +14,10 @@
   <%= f.label :order, "Order" %><br/>
   <%= f.text_field :order %>
 </div>
+<div class="field">
+  <%= label_tag "Upload Picture" %>
+  <%= f.file_field :question_pic %>
+</div>
 <div class="answer_section section">
   <%= f.fields_for :answers do |a| %>
     <%= render :partial => 'lesson_templates/answer_fields', :locals => {:f => a} %>

@@ -2,14 +2,18 @@
 #
 # Table name: questions
 #
-#  id                 :integer(4)      not null, primary key
-#  question           :string(255)
-#  question_type      :string(255)
-#  score              :integer(4)
-#  order              :integer(4)
-#  lesson_template_id :integer(4)
-#  created_at         :datetime
-#  updated_at         :datetime
+#  id                        :integer(4)      not null, primary key
+#  question                  :string(255)
+#  question_type             :string(255)
+#  score                     :integer(4)
+#  order                     :integer(4)
+#  lesson_template_id        :integer(4)
+#  created_at                :datetime
+#  updated_at                :datetime
+#  question_pic_file_name    :string(255)
+#  question_pic_content_type :string(255)
+#  question_pic_file_size    :integer(4)
+#  question_pic_updated_at   :datetime
 #
 
 class Question < ActiveRecord::Base
@@ -24,6 +28,13 @@ class Question < ActiveRecord::Base
   
   has_many :pictures, :as => :attachable
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |obj| obj.blank? }
+  
+  has_attached_file :question_pic,
+    :styles => { :regular => "275x275#", :avatar => "180x142#", :medium => "100x100#", :thumb => "75x75#", :micro => "50x50#" },
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => "/question_pictures/:id/:style_:basename.:extension"
+  
   
   # Methods
   

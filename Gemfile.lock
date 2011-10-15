@@ -35,6 +35,10 @@ GEM
     authlogic (3.0.3)
       activerecord (>= 3.0.7)
       activerecord (>= 3.0.7)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -115,6 +119,7 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    xml-simple (1.1.0)
 
 PLATFORMS
   ruby
@@ -123,6 +128,7 @@ DEPENDENCIES
   albino
   annotate
   authlogic
+  aws-s3
   capistrano (= 2.5.19)
   mysql2 (= 0.2.10)
   nested_form

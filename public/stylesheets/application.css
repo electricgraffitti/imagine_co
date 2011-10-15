@@ -832,10 +832,11 @@ img.icon {
 	left: 0px;
 	width: 850px;
 }
-.ajax_panel, li.listed_item, ul#listed_lessons, ul#listed_lessons li.listed_lesson, ul.lesson_actions, ul.lesson_actions li.action, ul#student_list, ul#student_list li.listed_student {
+.ajax_panel, li.listed_item, li.listed_item .listed_question_image, ul#listed_lessons, ul#listed_lessons li.listed_lesson, ul.lesson_actions, ul.lesson_actions li.action, ul#student_list, ul#student_list li.listed_student {
 	position: relative;
 	float: left;
 }
+li.listed_item .listed_question_image {margin-right: 10px;}
 ul#listed_lessons, ul#student_list {
 	width: 950px;
 }
@@ -854,7 +855,7 @@ ul#listed_lessons li.listed_lesson, ul#student_list li.listed_student, .internal
 	border-top: 1px solid #EEE;
 	border-right: 1px solid #CCC;
 }
-.ajax_panel li.listed_item {width:875px;}
+.ajax_panel li.listed_item {width:867px;}
 .listed_creds {width: 910px;}
 .lesson_title {
 	width: 35%;
