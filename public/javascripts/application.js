@@ -336,21 +336,6 @@ var form = {
 
 var app = {
 	
-	jensButton: function() {
-		var button = $("#jen_button"),
-				accounts = $("#accounts"),
-				revTag = $("#rev_tag"),
-				pag = $(".pagination"),
-				stats = $("#stats");
-		
-		button.click(function() {
-			accounts.hide();
-			pag.hide();
-			revTag.text("Accounts Deleted! Revenue Destroyed!");
-			stats.html("I Told You Not To Click The Button!!!!");
-		});
-	},
-	
 	initGame: function(sessionId,chatOption) {
 		app.deactivateLaunchLink(sessionId,chatOption);
 	},
