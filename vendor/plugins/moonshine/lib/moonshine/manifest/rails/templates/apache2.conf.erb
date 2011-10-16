@@ -286,3 +286,9 @@ Include /etc/apache2/conf.d/
 
 # Include the virtual host configurations:
 Include /etc/apache2/sites-enabled/
+
+NameVirtualHost *:80
+
+ <ifmodule mod_ssl.c>
+     NameVirtualHost *:443
+ </ifmodule>
