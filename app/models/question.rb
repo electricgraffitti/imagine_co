@@ -93,6 +93,36 @@ class Question < ActiveRecord::Base
 
   end
   
+  def check_short_answer(test_result_answer)
+    self.answers.each do |a|
+      if a.answer == test_result_answer
+        return 1
+      else
+        return 0
+      end
+    end
+  end
+  
+  def check_essay(test_result_answer)
+    if test_result_answer == "No Result"
+      return 0
+    else
+      return 1
+    end
+  end
+  
+  def check_multiple_choice(test_result_answer)
+    self.answers.each do |a|
+      if a.id == (test_result_answer).to_i
+        if a.correct?
+          return 1
+        else
+          return 0
+        end
+      end
+    end
+  end
+  
   private
   
   def self.valuate_multiple_choice(q,v)

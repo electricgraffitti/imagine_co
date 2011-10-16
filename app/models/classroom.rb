@@ -15,6 +15,8 @@ class Classroom < ActiveRecord::Base
   belongs_to :teacher, :class_name => "Teacher", :foreign_key => "teacher_id"
   has_many :courses
   has_many :students, :through => :courses
+  has_many :classroom_lessons
+  has_many :lesson_templates, :through => :classroom_lessons
   
   
   # Methods
@@ -43,6 +45,19 @@ class Classroom < ActiveRecord::Base
         AppMailer.new_lesson_notification(student.id).deliver
       end
     end
+    self.setup_lesson_join(lesson_template_id)
+  end
+  
+  def setup_lesson_join(lesson_template_id)
+    ClassroomLesson.create(:classroom_id => self.id, :lesson_template_id => lesson_template_id)
+  end
+  
+  def lessons
+    lessons = []
+    self.classroom_lessons.each do |cl|
+      lessons.push(cl.lesson_template)
+    end
+    return lessons
   end
   
 end

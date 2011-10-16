@@ -1,5 +1,5 @@
 ImagineCo::Application.routes.draw do
-
+  
   # Admin Paths
   # match "admin-login" => "admin_sessions#check_session", :as => :login
   # match "admin-logout" => "admin_sessions#destroy", :as => :logout
@@ -35,6 +35,7 @@ ImagineCo::Application.routes.draw do
   resources :lesson_templates
   resources :accounts
   resources :classrooms
+  resources :classroom_lessons
   resources :curriculums
   resources :lesson_results
   resources :courses

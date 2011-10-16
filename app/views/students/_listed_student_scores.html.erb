@@ -1,0 +1,30 @@
+<li class="listed_student round">
+  <div class="student_info student_panel">
+    <div class="students_name">
+      <%= link_to student.full_name, student_path(student), :class => "view_student" %> 
+    </div>
+  </div>
+  <div class="student_scores student_panel">
+    <ul>
+      <% if student.lessons.empty? %>
+        <li> - </li>
+      <% else %>
+        <% student.lessons.each do |lesson| %>
+          <% if lesson.score.nil? %>
+            <li> - </li>
+          <% else %>
+            <li>
+              <%= link_to lesson.amount_correct, lesson_result_path(lesson), :class => "score_trigger" %>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="test_view">
+  
+  </div>
+  <div class="clear"></div>
+</li>
+

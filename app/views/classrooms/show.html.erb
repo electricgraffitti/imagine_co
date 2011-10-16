@@ -10,6 +10,10 @@
   <div class="clear"></div>
 
   <h3>Students</h3>
+  <div id="view_controls">
+    <%= link_to 'Classroom Scores', classroom_lesson_path(@classroom.id), :id => "add_classroom", :class => "button blue_button add add_form" %>
+    <%= link_to "Back", :back, :class => "button blue_button" %>
+  </div>
   <div id="student_lessons" class="round">
     <ul id="student_list">
       <% @classroom.students.each do |student| %>
