@@ -49,7 +49,19 @@ class Classroom < ActiveRecord::Base
   end
   
   def setup_lesson_join(lesson_template_id)
-    ClassroomLesson.create(:classroom_id => self.id, :lesson_template_id => lesson_template_id)
+    check_existing = self.check_for_lesson(lesson_template_id)
+    if check_existing == true
+      ClassroomLesson.create(:classroom_id => self.id, :lesson_template_id => lesson_template_id)
+    end
+  end
+  
+  def check_for_lesson(lesson_template_id)
+    self.classroom_lessons.each do |lesson|
+      if lesson.lesson_template_id == (lesson_template_id).to_i
+        return false
+      end
+    end
+    return true
   end
   
   def lessons
