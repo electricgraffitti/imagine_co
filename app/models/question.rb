@@ -76,7 +76,7 @@ class Question < ActiveRecord::Base
         end
       when "Short_Answer"
         self.answers.each do |a|
-          if a.answer.eql? test_result_answer
+          if (a.answer).to_f == (test_result_answer).to_f
             return "correct"
           else
             return "incorrect"
@@ -95,7 +95,7 @@ class Question < ActiveRecord::Base
   
   def check_short_answer(test_result_answer)
     self.answers.each do |a|
-      if a.answer == test_result_answer
+      if (a.answer).to_f == (test_result_answer).to_f
         return 1
       else
         return 0
@@ -137,7 +137,7 @@ class Question < ActiveRecord::Base
   def self.valuate_short_answer(q,v)
     
     a = Answer.find(v['answer_id'])
-    if a.answer.eql? v['student_answer']
+    if (a.answer).to_f == (v['student_answer']).to_f
       q.score
     else
       0

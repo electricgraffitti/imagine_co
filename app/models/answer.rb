@@ -39,7 +39,7 @@ class Answer < ActiveRecord::Base
   def valuate_short_answer(q,v)
     
     a = KoAnswer.find(v['answer_id'])
-    if a.answer == v['student_answer']
+    if (a.answer).to_f == (v['student_answer']).to_f
       q.score ? q.score : 0
     else
       0
@@ -52,7 +52,7 @@ class Answer < ActiveRecord::Base
   end
   
   def check_short_answer(student_answer)
-    if self.answer == student_answer
+    if (self.answer).to_f == (student_answer).to_f
       return ""
     else
       return "incorrect"
