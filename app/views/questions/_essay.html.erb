@@ -1,11 +1,14 @@
 <div id="#panel<%= i + 1 %>" class="question essay_answer round panel" panel_number="<%= i + 1 %>">
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
+    <% if q.example %>
+      <h5 class="example"><%= q.example %></h5>
+    <% end %>
     <div class="answer">
       <%= text_area_tag "#{q.id}", nil, :rows => 5, :cols => 56, :class => "validate[required]" %> 
     </div>
   </div>
   <div class="column">
-    <%= image_tag(q.question_pic.url(:original), :height => "125") if q.question_pic %>
+    <%= image_tag(q.question_pic.url(:original), :height => "125") if q.question_pic.exists? %>
   </div>
 </div>

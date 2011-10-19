@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016171056) do
+ActiveRecord::Schema.define(:version => 20111019055434) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(:version => 20111016171056) do
     t.string   "question_pic_content_type"
     t.integer  "question_pic_file_size"
     t.datetime "question_pic_updated_at"
+    t.string   "example"
+    t.string   "details"
   end
 
   add_index "questions", ["lesson_template_id"], :name => "index_questions_on_lesson_template_id"

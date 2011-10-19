@@ -1,6 +1,9 @@
 <div id="#panel<%= i + 1 %>" class="question multiple_choice round panel" panel_number="<%= i + 1 %>">
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
+    <% if q.example %>
+      <h5 class="example"><%= q.example %></h5>
+    <% end %>
     <% q.answers.each do |a| %>
       <div class="answer">
         <%= radio_button_tag "#{q.id}", "#{a.id}", false, :class => "validate[required]" %> 
@@ -9,6 +12,6 @@
     <% end %>
   </div>
   <div class="column">
-    <%= image_tag(q.question_pic.url(:regular), :height => "125") if q.question_pic %>
+    <%= image_tag(q.question_pic.url(:regular), :height => "125") if q.question_pic.exists? %>
   </div>
 </div>

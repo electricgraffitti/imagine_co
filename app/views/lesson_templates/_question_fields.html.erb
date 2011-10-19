@@ -18,6 +18,14 @@
   <%= label_tag "Upload Picture" %>
   <%= f.file_field :question_pic %>
 </div>
+<div class="field">
+  <%= f.label :details, "Details" %><br/>
+  <%= f.text_field :details %>
+</div>
+<div class="field">
+  <%= f.label :example, "Example" %><br/>
+  <%= f.text_field :example %>
+</div>
 <div class="answer_section section">
   <%= f.fields_for :answers do |a| %>
     <%= render :partial => 'lesson_templates/answer_fields', :locals => {:f => a} %>

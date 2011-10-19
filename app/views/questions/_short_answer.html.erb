@@ -1,14 +1,17 @@
 <div id="#panel<%= i + 1 %>" class="question short_answer round panel" panel_number="<%= i + 1 %>">
   <div class="column">
     <h3><%= i + 1 %>. <%= q.question %></h3>
+    <% if q.example %>
+      <h5 class="example"><%= q.example %></h5>
+    <% end %>
     <% q.answers.each do |a| %>
       <div class="answer">
         <%= hidden_field_tag "#{q.id}[answer_id]", "#{a.id}"%>
-        <%= text_field_tag "#{q.id}[student_answer]", nil, :class => "validate[required]" %> 
+        <%= text_field_tag "#{q.id}[student_answer]", nil, :class => "validate[required]" %> <span class="details"><%= q.details if q.details %></span>
       </div>
     <% end %>
   </div>
   <div class="column">
-    <%= image_tag(q.question_pic.url(:regular), :height => "125") if q.question_pic %>
+    <%= image_tag(q.question_pic.url(:regular), :height => "125") if q.question_pic.exists? %>
   </div>
 </div>
