@@ -352,7 +352,7 @@ li.incorrect{font-weight:700;color:#d30706;}
 #add_form{margin-top:20px;display:none;}
 #add_form.internal_wrap{width:940px;}
 #add_form .button{float:right;margin-right:10px;}
-.students_name a{font-size:18px;color:#0088cc;text-decoration:none;font-weight:700;}
+.students_name a, .view_question {font-size:18px;color:#0088cc;text-decoration:none;font-weight:700;}
 .students_name a.remove_button{color:#ff3019;font-weight:300;font-size:12px;}
 .student_panel{position:relative;float:left;}
 .student_info{width:447px;}
