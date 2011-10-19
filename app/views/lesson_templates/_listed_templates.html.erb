@@ -7,7 +7,7 @@
         <div class="listed_actions">
           <%= link_to "View Questions", template, :class => "view_questions" %>
           <%= link_to "Add to My Lessons", new_curriculum_path(:lesson_template_id => template.id), :class => "add_curriculum" unless params[:teacher_id] %>
-          <%= link_to "Edit Lesson", edit_lesson_template_path(template) if params[:teacher_id] %>
+          <%= link_to "Edit Lesson", edit_lesson_template_path(template) if current_teacher.id == params[:teacher_id] %>
         </div>
         <div class="ajax_panel">
         
