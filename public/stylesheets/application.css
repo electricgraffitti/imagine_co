@@ -211,6 +211,7 @@ p{margin:5px 0px 0px;line-height:18.35px;}
 .user_name{padding:10px 0px;width:50%;float:left;}
 .example, .details {font-size: 11px; font-style: italic; color: #777;} 
 .details {padding: 3px 0px 0px 6px;}
+#index_title {font-size: 26px;padding-bottom: 20px;}
 /*************************************************************************************************************************************/
 /**************************************************************************************************** GENERAL LAYOUT *****************/
 html,body{background:#222 url('../images/general/uoc-black-bg.png') repeat;position:relative;font-family:"Helvetica","Arial",sans-serif;font-weight:300;font-stretch:normal;text-rendering:optimizeLegibility;}
