@@ -470,7 +470,8 @@ li.listed_studen .progress_bar .bar{padding:0px;}
 /****************************************************************************************************** FORMS ************************/
 #form_panel{position:relative;float:left;padding:20px;}
 .section{position:relative;float:left;width:1000px;padding-bottom:10px;}
-.question_section{width:980px;padding-left:20px;}
+.question_section{width:960px;}
+.question_block {width:940px;padding-left:20px;float:left;border-bottom: 1px solid #D6CDB1;border-top:1px solid #E9DFC0;}
 .answer_section{width:960px;padding-left:20px;margin-bottom:10px;}
 input[type="text"],input[type="password"]{background:none repeat scroll 0 0 #efefef;height:20px;margin-bottom:10px;padding:3px;width:270px;}
 form div.field label{color:#3E609C;float:left;font-size:14px;font-weight:700;margin-right:10px;margin-top:0px;position:relative;text-align:left;width:147px;}
