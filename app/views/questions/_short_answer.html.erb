@@ -12,6 +12,6 @@
     <% end %>
   </div>
   <div class="column">
-    <%= image_tag(q.question_pic.url(:original), :height => "125") if q.question_pic.exists? %>
+    <%= image_tag(q.question_pic.url(:original)) if q.question_pic.exists? %>
   </div>
 </div>
