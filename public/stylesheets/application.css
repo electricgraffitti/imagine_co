@@ -1550,6 +1550,14 @@ position: relative;
 text-align: left;
 width: 147px;
 }
+form div.field label.counter {
+	width: 70px;
+	margin-right:0px;
+}
+span.char-count {
+	margin-right: 5px;
+	color: green;
+}
 label.cc,label.check {
 color: #333333;
 float: left;

@@ -332,6 +332,19 @@ var form = {
 		});
 	},
 	
+	charCounter: function() {
+		var textField = $('.question_input');
+		
+		textField.live('keyup keydown', function(e) {
+			var parentBlock = $(this).parent(".question_counter_block"),
+					charCount = parentBlock.find(".char-count"),
+					maxLen = 255,
+					remainingChars = maxLen - $(this).val().length;
+					
+			charCount.html(remainingChars);
+		});
+	}
+	
 };
 
 var app = {
