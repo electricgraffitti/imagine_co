@@ -36,6 +36,14 @@ class Lesson < ActiveRecord::Base
     return self.lesson_template.questions
   end
   
+  def template_questions(lesson_template = nil)
+    if lesson_template
+      return lesson_template.questions.shuffle
+    else
+      return self.ko_lesson_template.questions.shuffle
+    end
+  end
+  
   def video_url
     return self.lesson_template.videos.last.video.url
   end
@@ -50,6 +58,26 @@ class Lesson < ActiveRecord::Base
     else
       return false
     end
+  end
+  
+  def amount_correct
+    lesson_questions = self.template_questions(self.lesson_template)
+    correct_answers = 0
+    results = self.lesson_results
+    results.each do |r|
+      if Question.exists?(r.question_id)
+        question = Question.find(r.question_id)
+        case question.question_type
+      when "Short_Answer"
+        correct_answers += question.check_short_answer(r.student_answer)
+      when "Essay"
+        correct_answers += question.check_essay(r.student_answer)
+      else
+        correct_answers += question.check_multiple_choice(r.student_answer)
+      end
+      end
+    end
+    return "#{correct_answers}/#{lesson_questions.size}"
   end
   
   

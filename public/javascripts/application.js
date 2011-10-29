@@ -321,24 +321,62 @@ var form = {
 		signUpForm.ketchup();
 	},
 	
+	deleteConfirm: function() {
+		$( ".delete_link" ).click(function(e) {
+			var check = confirm("Delete student from class?")
+	    if (check) {
+	    	
+	    } else {
+				e.preventDefault();
+			}
+		});
+	},
+	
+	charCounter: function() {
+		var textField = $('.question_input');
+		
+		textField.live('keyup keydown', function(e) {
+			var parentBlock = $(this).parent(".question_counter_block"),
+					charCount = parentBlock.find(".char-count"),
+					maxLen = 255,
+					remainingChars = maxLen - $(this).val().length;
+					
+			charCount.html(remainingChars);
+		});
+	},
+	
+	questionCounts: function() {	
+		var questionCount = $(".counts").html(),
+				incrementNumber = parseInt(questionCount),
+				questionLinks = $(".question_link"),
+				removeLinks = $(".remove_question_link");
+				
+			questionLinks.live("click", function() {
+				var nextDiv = $(this).siblings().last(),
+						newTitleCount = nextDiv.find(".counts");
+						
+						newTitleCount.html(incrementNumber + 1);
+						incrementNumber++;
+			});
+			
+			removeLinks.live("click", function() {
+				var nextQuestions = $(this).parents(".fields").first().nextAll(".fields");
+					
+						nextQuestions.each(function() {
+							var count = $(this).find(".counts"),
+									currentCount = parseInt(count.html()),
+									updatedCount = currentCount - 1;
+									
+									count.html(updatedCount);
+									
+						});
+					
+						incrementNumber--;
+			});
+	}
 };
 
 var app = {
-	
-	jensButton: function() {
-		var button = $("#jen_button"),
-				accounts = $("#accounts"),
-				revTag = $("#rev_tag"),
-				pag = $(".pagination"),
-				stats = $("#stats");
-		
-		button.click(function() {
-			accounts.hide();
-			pag.hide();
-			revTag.text("Accounts Deleted! Revenue Destroyed!");
-			stats.html("I Told You Not To Click The Button!!!!");
-		});
-	},
 	
 	initGame: function(sessionId,chatOption) {
 		app.deactivateLaunchLink(sessionId,chatOption);

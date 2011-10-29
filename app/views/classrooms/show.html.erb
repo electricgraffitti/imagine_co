@@ -1,6 +1,7 @@
 <% content_for :page_actions do %>
    <div id="launch_button">
      <%= link_to 'Add Student', new_student_path(:classroom_id => @classroom.id), :id => "add_student", :class => "button green_button add add_form" %>
+     <%= link_to 'Assign Lesson', new_lesson_path(:classroom_id => @classroom.id), :id => "add_classroom", :class => "button green_button add add_form" %>
    </div>
 <% end %>
 
@@ -9,6 +10,10 @@
   <div class="clear"></div>
 
   <h3>Students</h3>
+  <div id="view_controls">
+    <%= link_to 'Classroom Scores', classroom_lesson_path(@classroom.id), :id => "add_classroom", :class => "button blue_button add add_form" %>
+    <%= link_to "Back", :back, :class => "button blue_button" %>
+  </div>
   <div id="student_lessons" class="round">
     <ul id="student_list">
       <% @classroom.students.each do |student| %>
@@ -26,7 +31,7 @@
 <% content_for :javascripts do %>
   <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
-      
+      form.deleteConfirm();
     });
   </script>
 <% end %>

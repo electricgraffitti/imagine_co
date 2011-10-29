@@ -18,14 +18,14 @@ class LessonTemplate < ActiveRecord::Base
   
   # Associations
   has_many :lessons
-  has_many :curriculums, :class_name => "curriculum"
-  has_many :lesson_templates, :class_name => "lesson_template", :through => :curriculums
+  has_many :curriculums
+  has_many :teachers, :through => :curriculums
+  has_many :classroom_lessons
   has_many :videos, :as => :viewable
   accepts_nested_attributes_for :videos, :allow_destroy => true, :reject_if => lambda { |obj| obj[:video].blank? }
   
   has_many :questions, :dependent => :destroy
   accepts_nested_attributes_for :questions, :allow_destroy => true, :reject_if => lambda { |obj| obj[:question].blank? }
-  
   
   # Scopes
   scope :public_templates, where("public = ?", true)
@@ -46,5 +46,11 @@ class LessonTemplate < ActiveRecord::Base
     self.find(:all, :conditions => ["id != ?", id])
   end
   
+  def prep_for_vertical
+    cap_text = (self.name).upcase
+    clean_text = cap_text.delete("-")
+    split_caps = clean_text.split(//)
+    return split_caps.join(" ")
+  end
   
 end

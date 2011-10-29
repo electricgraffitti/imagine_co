@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009231823) do
+ActiveRecord::Schema.define(:version => 20111019055434) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20111009231823) do
   end
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+
+  create_table "classroom_lessons", :force => true do |t|
+    t.integer  "classroom_id"
+    t.integer  "lesson_template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "classrooms", :force => true do |t|
     t.integer  "teacher_id"
@@ -124,6 +131,12 @@ ActiveRecord::Schema.define(:version => 20111009231823) do
     t.integer  "lesson_template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "question_pic_file_name"
+    t.string   "question_pic_content_type"
+    t.integer  "question_pic_file_size"
+    t.datetime "question_pic_updated_at"
+    t.string   "example"
+    t.string   "details"
   end
 
   add_index "questions", ["lesson_template_id"], :name => "index_questions_on_lesson_template_id"

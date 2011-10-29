@@ -39,11 +39,11 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id])
+    @course = Course.find_student_course(params[:student_id], params[:classroom_id])
     @course.destroy
     
     respond_to do |format|
-      format.html { redirect_to(classrooms_path, :notice => "Student removed.") }
+      format.html { redirect_to(classroom_path(params[:classroom_id]), :notice => "Student removed.") }
     end
   end
 

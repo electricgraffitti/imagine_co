@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="content_segment top_hr">
-  <h2 class="user_name"><%= (current_teacher.full_name).titleize %></h2>
+  <h2 class="user_name"><%= (current_teacher.full_name).titleize %> - <%= link_to(@classroom.name, @classroom) if @classroom %></h2>
   <div class="clear"></div>
 
   <h3>Lessons - <%= (@student.full_name).titleize if @student %></h3>

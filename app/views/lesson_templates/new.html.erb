@@ -1,5 +1,5 @@
-<h3 class="sub_header">Setup New Lesson</h3>
-<p>
+<h3 class="sub_header lesson">Setup New Lesson</h3>
+<p class="lesson">
   Create lessons and make them public or private. Public lessons are made available to any teacher in the system. Private lessons are only available to the teacher that created them. If no options are checked then the lesson is made available to the teachers account and all teachers associated in that account.
 </p>
 <%= render :partial => 'lesson_templates/form', :locals => {:button_text => "Create Lesson"} %>
@@ -8,6 +8,8 @@
   <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
       form.decorateNestedFormLinks();
+			form.charCounter();
+			form.questionCounts();
     });
   </script>
 <% end %>

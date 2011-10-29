@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def index
     @account = Account.new
     @account.teachers.build
+    if current_teacher.present?
+      redirect_to classrooms_path
+    end
   end
   
   # def about

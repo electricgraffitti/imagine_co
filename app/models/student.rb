@@ -42,8 +42,17 @@ class Student < ActiveRecord::Base
   end
   
   def full_name
-    fullname = self.first_name + " " + self.last_name
+    fullname = (self.first_name + " " + self.last_name).titleize
     return fullname
+  end
+  
+  def check_for_lesson(lesson_template_id)
+    self.lessons.each do |lesson|
+      if lesson.lesson_template_id == (lesson_template_id).to_i
+        return false
+      end
+    end
+    return true
   end
   
   def teacher_lessons(teacher)
@@ -73,6 +82,15 @@ class Student < ActiveRecord::Base
     self.courses.each do |c|
       if c.classroom_id == classroom.id
         courses.push(c)
+      end
+    end
+  end
+  
+  def assign_current_classroom_lessons(classroom_id)
+    @classroom = Classroom.find(classroom_id)
+    @classroom.classroom_lessons.each do |lesson|
+      if self.check_for_lesson(lesson.lesson_template_id)
+        Lesson.create(:student_id => self.id, :lesson_template_id => lesson.lesson_template_id)
       end
     end
   end

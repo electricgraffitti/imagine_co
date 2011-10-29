@@ -34,7 +34,7 @@ class LessonTemplatesController < ApplicationController
     @lesson_template = LessonTemplate.new
     @lesson_template.videos.build
     question = @lesson_template.questions.build
-    question.answers.build  
+    question.answers.build
   
     respond_to do |format|
       format.html # new.html.erb

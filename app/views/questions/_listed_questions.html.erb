@@ -1,15 +1,27 @@
 <ul>
   <% questions.each do |question| %>
     <li class="listed_item round">
+      <% if question.question_pic.exists? %>
+      <div class="listed_question_image">
+        <%= image_tag(question.question_pic.url(:micro)) %>
+      </div>
+      <% end %>
       <div class="listed_info listed_panel">
-        <div class="students_name">
-          <%= link_to question.question, question, :class => "view_question" %> 
+        <div class="students_name view_question">
+          <%= question.question %> 
         </div>
+        <div class="clear"></div>
         <ul class="listed_creds">
           <% question.answers.each do |a| %>
             <li><%= a.answer %></li>
           <% end %>
         </ul>
+        <% if question.example %>
+        <div class="example">Example: <%= question.example %></div>
+        <% end %>
+        <% if question.details %>
+        <div class="example">Details: <%= question.details %></div>
+        <% end %>
       </div>
       <div class="student_actions">
       </div>
