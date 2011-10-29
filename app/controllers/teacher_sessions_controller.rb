@@ -10,7 +10,7 @@ class TeacherSessionsController < ApplicationController
       flash[:notice] = "Login successful!"
       redirect_to classrooms_path # account_dashboard_path(current_user)
     else
-      flash[:notice] = "Logout error! Please try again."
+      flash[:notice] = "Login error! Please try again."
       redirect_to teacher_login_path
     end
   end
@@ -18,7 +18,7 @@ class TeacherSessionsController < ApplicationController
   def destroy
     current_teacher_session.destroy
     flash[:notice] = "Logout successful!"
-    redirect_to root_path
+    redirect_to teacher_login_path
   end
 
 end
