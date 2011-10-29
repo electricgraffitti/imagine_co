@@ -343,8 +343,37 @@ var form = {
 					
 			charCount.html(remainingChars);
 		});
-	}
+	},
 	
+	questionCounts: function() {	
+		var questionCount = $(".counts").html(),
+				incrementNumber = parseInt(questionCount),
+				questionLinks = $(".question_link"),
+				removeLinks = $(".remove_question_link");
+				
+			questionLinks.live("click", function() {
+				var nextDiv = $(this).siblings().last(),
+						newTitleCount = nextDiv.find(".counts");
+						
+						newTitleCount.html(incrementNumber + 1);
+						incrementNumber++;
+			});
+			
+			removeLinks.live("click", function() {
+				var nextQuestions = $(this).parents(".fields").first().nextAll(".fields");
+					
+						nextQuestions.each(function() {
+							var count = $(this).find(".counts"),
+									currentCount = parseInt(count.html()),
+									updatedCount = currentCount - 1;
+									
+									count.html(updatedCount);
+									
+						});
+					
+						incrementNumber--;
+			});
+	}
 };
 
 var app = {

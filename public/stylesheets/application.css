@@ -856,6 +856,12 @@ position: relative;
 .sub_header {
 padding: 20px 0px 0px;
 }
+h3.sub_header.lesson {
+	font-size: 22px;
+}
+p.lesson {
+	font-size: 16px;
+}
 #page_header h1 {
 width: 60%;
 float: left;
@@ -992,6 +998,10 @@ width: 595px;
 padding: 10px;
 margin-right: 20px;
 }
+.index_content h3 {
+	font-size: 20px;
+	font-weight: bold;
+}
 .logo {
 position: relative;
 float: left;
@@ -1002,7 +1012,9 @@ height: 182px;
 margin-top: -44px;
 }
 .index_content p {
-padding-right: 100px;
+padding-right: 25px;
+font-size: 17px;
+margin-bottom: 15px;
 }
 .sign_up_form {
 position: relative;
@@ -1511,6 +1523,12 @@ position: relative;
 float: left;
 padding: 20px;
 }
+div.lesson_section {
+background: none repeat scroll 0 0 #D6C7A0;
+margin-top: 25px;
+padding-left: 15px;
+width: 945px;
+}
 .section {
 position: relative;
 float: left;
@@ -1518,19 +1536,28 @@ width: 1000px;
 padding-bottom: 10px;
 }
 .question_section {
-width: 960px;
+background: none repeat scroll 0 0 #C6BA97;
+padding-left: 15px;
+width: 945px;
+margin-top: 25px;
+}
+.question_counter {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 15px 0px;
 }
 .question_block {
 width: 940px;
 padding-left: 20px;
+padding-right:20px;
 float: left;
-border-bottom: 1px solid #D6CDB1;
+border-bottom: 1px solid #3E609C;
 border-top: 1px solid #E9DFC0;
 }
 .answer_section {
-width: 960px;
-padding-left: 20px;
 margin-bottom: 10px;
+width: 930px;
+border-bottom: 1px solid #000000;
 }
 input[type="text"],input[type="password"] {
 background: none repeat scroll 0 0 #efefef;
@@ -1583,6 +1610,12 @@ position: relative;
 text-align: left;
 width: 281px;
 }
+form div.field.question_selector {
+	width: 165px;
+}
+form div.field.small_field.score {
+	margin-right: 300px;
+}
 form div.field.small_field {
 width: 80px;
 }
@@ -1603,6 +1636,9 @@ padding-top: 24px;
 padding-left: 10px;
 width: 160px;
 }
+form div.field.checkbox.location {
+	width: 80px;
+}
 form div.field.checkbox.stacked {
 padding-top: 0px;
 padding-left: 0px;
@@ -1610,6 +1646,14 @@ width: 160px;
 }
 form div.field.checkbox label {
 width: 80%;
+}
+form div.field.checkbox label.location {
+	width: 55%;
+	margin-top:3px;
+}
+form div.field.checkbox label.correct_answer {
+	width: 70%;
+	margin-top:3px;
 }
 form div.field.checkbox input[type="checkbox"] {
 float: left;

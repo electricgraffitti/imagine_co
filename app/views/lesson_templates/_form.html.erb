@@ -9,11 +9,11 @@
       <%= f.label :subject, "Lesson Subject" %><br />
       <%= f.text_field :subject %>
     </div>
-    <div class="field checkbox">
-      <%= f.check_box :public %><%= f.label :public, "Public" %>
+    <div class="field checkbox location">
+      <%= f.check_box :public %><%= f.label :public, "Public", :class => "location" %>
     </div>
-    <div class="field checkbox">
-      <%= f.check_box :private %><%= f.label :private, "Private" %>
+    <div class="field checkbox location">
+      <%= f.check_box :private %><%= f.label :private, "Private", :class => "location" %>
     </div>
     <% f.fields_for :videos do |v| %>
       <%= render :partial => 'video_fields', :locals => {:f => v} %>
@@ -23,7 +23,7 @@
     <%= f.fields_for :questions do |q| %>
       <%= render :partial => 'lesson_templates/question_fields', :locals => {:f => q} %>
     <% end %>
-    <%= f.link_to_add "Add Question", :questions %>
+    <%= f.link_to_add "Add Question", :questions, :class => "question_link" %>
   </div>
   <div class="field">
     <%= f.submit button_text, :class => 'button blue_button' %>
