@@ -7,10 +7,10 @@
 </div>
 <div class="field question_selector">
   <%= f.label :question_type, "Question Type" %><br/>
-  <%= f.select(:question_type, %w[Multiple_Choice Short_Answer Essay]) %>
+  <%= f.select(:question_type, %w[Short_Answer Multiple_Choice Essay], {}, :class => "lesson_type_selector") %>
 </div>
 <div class="field small_field ">
-  <%= f.label :score, "Score" %><br/>
+  <%= f.label :score, "Points" %><br/>
   <%= f.text_field :score %>
 </div>
 <div class="field small_field score">
@@ -22,7 +22,7 @@
   <%= f.file_field :question_pic %>
 </div>
 <div class="field">
-  <%= f.label :details, "Details" %><br/>
+  <%= f.label :details, "Units of Measure" %><br/>
   <%= f.text_field :details %>
 </div>
 <div class="field">
@@ -33,5 +33,5 @@
   <%= f.fields_for :answers do |a| %>
     <%= render :partial => 'lesson_templates/answer_fields', :locals => {:f => a} %>
   <% end %>
-  <%= f.link_to_add "Add Answer", :answers %>
+  <%= f.link_to_add "Add Answer", :answers, :class => "add_answer_link" %>
 </div>

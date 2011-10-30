@@ -10,14 +10,14 @@
       <%= f.text_field :subject %>
     </div>
     <div class="field checkbox location">
-      <%= f.check_box :public %><%= f.label :public, "Public", :class => "location" %>
+      <%= radio_button_tag :access_type, "public" %><%= f.label :access_type, "Public", :class => "location" %>
     </div>
     <div class="field checkbox location">
-      <%= f.check_box :private %><%= f.label :private, "Private", :class => "location" %>
+      <%= radio_button_tag :access_type, "private" %><%= f.label :access_type, "Private", :class => "location" %>
     </div>
-    <% f.fields_for :videos do |v| %>
-      <%= render :partial => 'video_fields', :locals => {:f => v} %>
-  	<% end %>
+    <%#= f.fields_for :videos do |v| %>
+      <%#= render :partial => 'video_fields', :locals => {:f => v} %>
+  	<%# end %>
   </div>
   <div class="question_section section top_hr bottom_hr">
     <%= f.fields_for :questions do |q| %>
@@ -25,7 +25,7 @@
     <% end %>
     <%= f.link_to_add "Add Question", :questions, :class => "question_link" %>
   </div>
-  <div class="field">
+  <div class="lesson_submit field">
     <%= f.submit button_text, :class => 'button blue_button' %>
   </div>
 <% end %>

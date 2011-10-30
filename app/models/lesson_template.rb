@@ -16,6 +16,10 @@
 
 class LessonTemplate < ActiveRecord::Base
   
+  # Callbacks
+  
+  after_create :set_private_curriculum
+  
   # Associations
   has_many :lessons
   has_many :curriculums
@@ -34,6 +38,12 @@ class LessonTemplate < ActiveRecord::Base
   
   # Methods
   
+  def set_private_curriculum
+    if self.private = true
+      Curriculum.create(:teacher_id => self.teacher_id, :lesson_template_id => self.id)
+    end
+  end
+  
   def in_curriculum(teacher)
     cid = []
     teacher.curriculums.each do |c|
@@ -51,6 +61,21 @@ class LessonTemplate < ActiveRecord::Base
     clean_text = cap_text.delete("-")
     split_caps = clean_text.split(//)
     return split_caps.join(" ")
+  end
+  
+  def set_base_ids(teacher)
+    self.teacher_id = teacher.id
+    self.account_id = teacher.account.id
+  end
+  
+  def set_access_type(params)
+    if params == "private"
+      self.private = 1
+      self.public = 0
+    else
+      self.public = 1
+      self.private = 0
+    end
   end
   
 end

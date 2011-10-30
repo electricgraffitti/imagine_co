@@ -50,16 +50,13 @@ class LessonTemplatesController < ApplicationController
   # POST /lesson_templates
   # POST /lesson_templates.xml
   def create
-    @lesson_template = LessonTemplate.new(params[:lesson_template])
     
-    @lesson_template.teacher_id = current_teacher.id
-    @lesson_template.account_id = current_teacher.account.id
+    @lesson_template = LessonTemplate.new(params[:lesson_template])
+    @lesson_template.set_base_ids(current_teacher)
+    @lesson_template.set_access_type(params[:access_type])
     
     respond_to do |format|
       if @lesson_template.save
-        if @lesson_template.private = true
-          Curriculum.create(:teacher_id => current_teacher.id, :lesson_template_id => @lesson_template.id)
-        end
         format.html { redirect_to(lesson_templates_path, :notice => 'Lesson template was successfully created.') }
         format.xml  { render :xml => @lesson_template, :status => :created, :location => @lesson_template }
       else

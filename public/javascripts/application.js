@@ -256,7 +256,7 @@ var test = {
     $('#slider').serialScroll(scrollOptions);
     $.localScroll(scrollOptions);
   },
-
+		
 	setScrollType: function(horizontal, panels, container){
 		if (horizontal) {
       panels.css({ 'float' : 'left', 'position' : 'relative', 'height':'265px'});
@@ -285,7 +285,7 @@ var test = {
 	selectNav: function(el) {
 		el.parents('ul:first').find('a').removeClass('selected active').end().end().addClass('active selected');
     el.parents('ul:first').find('li').removeClass('selected active').end().end().addClass('active selected');
-	},
+	}
 	
 }
 
@@ -345,7 +345,58 @@ var form = {
 		});
 	},
 	
-	questionCounts: function() {	
+	testTypeToggle: function() {
+		var toggleSelector = $(".lesson_type_selector");
+		
+		toggleSelector.live("change", function() {
+			var questionBlock = $(this).parents(".fields").first(),
+					answerLink = questionBlock.find(".add_answer_link");
+					
+			switch($(this).val())
+			{
+			case "Multiple_Choice":
+			  form.multipleChoiceAnwers(questionBlock, answerLink);
+			  break;
+			case "Essay":
+			  form.essayAnwers(questionBlock, answerLink);
+			  break;
+			default:
+			  form.shortAnswerAnwers(questionBlock, answerLink);
+			}
+
+		});
+	},
+	
+	multipleChoiceAnwers: function(questionBlock, answerLink) {
+		var totalAnswers = questionBlock.find(".answer_section .fields");
+		
+		if (totalAnswers.length > 1) {
+			totalAnswers.show();
+		} else {
+			answerLink.click().click().click();
+		}
+		
+	},
+	
+	essayAnwers: function(questionBlock, answerLink) {
+		var totalAnswers = questionBlock.find(".answer_section .fields");
+			
+			totalAnswers.hide();
+			
+	},
+	
+	shortAnswerAnwers: function(questionBlock, answerLink) {
+		var totalAnswers = questionBlock.find(".answer_section .fields");
+		
+		if (totalAnswers.length > 1) {
+			totalAnswers.hide();
+			totalAnswers.first().show();
+		} else {
+			totalAnswers.show();
+		}
+	},
+	
+	questionCounts: function() {
 		var questionCount = $(".counts").html(),
 				incrementNumber = parseInt(questionCount),
 				questionLinks = $(".question_link"),

@@ -1559,6 +1559,9 @@ margin-bottom: 10px;
 width: 930px;
 border-bottom: 1px solid #000000;
 }
+.add_answer_link {
+	visibility: hidden;
+}
 input[type="text"],input[type="password"] {
 background: none repeat scroll 0 0 #efefef;
 height: 20px;
@@ -1608,7 +1611,7 @@ float: left;
 margin: 10px 10px 0 0px;
 position: relative;
 text-align: left;
-width: 281px;
+width: 285px;
 }
 form div.field.question_selector {
 	width: 165px;
@@ -1746,6 +1749,14 @@ margin: 15px 0px 0px 10px;
 }
 #form_panel .button {
 float: right;
+}
+form div.field.lesson_submit {
+	position: relative;
+	float:left;
+	width: 960px;
+}
+form div.field.lesson_submit input {
+	float:right;
 }
 /*************************************************************************************************************************************/
 /****************************************************************************************************** OVERLAY **********************/
