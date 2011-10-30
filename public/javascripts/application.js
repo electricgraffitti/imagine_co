@@ -346,7 +346,9 @@ var form = {
 	},
 	
 	testTypeToggle: function() {
-		var toggleSelector = $(".lesson_type_selector");
+		var toggleSelector = $(".lesson_type_selector"),
+				injectedDiv = "<div class='essay_text'>Text input field for essay question provided for student and not scored.</div>"
+				essayText = $(injectedDiv);
 		
 		toggleSelector.live("change", function() {
 			var questionBlock = $(this).parents(".fields").first(),
@@ -355,21 +357,25 @@ var form = {
 			switch($(this).val())
 			{
 			case "Multiple_Choice":
-			  form.multipleChoiceAnwers(questionBlock, answerLink);
+			  form.multipleChoiceAnwers(questionBlock, answerLink, essayText);
 			  break;
 			case "Essay":
-			  form.essayAnwers(questionBlock, answerLink);
+			  form.essayAnwers(questionBlock, answerLink, essayText);
 			  break;
 			default:
-			  form.shortAnswerAnwers(questionBlock, answerLink);
+			  form.shortAnswerAnwers(questionBlock, answerLink, essayText);
 			}
 
 		});
 	},
 	
 	multipleChoiceAnwers: function(questionBlock, answerLink) {
-		var totalAnswers = questionBlock.find(".answer_section .fields");
+		var totalAnswers = questionBlock.find(".answer_section .fields"),
+				scoreField = questionBlock.find(".score_field"),
+				essayText = questionBlock.find(".essay_text");
 		
+		scoreField.show();
+		essayText.remove();
 		if (totalAnswers.length > 1) {
 			totalAnswers.show();
 		} else {
@@ -378,16 +384,24 @@ var form = {
 		
 	},
 	
-	essayAnwers: function(questionBlock, answerLink) {
-		var totalAnswers = questionBlock.find(".answer_section .fields");
+	essayAnwers: function(questionBlock, answerLink, essayText) {
+		var totalAnswers = questionBlock.find(".answer_section .fields"),
+				scoreField = questionBlock.find(".score_field");
 			
+			totalAnswers.parent().prepend(essayText);
 			totalAnswers.hide();
+			scoreField.hide();
 			
 	},
 	
-	shortAnswerAnwers: function(questionBlock, answerLink) {
-		var totalAnswers = questionBlock.find(".answer_section .fields");
-		
+	shortAnswerAnwers: function(questionBlock, answerLink, essayText) {
+		var totalAnswers = questionBlock.find(".answer_section .fields"),
+				scoreField = questionBlock.find(".score_field");
+				essayText = questionBlock.find(".essay_text");
+
+		scoreField.show();
+		essayText.remove();
+
 		if (totalAnswers.length > 1) {
 			totalAnswers.hide();
 			totalAnswers.first().show();
@@ -404,9 +418,11 @@ var form = {
 				
 			questionLinks.live("click", function() {
 				var nextDiv = $(this).siblings().last(),
+						answerLink = nextDiv.find(".add_answer_link"),
 						newTitleCount = nextDiv.find(".counts");
 						
 						newTitleCount.html(incrementNumber + 1);
+						answerLink.click();
 						incrementNumber++;
 			});
 			
