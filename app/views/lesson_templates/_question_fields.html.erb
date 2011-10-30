@@ -3,31 +3,28 @@
 </div>
 <div class="field question_counter_block">
   <%= f.label :question, :class=> "counter" %>Chars Left: <span class="char-count">255</span> <%= f.link_to_remove "Remove Question", :class => "remove_question_link" %>
-  <%= f.text_field :question, :maxlength => 255, :class => "question_input" %>
+  <%= f.text_field :question, :maxlength => 255, :class => "question_input tooltip", :tooltip => "Question 255 max chars", :placeholder => "Question 255 max chars" %>
 </div>
 <div class="field question_selector">
   <%= f.label :question_type, "Question Type" %><br/>
-  <%= f.select(:question_type, %w[Short_Answer Multiple_Choice Essay], {}, :class => "lesson_type_selector") %>
+  <%= f.select(:question_type, %w[Short_Answer Multiple_Choice Essay], {}, :class => "lesson_type_selector tooltip", :tooltip => "Select your lesson type") %>
 </div>
 <div class="field small_field score_field ">
   <%= f.label :score, "Points" %><br/>
-  <%= f.text_field :score %>
+  <%= f.text_field :score, :class => "tooltip", :tooltip => "Assign point to the question" %>
 </div>
-<div class="field small_field score">
-  <%= f.label :order, "Order" %><br/>
-  <%= f.text_field :order %>
-</div>
+<div class="clear"></div>
 <div class="field">
-  <%= label_tag "Upload Picture" %>
-  <%= f.file_field :question_pic %>
+  <%= label_tag "Upload Picture"%>
+  <%= f.file_field :question_pic, :class => "tooltip", :tooltip => "Upload a question image"  %>
 </div>
 <div class="field">
   <%= f.label :details, "Units of Measure" %><br/>
-  <%= f.text_field :details %>
+  <%= f.text_field :details, :placeholder => "Display a unit of measure with your question" %>
 </div>
 <div class="field">
   <%= f.label :example, "Example" %><br/>
-  <%= f.text_field :example %>
+  <%= f.text_field :example, :class => "tooltip", :tooltip => "Show a brief example with your question", :placeholder => "Show a brief example with your question"  %>
 </div>
 <div class="answer_section section">
   <%= f.fields_for :answers do |a| %>

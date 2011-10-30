@@ -443,6 +443,17 @@ var form = {
 	}
 };
 
+var tips = {
+
+	initTips: function() {
+		$(".tooltip").tipTip({
+			defaultPosition: "top",
+			attribute: "tooltip"
+		});
+	}
+
+};
+
 var app = {
 	
 	initGame: function(sessionId,chatOption) {
@@ -553,5 +564,6 @@ $(document).ready(function() {
 	// injects flash div into dom
 	flash.injectFlashBox();
 	flash.setFlash();
+	tips.initTips();
 });
 

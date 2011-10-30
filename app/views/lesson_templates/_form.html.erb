@@ -3,17 +3,17 @@
   <div class="lesson_section section">
     <div class="field">
       <%= f.label :name, "Lesson Name" %><br />
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :class => "tooltip", :tooltip => "Give your lesson a name", :placeholder => "Give your lesson a name" %>
     </div>
     <div class="field">
       <%= f.label :subject, "Lesson Subject" %><br />
-      <%= f.text_field :subject %>
+      <%= f.text_field :subject, :class => "tooltip", :tooltip => "Associate a subject", :placeholder => "Associate a subject"  %>
     </div>
     <div class="field checkbox location">
-      <%= radio_button_tag :access_type, "public" %><%= f.label :access_type, "Public", :class => "location" %>
+      <%= radio_button_tag :access_type, "public" %><%= f.label :access_type, "Public", :class => "location tooltip", :tooltip => "Make your lesson publicly available" %>
     </div>
     <div class="field checkbox location">
-      <%= radio_button_tag :access_type, "private" %><%= f.label :access_type, "Private", :class => "location" %>
+      <%= radio_button_tag :access_type, "private" %><%= f.label :access_type, "Private", :class => "location tooltip", :tooltip => "Make your lesson private" %>
     </div>
     <%#= f.fields_for :videos do |v| %>
       <%#= render :partial => 'video_fields', :locals => {:f => v} %>
