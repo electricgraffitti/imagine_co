@@ -6,9 +6,9 @@ class LessonTemplatesController < ApplicationController
   
   def index
     if params[:teacher_id]
-      @teacher_templates = current_teacher.lesson_templates
+      @teacher_templates = current_teacher.lesson_templates.order('created_at desc')
     else
-      @templates = LessonTemplate.public_templates
+      @templates = LessonTemplate.public_templates.order('created_at desc')
       @account_templates = LessonTemplate.account_templates(current_teacher.account.id)
     end
     
@@ -21,7 +21,7 @@ class LessonTemplatesController < ApplicationController
   # GET /lesson_templates/1.xml
   def show
     @lesson_template = LessonTemplate.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.js

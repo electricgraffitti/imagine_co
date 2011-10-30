@@ -10,7 +10,7 @@
 
   <h3>Lesson Questions</h3>
   <ul id="listed_questions" class="return_panel round">
-    <%= render :partial => "questions/listed_questions", :locals => {:questions => @lesson_template.questions} %>
+    <%= render :partial => "questions/listed_questions", :locals => {:questions => @lesson_template.teacher_ordered_questions} %>
   </ul>
 </div>
 

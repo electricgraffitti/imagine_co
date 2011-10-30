@@ -215,7 +215,6 @@ var triggers = {
 		});
 	}
 	
-	
 };
 
 var test = {

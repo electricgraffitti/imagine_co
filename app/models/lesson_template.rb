@@ -44,6 +44,10 @@ class LessonTemplate < ActiveRecord::Base
     end
   end
   
+  def teacher_ordered_questions
+    self.questions.order('created_at asc')
+  end
+  
   def in_curriculum(teacher)
     cid = []
     teacher.curriculums.each do |c|
