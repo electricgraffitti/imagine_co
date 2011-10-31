@@ -422,6 +422,7 @@ var form = {
 						
 						newTitleCount.html(incrementNumber + 1);
 						answerLink.click();
+						tips.initTips();
 						incrementNumber++;
 			});
 			
