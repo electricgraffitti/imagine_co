@@ -40,7 +40,6 @@ class LessonResult < ActiveRecord::Base
   def self.specific_result(lid, qid)
     result = find(:all, :conditions => ["lesson_id = ? && question_id = ?", lid, qid]).first()
     return result.student_answer
-    
   end
   
 end

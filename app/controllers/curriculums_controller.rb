@@ -17,9 +17,9 @@ class CurriculumsController < ApplicationController
     
     respond_to do |format|
       if @curriculum.save
-        format.html { redirect_to(curriculums_path, :notice => 'Lesson was successfully added to your curriculums.') }
+        format.html { redirect_to(teacher_dashboard_path, :notice => 'Lesson was successfully added to your curriculums.') }
       else
-        format.html { redirect_to(curriculums_path, :notice => 'Processing Error, Please try again.')  }
+        format.html { redirect_to(teacher_dashboard_path, :notice => 'Processing Error, Please try again.')  }
       end
     end
   end

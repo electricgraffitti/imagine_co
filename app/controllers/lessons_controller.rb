@@ -61,6 +61,7 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.xml
   def create
+    
     if params[:classroom_id]
       @classroom = Classroom.find(params[:classroom_id])
       @classroom.assign_lesson_to_students(params[:lesson][:lesson_template_id])
