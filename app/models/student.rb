@@ -33,6 +33,8 @@ class Student < ActiveRecord::Base
   has_many :classrooms, :through => :courses
   has_many :teachers, :through => :classrooms
   
+  validates_presence_of :first_name, :on => :create, :message => "can't be blank"
+  validates_presence_of :last_name, :on => :create, :message => "can't be blank"
   validates_uniqueness_of :email, :on => :create, :message => "must be unique"
   
   #Authlogic

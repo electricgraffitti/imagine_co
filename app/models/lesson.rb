@@ -14,12 +14,16 @@
 
 class Lesson < ActiveRecord::Base
   
-  #Associations
+  # Validations
+  validates_presence_of :lesson_template_id, :on => :create, :message => "can't be blank"
+  validates_presence_of :student_id, :on => :create, :message => "can't be blank"
+  
+  # Associations
   belongs_to :lesson_template
   belongs_to :student
   has_many :lesson_results
   
-  #Scopes
+  # Scopes
   scope :test_complete, :conditions => {"complete = ?", true}
   
   # Methods

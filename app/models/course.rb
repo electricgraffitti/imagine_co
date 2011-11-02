@@ -11,6 +11,10 @@
 
 class Course < ActiveRecord::Base
   
+  # Validations
+  validates_presence_of :classroom_id, :on => :create, :message => "can't be blank"
+  validates_presence_of :student_id, :on => :create, :message => "can't be blank"
+  
   belongs_to :classroom
   belongs_to :student
   

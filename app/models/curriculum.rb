@@ -11,6 +11,10 @@
 
 class Curriculum < ActiveRecord::Base
   
+  # Validations
+  validates_presence_of :teacher_id, :on => :create, :message => "can't be blank"
+  validates_presence_of :lesson_template_id, :on => :create, :message => "can't be blank"
+  
   belongs_to :teacher, :class_name => "Teacher"
   belongs_to :lesson_template, :class_name => "LessonTemplate"
   

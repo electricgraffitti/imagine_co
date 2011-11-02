@@ -33,6 +33,8 @@ class Teacher < ActiveRecord::Base
   has_many :curriculums
   has_many :lesson_templates, :through => :curriculums
   
+  validates_presence_of :first_name, :on => :create, :message => "can't be blank"
+  validates_presence_of :last_name, :on => :create, :message => "can't be blank"
   validates_uniqueness_of :email, :on => :create, :message => "must be unique"
   
   #Authlogic

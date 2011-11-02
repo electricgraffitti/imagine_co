@@ -16,8 +16,10 @@
 
 class LessonTemplate < ActiveRecord::Base
   
-  # Callbacks
+  # Validations
+  validates_presence_of :name, :on => :create, :message => "can't be blank"
   
+  # Callbacks
   after_create :set_private_curriculum
   
   # Associations

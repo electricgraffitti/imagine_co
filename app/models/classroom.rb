@@ -18,6 +18,7 @@ class Classroom < ActiveRecord::Base
   has_many :classroom_lessons
   has_many :lesson_templates, :through => :classroom_lessons
   
+  validates_presence_of :name, :on => :create, :message => "can't be blank"
   
   # Methods
   
