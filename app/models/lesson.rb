@@ -40,7 +40,7 @@ class Lesson < ActiveRecord::Base
     if lesson_template
       return lesson_template.questions.shuffle
     else
-      return self.ko_lesson_template.questions.shuffle
+      return self.lesson_template.questions.shuffle
     end
   end
   
