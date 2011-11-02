@@ -11,6 +11,9 @@
 
 class Classroom < ActiveRecord::Base
   
+  # Callbacks
+  after_destroy :remove_courses
+  
   # Associations
   belongs_to :teacher, :class_name => "Teacher", :foreign_key => "teacher_id"
   has_many :courses
@@ -71,6 +74,13 @@ class Classroom < ActiveRecord::Base
       lessons.push(cl.lesson_template)
     end
     return lessons
+  end
+  
+  def remove_courses
+    courses = Course.classrooms(self.id)
+    courses.each do |c|
+      c.destroy
+    end
   end
   
 end

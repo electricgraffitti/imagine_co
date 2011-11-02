@@ -18,6 +18,9 @@ class Course < ActiveRecord::Base
   belongs_to :classroom
   belongs_to :student
   
+  # Scopes
+  scope :classrooms, lambda {|id| where(:classroom_id => id)}
+  
   def self.find_student_course(student_id, classroom_id)
     where(:student_id => student_id, :classroom_id => classroom_id).first()
   end
