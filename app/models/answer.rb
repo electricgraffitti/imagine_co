@@ -13,8 +13,8 @@
 class Answer < ActiveRecord::Base
   
   # Validations
-  validates_presence_of :question_id, :on => :create, :message => "can't be blank"
-  validates_presence_of :answer, :on => :create, :message => "can't be blank"
+  # validates_presence_of :question_id, :on => :create, :message => "can't be blank"
+  # validates_presence_of :answer, :on => :create, :message => "can't be blank"
   
   #Associations
   belongs_to :question, :class_name => "Question", :foreign_key => "question_id"

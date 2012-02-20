@@ -19,7 +19,7 @@
 class Question < ActiveRecord::Base
   
   # Validations
-  validates_presence_of :question, :on => :create, :message => "can't be blank"
+  # validates_presence_of :question, :on => :create, :message => "can't be blank"
   
   #Assoctiations
   belongs_to :lesson_template, :counter_cache => true
