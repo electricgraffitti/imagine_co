@@ -12,9 +12,7 @@ module ImagineCo
   # don't attempt to auto-require the moonshine manifests into the rails env
   config.paths['app/manifests'] = 'app/manifests'
   config.paths['app/manifests'].skip_eager_load!
-
-
-  config.paths.app.manifests 'app/manifests', :eager_load => false
+  
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
