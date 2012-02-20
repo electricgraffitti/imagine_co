@@ -22,7 +22,6 @@ ImagineCo::Application.routes.draw do
   match "home" => "pages#index", :as => :home
   # match "about" => "pages#about", :as => :about
   
-  
   resources :students
   resources :student_sessions
   resources :teacher_sessions
