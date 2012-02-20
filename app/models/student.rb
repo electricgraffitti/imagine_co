@@ -123,7 +123,7 @@ class Student < ActiveRecord::Base
   
   def dictionary_password
     passwds = Array.new
-    File.open("#{RAILS_ROOT}/config/passwords.txt", "r").each { |f| passwds << f.gsub("\n", "") }
+    File.open("#{Rails.root}/config/passwords.txt", "r").each { |f| passwds << f.gsub("\n", "") }
     return passwds[rand(passwds.length)] 
   end 
   

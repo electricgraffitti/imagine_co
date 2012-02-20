@@ -24,7 +24,7 @@ class Video < ActiveRecord::Base
   # Paperclip
   has_attached_file :video,
         :storage => :s3,
-        :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+        :s3_credentials => "#{Rails.root}/config/s3.yml",
         :path => "/videos/:attachment/:id/:style/:basename.:extension"
 
   # Paperclip Validations

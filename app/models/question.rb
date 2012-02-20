@@ -35,7 +35,7 @@ class Question < ActiveRecord::Base
   has_attached_file :question_pic,
     :styles => { :regular => "275x275#", :avatar => "180x142#", :medium => "100x100#", :thumb => "75x75#", :micro => "50x50#" },
     :storage => :s3,
-    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :s3_credentials => "#{Rails.root}/config/s3.yml",
     :path => "/question_pictures/:id/:style_:basename.:extension"
   
   
