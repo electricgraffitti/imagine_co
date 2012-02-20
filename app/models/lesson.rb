@@ -24,7 +24,7 @@ class Lesson < ActiveRecord::Base
   has_many :lesson_results
   
   # Scopes
-  scope :test_complete, :conditions => {"complete = ?", true}
+  scope :test_complete, where(:complete => true)
   
   # Methods
   
@@ -72,18 +72,15 @@ class Lesson < ActiveRecord::Base
       if Question.exists?(r.question_id)
         question = Question.find(r.question_id)
         case question.question_type
-      when "Short_Answer"
-        correct_answers += question.check_short_answer(r.student_answer)
-      when "Essay"
-        correct_answers += question.check_essay(r.student_answer)
-      else
-        correct_answers += question.check_multiple_choice(r.student_answer)
-      end
+        when "Short_Answer"
+          correct_answers += question.check_short_answer(r.student_answer)
+        when "Essay"
+          correct_answers += question.check_essay(r.student_answer)
+        else
+          correct_answers += question.check_multiple_choice(r.student_answer)
+        end
       end
     end
     return "#{correct_answers}/#{lesson_questions.size}"
   end
-  
-  
-  
 end
