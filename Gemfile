@@ -10,6 +10,7 @@ gem 'authlogic'
 gem 'paperclip'
 gem 'nested_form'
 gem 'aws-s3'
+gem 'aws-sdk'
 
 group :development do
   gem 'thin'
