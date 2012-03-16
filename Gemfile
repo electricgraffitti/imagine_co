@@ -12,6 +12,10 @@ gem 'nested_form'
 gem 'aws-s3'
 gem 'aws-sdk'
 
+group :production do
+  gem "exception_notification"
+end
+
 group :development do
   gem 'thin'
   gem 'rspec-rails'
