@@ -141,6 +141,8 @@ class Question < ActiveRecord::Base
     
     a = Answer.find(v['answer_id'])
 
+
+    # If this doesnt work set back to internal IF
     if v['student_answer']).to_f
       if (a.answer).to_f == (v['student_answer']).to_f
         q.score
