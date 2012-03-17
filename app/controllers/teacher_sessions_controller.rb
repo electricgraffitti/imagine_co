@@ -8,7 +8,7 @@ class TeacherSessionsController < ApplicationController
     @teacher_session = TeacherSession.new(params[:teacher_session])
     if @teacher_session.save
       flash[:notice] = "Login successful!"
-      redirect_to classrooms_path # account_dashboard_path(current_user)
+      redirect_to classrooms_path
     else
       flash[:notice] = "Login error! Please try again."
       redirect_to teacher_login_path

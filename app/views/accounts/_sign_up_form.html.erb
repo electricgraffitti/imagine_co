@@ -4,7 +4,7 @@
     <%= f.label :name, "Account Name" %><br />
     <%= f.text_field :name, "data-validate" => "validate(required)"%>
   </div>
-  <% f.fields_for :teachers do |t| %>
+  <%= f.fields_for :teachers do |t| %>
     <div class="field">
       <%= t.label :first_name %><br />
       <%= t.text_field :first_name, "data-validate" => "validate(required)" %>

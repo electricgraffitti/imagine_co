@@ -37,11 +37,12 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(params[:account])
     
+
     respond_to do |format|
       if @account.save
         teacher = @account.teachers.last
         TeacherSession.create(:login => teacher.username, :password => teacher.crypted_password)
-        format.html { redirect_to teacher_dashboard_path, :notice => 'Account was successfully created.' }
+        format.html { redirect_to classrooms_path, :notice => 'Account was successfully created.' }
       else
         format.html { redirect_to teacher_dashboard_path, :notice => 'Processing Error, Please try again.' }
       end

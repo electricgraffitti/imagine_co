@@ -140,8 +140,13 @@ class Question < ActiveRecord::Base
   def self.valuate_short_answer(q,v)
     
     a = Answer.find(v['answer_id'])
-    if (a.answer).to_f == (v['student_answer']).to_f
-      q.score
+
+    if v['student_answer']).to_f
+      if (a.answer).to_f == (v['student_answer']).to_f
+        q.score
+      else
+        0
+      end
     else
       0
     end
