@@ -42,7 +42,7 @@ ImagineCo::Application.configure do
 
   config.middleware.use ExceptionNotifier,
     sender_address: 'noreply@classroom.com',
-    exception_recipients: 'support@cube2media.com'
+    exception_recipients: 'bob@cube2media.com'
     # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
