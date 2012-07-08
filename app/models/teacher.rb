@@ -59,13 +59,15 @@ class Teacher < ActiveRecord::Base
   end
   
   def students
-    students = Array.new
-    self.classrooms.each do |classroom| 
-      students.push(classroom.students)
+    unless self.classrooms.blank?
+      students = Array.new
+      self.classrooms.each do |classroom| 
+        students.push(classroom.students)
+      end
+      flatten_students = students.flatten!
+      compacted_students = flatten_students.compact
+      return compacted_students
     end
-    flatten_students = students.flatten!
-    compacted_students = flatten_students.compact
-    return compacted_students
   end
   
 end
